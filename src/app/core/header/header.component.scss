@@ -1,0 +1,24 @@
+@import "~sass/abstracts/_functions.scss";
+@import "~sass/abstracts/_variables.scss";
+
+.header {
+    height: 25vh;
+    background-image: linear-gradient($color-g-1, $color-g-2);
+    background-size: cover;
+    background-position: top;
+    overflow: hidden;
+    position: relative;
+
+    &__name {
+        position: absolute;
+        top: 0rem;
+        left: 3rem;
+    }
+    
+    &__circle {
+        height: 35vh;
+        background-color: $color-bg;
+        -webkit-clip-path: ellipse(100% 50% at 99% 77%);
+        clip-path: ellipse(100% 50% at 99% 77%);
+    }
+}

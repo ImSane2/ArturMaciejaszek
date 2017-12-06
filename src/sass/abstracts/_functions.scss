@@ -1,0 +1,6 @@
+@function grad($c1, $c2) {
+    @return linear-gradient(
+        to right bottom,
+        rgba($c1, 0.8),
+        rgba($c2, 0.8));
+}

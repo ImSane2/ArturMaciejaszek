@@ -1,0 +1,11 @@
+.section-home {
+    height: auto; //placeholder
+}
+
+.section-edu {
+    clip-path: url(#cp);
+    background-image: linear-gradient($color-g-1, $color-g-2);
+    background-size: cover;
+    height: 95vh;
+    width: 95vw;
+}
