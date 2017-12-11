@@ -2,6 +2,20 @@
 @import "sass/abstracts/mixins";
 @import "sass/abstracts/variables";
 
+@import "sass/components/bg-video";
+@import "sass/components/edu-item";
+@import "sass/components/work-item";
+@import "sass/components/skill-item";
+
+@import "sass/layout/header";
+@import "sass/layout/home";
+@import "sass/layout/edu";
+@import "sass/layout/work";
+@import "sass/layout/skills";
+@import "sass/layout/contact";
+@import "sass/layout/footer";
+@import "sass/layout/navigation";
+
 @import "sass/base/animations";
 @import "sass/base/base";
 @import "sass/base/typography";

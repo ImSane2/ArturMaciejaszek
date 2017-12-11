@@ -1,0 +1,13 @@
+.contact {
+    width: 80%;
+    height: 60%;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+
+    &__form-box {
+        @include absCenter;
+    }
+}

@@ -1,20 +1,12 @@
 <section class="section-home">
-  <div class="row">
-      <div class="col-md-8">
-          <div class="home__text-box">
-              <h2 class="heading_secondary">Welcome</h2>
-              <p class="home__welcome-text">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                Asperiores officia quam deleniti corporis reprehenderit quasi, 
-                provident, hic accusamus sed iure dolorum commodi vel odio 
-                corrupti rem assumenda veritatis amet? Voluptate.</p>
-            </div>
-      </div>
-      <div class="col-md-4">
-          <div class="home__photo-box">
-              <img src="img/am-smile.png" alt="My Photo" class="home__myPhoto">
-            </div>
-      </div>
-  </div>
+    <div class="home">
+        <div class="home__content-box">
+                <div class="home__header-box">
+                    <h2 class="heading_secondary heading_secondary--primary">Welcome</h2>
+                </div>
+            <img class="home__my-photo" src="../../assets/img/am-smile.png" alt="My Photo" >
+            <p class="home__welcome-text">{{ (basicState | async).greeting }}</p>    
+        </div>
+    </div>
 </section>
 

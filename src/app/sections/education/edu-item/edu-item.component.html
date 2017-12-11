@@ -1,0 +1,12 @@
+<div class="eduItem" [ngsReveal]="{ reset: true}">
+    <div class="eduItem__image-box">
+        <img class="eduItem__logo" src='{{ eduItem.logo }}' alt="School Logo">
+    </div>
+    <div class="eduItem__text-box">
+        <p class="eduItem__text--school">{{ eduItem.school }}</p>
+        <p class="eduItem__text--faculty">{{ eduItem.faculty }} - {{ eduItem.specialization}}</p>
+        <p class="eduItem__text--class">{{ eduItem.type }} {{ eduItem.startDate | date }} -- {{ eduItem.endDate | date}}</p>
+    </div>
+</div>
+
+

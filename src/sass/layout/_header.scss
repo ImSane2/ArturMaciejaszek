@@ -1,0 +1,17 @@
+.header {
+    height: 35vh;
+    background-image: $gradient-primary,
+        url(~assets/img/sky.jpg);
+    background-size: cover;
+    background-position: top;
+    overflow: hidden;
+    position: relative;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 70%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 0% 100%);
+
+    &__name {
+        position: absolute;
+        top: 0rem;
+        left: 3rem;
+    }
+}

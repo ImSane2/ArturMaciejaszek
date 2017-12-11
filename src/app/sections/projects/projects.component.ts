@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
+
+import { Project } from './project.model';
+
+import * as fromProjects from './store/projects.reducers';
 
 @Component({
   selector: 'app-projects',
@@ -6,10 +12,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./projects.component.scss']
 })
 export class ProjectsComponent implements OnInit {
+  projectsState: Observable<Project[]>;
 
-  constructor() { }
+  constructor(private store: Store<fromProjects.State>) { }
 
   ngOnInit() {
+    this.projectsState = this.store.select('projects');
   }
 
 }

@@ -4,6 +4,7 @@ export class Education {
 
     constructor(
         public school: string,
+        public logo: string,
         public startDate: Date,
         public endDate: Date,
         public type: string,

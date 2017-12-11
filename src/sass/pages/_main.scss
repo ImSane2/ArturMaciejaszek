@@ -1,11 +1,33 @@
 .section-home {
-    height: auto; //placeholder
+    height: 85vh;
+    margin-top: -11vh;
+    background-color: $color-bg;
+    text-align: center;
 }
 
 .section-edu {
-    clip-path: url(#cp);
-    background-image: linear-gradient($color-g-1, $color-g-2);
-    background-size: cover;
     height: 95vh;
-    width: 95vw;
+    margin-top: -15vh;
+    position: relative;
+}
+
+.section-work {
+    height: 105vh;
+    margin-top: -20vh;
+    background-color: $color-bg;
+    text-align: center;
+}
+
+.section-skills {
+    height: 95vh;
+    margin-top: -15vh;
+    position: relative;
+}
+
+.section-contact {
+    height: 95vh;
+    margin-top: -20vh;
+    background-color: $color-bg;
+    text-align: center;
+    position: relative;
 }

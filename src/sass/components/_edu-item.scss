@@ -1,0 +1,37 @@
+.eduItem {
+    display: inline-block;
+    height: 20%;
+    width: 80%;
+    background-color: rgba($color-bg, .7);
+    position: relative;
+    margin-bottom: 2rem;
+    border-radius: 3px;
+    border: 1px solid $color-dark;
+    filter: $shadow;
+    backface-visibility: hidden;
+
+    &__image-box {
+        position: absolute;
+        top: 0;
+        left: 3rem;
+        height: 100%;
+    }
+    &__logo {
+        height: 90%;
+        padding: .5rem;
+    }
+    &__text-box {
+  
+    }
+
+    &__text {
+        &--school {
+            font-weight: bold;
+            // text-shadow: 0px -1px 0px rgba(0,0,0,.5);
+        }
+        &--faculty {}
+        &--class {}
+    }
+
+}
+

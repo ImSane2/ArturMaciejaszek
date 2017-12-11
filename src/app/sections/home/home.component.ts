@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
+
+import * as fromBasicInfo from '../../shared/store/basic-info.reducers';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +10,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  basicState: Observable<string>;
 
-  constructor() { }
+  constructor(private store: Store<fromBasicInfo.State>) { }
 
   ngOnInit() {
+    this.basicState = this.store.select('greeting');
   }
 
 }

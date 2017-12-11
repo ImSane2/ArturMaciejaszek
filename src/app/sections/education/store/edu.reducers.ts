@@ -10,6 +10,7 @@ const initialState = {
     education: [
         new Education(
             'Poznań University of Economics',
+            '../../../assets/logos/uep-green.svg',
             new Date(2013, 9),
             new Date(2015, 7),
             'master',
@@ -53,6 +54,7 @@ const initialState = {
         ),
         new Education(
             'Poznań University of Economics',
+            '../../../assets/logos/uep-green.svg',
             new Date(2009, 9),
             new Date(2013, 7),
             'bachelor',
@@ -64,5 +66,5 @@ const initialState = {
 };
 
 export function EduReducers(state = initialState, action) {
-
+    return state;
 }

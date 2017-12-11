@@ -1,0 +1,13 @@
+<div class="skill-item">
+    <div class="skill-item__logo">
+            <i [class]="skillItem.img"></i>
+    </div>
+    <div class="skill-item__name">{{ skillItem.name }} </div>
+    <div class="skill-item__proficiency">
+        <!-- <i [class]="prof1"></i>
+        <i [class]="prof2"></i>
+        <i [class]="prof3"></i> -->
+        <i *ngFor="let p of pArray"
+        [class]=p></i>
+    </div>
+</div>

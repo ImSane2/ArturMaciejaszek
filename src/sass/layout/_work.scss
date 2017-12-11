@@ -1,0 +1,16 @@
+.work {
+    display: inline-block;
+    height: 100%;
+    width: 80%;
+    margin: auto;
+    
+
+    &__heading {
+        display: inline-block;
+        margin-top: 10rem;;
+    }
+
+    &__content {
+        display: inline-block;
+    }
+}

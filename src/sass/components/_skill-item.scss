@@ -1,0 +1,38 @@
+.skill-item {
+    height: 5vh;
+    width: 20vw;
+    background-color: $color-bg;
+    border: 1px solid black;
+    border-radius: 3px;
+    filter: $shadow;
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    position: relative;
+
+    &__logo {
+        position: absolute;
+        left: 15%;
+    }
+    &__name {
+        display: block;
+    }
+    &__proficiency {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 5%
+    }
+}
+
+.circle-yellow {
+    background-image: radial-gradient(lightyellow, orange);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.circle-green {
+    background-image: radial-gradient(lightgreen, darkgreen);
+    -webkit-background-clip: text;
+    color: transparent;
+}

@@ -1,0 +1,12 @@
+<div class="workItem u-margin-bottom-small" [ngsReveal]="{ reset: true}" >
+    <div class="workItem__image-box">
+        <img class="workItem__logo" src='{{ workItem.clogo }}' alt="Company Logo">
+    </div>
+    <div class="workItem__text-box">
+        <p class="workItem__text--company">{{ workItem.school }}</p>
+        <p class="workItem__text--position">{{ workItem.position }}</p>
+        <p class="workItem__text--dates">{{ workItem.startDate | date }} -- {{ workItem.endDate | date}}</p>
+    </div>
+</div>
+
+

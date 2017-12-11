@@ -1,0 +1,23 @@
+.edu {
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    z-index: 50;
+
+    &__header {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    &__content-box {
+        width: 100%;
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+}
