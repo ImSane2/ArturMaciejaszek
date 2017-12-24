@@ -1,6 +1,7 @@
 <div class="skill-item">
     <div class="skill-item__logo">
-            <i [class]="skillItem.img"></i>
+            <!-- <i [class]="skillItem.img"></i> -->
+            <img class="skill-logo" [src]="skillItem.img" [alt]="skillItem.name">
     </div>
     <div class="skill-item__name">{{ skillItem.name }} </div>
     <div class="skill-item__proficiency">

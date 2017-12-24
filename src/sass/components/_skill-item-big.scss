@@ -1,7 +1,7 @@
 .skill-item {
-    height: 5vh;
-    width: 20vw;
-    background-color: $color-bg;
+    height: 40vh;
+    width: 15vw;
+    background-color: rgba($color-bg, .7);
     border: 1px solid black;
     border-radius: 3px;
     filter: $shadow;
@@ -12,22 +12,30 @@
 
     &__logo {
         position: absolute;
-        left: 15%;
-        height: 3vh;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 60%;
+        width: 80%;
+        margin: auto;
+        filter: $shadow;
     }
     &__name {
-        display: block;
+        display: none;
     }
     &__proficiency {
+        margin-top: .5vh;
+        display: inline-block;
         position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        right: 5%;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 }
 
 .skill-logo {
-    height: 100%;
+    max-width:100%;
+    max-height:100%;
     margin: 1vh auto;;
     @include absCenter;
 }
