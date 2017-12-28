@@ -1,0 +1,10 @@
+.overlay {
+    -webkit-clip-path: polygon(0 100px, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 100px, 100% 0, 100% 100%, 0% 100%);
+    background-image: $gradient-primary;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

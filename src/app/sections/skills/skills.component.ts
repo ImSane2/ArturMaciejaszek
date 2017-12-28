@@ -13,10 +13,17 @@ import * as fromSkill from './store/skills.reducers';
 })
 export class SkillsComponent implements OnInit {
   skillState: Observable<Skill[]>;
+  filterVisible = false;
+  skillFilter: string;
 
   constructor(private store: Store<fromSkill.State>) { }
 
   ngOnInit() {
     this.skillState = this.store.select('skills');
   }
+
+  filterToggle() {
+    this.filterVisible = !this.filterVisible;
+  }
+
 }

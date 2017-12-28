@@ -1,12 +1,12 @@
 <section class="section-work">
-    <div class="work">
-        <div class="work__heading">
-            <h2 class="heading_secondary heading_secondary--primary u-margin-bottom-medium">Work Experience</h2>
+    <div class="boxDisplay">
+        <div class="boxDisplay__header-box--onWhite">
+            <h2 class="heading_secondary heading_secondary--primary">Work Experience</h2>
         </div>
-        <div class="work-content">
-                <app-work-item
-                *ngFor="let work of (workState | async).work"
-                [workItem]="work"></app-work-item>
+        <div class="boxDisplay__content-box--light">
+            <app-work-item
+            *ngFor="let work of (workState | async).work"
+            [workItem]="work"></app-work-item>
         </div>
     </div>
 </section>

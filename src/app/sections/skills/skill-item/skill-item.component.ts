@@ -10,54 +10,27 @@ import { Skill } from './../skill.model';
 })
 export class SkillItemComponent implements OnInit {
   @Input() skillItem: Skill;
-  pDef = 'far fa-circle';
-  pArray = [this.pDef, this.pDef, this.pDef];
+  starsArray = [];
 
-  // prof1 = 'far fa-circle';
-  // prof2 = 'far fa-circle';
-  // prof3 = 'far fa-circle';
-
-  constructor() { }
-
-  // private assignSymbols() {
-  //   if (this.skillItem.proficiency[0] === 1) {
-  //     this.prof1 = 'far fa-circle circle-yellow';
-  //   }
-  //   if (this.skillItem.proficiency[0] === 2) {
-  //     this.prof1 = 'fas fa-circle circle-green';
-  //   }
-  //   if (this.skillItem.proficiency[1] === 1) {
-  //     this.prof2 = 'far fa-circle circle-yellow';
-  //   }
-  //   if (this.skillItem.proficiency[1] === 2) {
-  //     this.prof2 = 'fas fa-circle circle-green';
-  //   }
-  //   if (this.skillItem.proficiency[2] === 1) {
-  //     this.prof3 = 'far fa-circle circle-yellow';
-  //   }
-  //   if (this.skillItem.proficiency[2] === 2) {
-  //     this.prof3 = 'fas fa-circle circle-green';
-  //   }
-  // }
-
-  private profSymbols() {
-    this.skillItem.proficiency.forEach(
-      (p, i) => {
-        if (p === 1) {
-          this.pArray[i] = 'fas fa-circle circle-yellow';
-        }
-        if (p === 2) {
-          this.pArray[i] = 'fas fa-circle circle-green';
-        }
-      }
-    );
-
-  }
+  constructor() {}
 
   ngOnInit() {
-    // this.assignSymbols();
-    this.profSymbols();
+    this.populateStars();
   }
+
+  populateStars() {
+    const prof = this.skillItem.proficiency / 2;
+    if (this.skillItem.proficiency % 2 === 0) {
+      for (let i = 0; i < prof; i++) {
+        this.starsArray.push('star--full');
+      }
+    } else {
+      for (let i = 1; i < prof; i++) {
+        this.starsArray.push('star--full');
+      }
+        this.starsArray.push('star--half');
+    }
+}
 
 }
 

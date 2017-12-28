@@ -1,24 +1,28 @@
 <section class="section-skills">
-    <div class="bg-video">
-        <div class="bg-video__overlay"></div>
-        <video class="bg-video__content" autoplay muted loop>
-            <source src="../../../assets/video/Save_As.mp4" type="video/mp4">
-            <source src="../../../assets/video/Save_As.webm" type="video/webm">
-            Your browser is not supported!
-        </video>
-    </div>
-    <div class="skills">
-        <div class="skills__header u-margin-bottom-small">
+    <div class="overlay"></div>
+    <div class="boxDisplay">
+        <div class="boxDisplay__header-box">
             <h2 class="heading_secondary heading_secondary--white">Skills</h2>
         </div>
-        <div class="skills__filter">
-            <input class="skills__filter--input" type="text" id="skillFilter" placeholder="Skill e.g. angular" [(ngModel)]="skillFilter">
-            <label class="skills__filter--label" for="skillFilter"><i class="fas fa-search"></i></label>
+        <div class="filter">
+            <input *ngIf="filterVisible"
+                class="filter--input" 
+                type="text" 
+                id="skillFilter" 
+                placeholder="Filter by: e.g. language" 
+                [(ngModel)]="skillFilter">
+            <label class="filter--label" for="skillFilter">
+                <i 
+                class="fa fa-search filter__icon" 
+                aria-hidden="true"
+                (click)="filterToggle()"></i>
+            </label>
         </div>
-        <div class="skills__list">
+        <div class="boxDisplay__content-box--flex">
                 <app-skill-item
-                *ngFor="let skill of (skillState | async).skills | filter:skillFilter:'tags'"
-                [skillItem]="skill"></app-skill-item>
+                *ngFor="let skill of (skillState | async).skills |sortby:'proficiency' | filter:skillFilter:'tags'"
+                [skillItem]="skill"
+                ></app-skill-item>
         </div>
     </div>
 </section>

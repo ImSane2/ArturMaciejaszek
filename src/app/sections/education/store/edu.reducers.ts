@@ -26,7 +26,7 @@ const initialState = {
                     ]
                 ),
                 new Course(
-                    'Managerial Economis',
+                    'Managerial Economics',
                     4,
                     'Some description',
                     [

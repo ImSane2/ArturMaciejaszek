@@ -19,7 +19,6 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "../font-awesome5/web-fonts-with-css/css/fontawesome-all.css",
         "styles.scss"
       ],
       "scripts": [

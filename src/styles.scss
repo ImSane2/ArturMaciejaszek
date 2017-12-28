@@ -1,24 +1,24 @@
-@import "sass/abstracts/functions";
-@import "sass/abstracts/mixins";
-@import "sass/abstracts/variables";
+@import 'sass/abstracts/functions';
+@import 'sass/abstracts/mixins';
+@import 'sass/abstracts/variables';
 
-@import "sass/components/bg-video";
-@import "sass/components/edu-item";
-@import "sass/components/work-item";
-@import "sass/components/skill-item-big";
+@import 'sass/base/animations';
+@import 'sass/base/base';
+@import 'sass/base/typography';
+@import 'sass/base/utilities';
 
-@import "sass/layout/header";
-@import "sass/layout/home";
-@import "sass/layout/edu";
-@import "sass/layout/work";
-@import "sass/layout/skills";
-@import "sass/layout/contact";
-@import "sass/layout/footer";
-@import "sass/layout/navigation";
+@import 'sass/components/skill-item-big';
+// @import 'sass/components/skill-item';
+@import 'sass/components/item-1';
+@import 'sass/components/boxes';
+@import 'sass/components/inputs';
+@import 'sass/components/overlay';
+@import 'sass/components/social';
 
-@import "sass/base/animations";
-@import "sass/base/base";
-@import "sass/base/typography";
-@import "sass/base/utilities";
+@import 'sass/layout/contact';
+@import 'sass/layout/footer';
+@import 'sass/layout/header';
+@import 'sass/layout/home';
+@import 'sass/layout/navigation';
 
-@import "sass/pages/main";
+@import 'sass/pages/main';

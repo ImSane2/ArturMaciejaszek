@@ -21,7 +21,11 @@ export class FilterPipe implements PipeTransform {
         }
       }
       }
-      return resultArray;
+      if (resultArray.length > 0) {
+        return resultArray;
+      } else {
+        return ['I am sorry but selected skill is not a part of my expertise :(']; // TWEAK IT
+      }
     }
   }
 

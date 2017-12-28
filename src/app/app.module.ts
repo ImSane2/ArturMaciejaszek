@@ -20,6 +20,9 @@ import { WorkItemComponent } from './sections/work/work-item/work-item.component
 import { ProjectItemComponent } from './sections/projects/project-item/project-item.component';
 import { FilterPipe } from './shared/filter.pipe';
 import {NgsRevealModule} from 'ng-scrollreveal';
+import { MainComponent } from './main/main.component';
+import { SortbyPipe } from './shared/sortby.pipe';
+import { SocialItemComponent } from './sections/contact/social-item/social-item.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import {NgsRevealModule} from 'ng-scrollreveal';
     WorkItemComponent,
     ProjectItemComponent,
     FilterPipe,
-    NavigationComponent
+    NavigationComponent,
+    MainComponent,
+    SortbyPipe,
+    SocialItemComponent
   ],
   imports: [
     BrowserModule,

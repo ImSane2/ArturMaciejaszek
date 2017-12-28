@@ -3,31 +3,14 @@
     100% { opacity: 1; }
 }
 
-@keyframes fadeInFromLeft{
+@keyframes expandToLeft{
     0% {
         opacity: 0;
-        transform: translateX(-5rem)
-    }
-    80% {
-        opacity: 1;
-        transform: translateX(1rem)
+        width: 0;
     }
     100% {
         opacity: 1;
-        transform: translateX(0)
+        width: 15vw;
     }
 }
-@keyframes fadeInFromRight{
-    0% {
-        opacity: 0;
-        transform: translateX(5rem)
-    }
-    80% {
-        opacity: 1;
-        transform: translateX(-1rem)
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0)
-    }
-}
+

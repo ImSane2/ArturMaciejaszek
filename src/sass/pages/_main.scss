@@ -1,33 +1,25 @@
 .section-home {
-    height: 85vh;
-    margin-top: -11vh;
-    background-color: $color-bg;
+    height: 65vh;
     text-align: center;
 }
 
 .section-edu {
-    height: 95vh;
-    margin-top: -15vh;
+    height: 85vh;
     position: relative;
 }
 
 .section-work {
-    height: 105vh;
-    margin-top: -20vh;
-    background-color: $color-bg;
+    min-height: 100vh;
+    // margin-top: -15vh;
     text-align: center;
 }
 
 .section-skills {
-    height: 95vh;
-    margin-top: -15vh;
+    min-height: 95vh;
     position: relative;
 }
 
 .section-contact {
-    height: 95vh;
-    margin-top: -20vh;
-    background-color: $color-bg;
+    min-height: 75vh;
     text-align: center;
-    position: relative;
 }

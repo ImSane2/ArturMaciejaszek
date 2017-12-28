@@ -1,14 +1,14 @@
 <div class="skill-item">
     <div class="skill-item__logo">
-            <!-- <i [class]="skillItem.img"></i> -->
-            <img class="skill-logo" [src]="skillItem.img" [alt]="skillItem.name">
+        <img class="skill-logo" [src]="skillItem.img" [alt]="skillItem.name">
     </div>
     <div class="skill-item__name">{{ skillItem.name }} </div>
-    <div class="skill-item__proficiency">
-        <!-- <i [class]="prof1"></i>
-        <i [class]="prof2"></i>
-        <i [class]="prof3"></i> -->
-        <i *ngFor="let p of pArray"
-        [class]=p></i>
+    <div class="skill-item__proficiency" >
+        <span [class]='starsArray[0]'>&#9734;</span>
+        <span [class]='starsArray[1]'>&#9734;</span>
+        <span [class]='starsArray[2]'>&#9734;</span>
+        <span [class]='starsArray[3]'>&#9734;</span>
+        <span [class]='starsArray[4]'>&#9734;</span>
+        <!-- DO IT WITH ICONS FROM FONT AWESOME IF YOU WANT HALF STARTS AS WELL -->
     </div>
 </div>

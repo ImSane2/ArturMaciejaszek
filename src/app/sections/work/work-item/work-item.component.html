@@ -1,12 +1,13 @@
-<div class="workItem u-margin-bottom-small" [ngsReveal]="{ reset: true}" >
-    <div class="workItem__image-box">
-        <img class="workItem__logo" src='{{ workItem.clogo }}' alt="Company Logo">
+<div class="itemWide itemWide--dark" [ngsReveal]="{ reset: true}" >
+    <div class="itemWide__image-box">
+        <img class="itemWide__logo" src='{{ workItem.cLogo }}' alt="Company Logo">
     </div>
-    <div class="workItem__text-box">
-        <p class="workItem__text--company">{{ workItem.school }}</p>
-        <p class="workItem__text--position">{{ workItem.position }}</p>
-        <p class="workItem__text--dates">{{ workItem.startDate | date }} -- {{ workItem.endDate | date}}</p>
+    <div class="itemWide__text-box">
+        <p class="itemWide__text--main">{{ workItem.company }}</p>
+        <p class="itemWide__text--sub">{{ workItem.position }}</p>
+        <p class="itemWide__text--sub">{{ workItem.startDate | date }} - {{ workItem.endDate | date}}</p>
     </div>
+    <i class="fa fa-plus-circle itemWide__details-btn" aria-hidden="true"></i>
 </div>
 
 

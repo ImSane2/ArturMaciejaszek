@@ -13,6 +13,7 @@ export interface AppState {
     projects: fromProjects.State;
     name: fromBasicInfo.State;
     greeting: fromBasicInfo.State;
+    socials: fromBasicInfo.State;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
@@ -21,5 +22,6 @@ export const reducers: ActionReducerMap<AppState> = {
     work: fromWork.WorkReducers,
     projects: fromProjects.ProjectReducers,
     name: fromBasicInfo.BasicInfoReducers,
-    greeting: fromBasicInfo.BasicInfoReducers
+    greeting: fromBasicInfo.BasicInfoReducers,
+    socials: fromBasicInfo.BasicInfoReducers
 };

@@ -8,17 +8,17 @@ const initialState = {
     work: [
         new Work(
             'World Trade Center Poznań',
-            'placeholder',
+            '../../../assets/logos/wtc_poznan.png',
             new Date(2012, 2),
             new Date(2017, 5),
-            'promoter\\host',
+            'promoter/host',
             ['representing companies on trade fairs',
             'supporting events and marketing campaigns',
             'conducting marketing research on the fairground (collecting data)']
         ),
         new Work(
             'UTE Group',
-            'placeholder',
+            '../../../assets/logos/ute2.png',
             new Date(2016, 3),
             new Date(2016, 8),
             'junior account manager',
@@ -28,15 +28,15 @@ const initialState = {
         ),
         new Work(
             'Poznań International Fair',
-            'placeholder',
+            '../../../assets/logos/mtp2.svg',
             new Date(2012, 9),
             new Date(2013, 12),
             'technical staff',
             ['preparating and ensuring proper conduct of events']
         ),
         new Work(
-            'PDMG Marketing Group',
-            'placeholder',
+            'Poznań University of Economics',
+            '../../../assets/logos/uep-green.svg',
             new Date(2011, 11),
             new Date(2012, 2),
             'trainee',

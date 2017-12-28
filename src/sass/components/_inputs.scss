@@ -1,0 +1,44 @@
+.input {
+    background-color: $color-bg;
+    border-radius: 3px;
+    box-sizing: border-box;
+
+    &:focus {
+    outline: none;
+    border: 2px solid $color-p-2;
+    }
+}
+    
+
+.filter {
+    position: absolute;
+    top: 16vh;
+    right: 5vw;
+
+    &__icon {
+        color: $color-light;
+        filter: $shadow;
+        cursor: pointer;
+        transition: all 0.5s;
+
+        &:hover {
+            transform: scale(1.4);
+        }
+    }
+
+    &--label {}
+    &--input {
+        background-color: $color-bg;
+        border-radius: 50px;
+        text-align: center;
+        animation: expandToLeft 5s; // FIX IT 
+        backface-visibility: hidden;
+        
+        &:focus {
+            outline: none;
+            border-radius: 50px;
+            border: 2px solid $color-p-2;
+        }
+    }
+   
+}

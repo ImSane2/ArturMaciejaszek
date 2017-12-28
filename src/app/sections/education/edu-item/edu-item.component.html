@@ -1,12 +1,18 @@
-<div class="eduItem" [ngsReveal]="{ reset: true}">
-    <div class="eduItem__image-box">
-        <img class="eduItem__logo" src='{{ eduItem.logo }}' alt="School Logo">
+<div class="itemWide itemWide--light" [ngsReveal]="{ reset: true}">
+    <div class="itemWide__image-box">
+        <img class="itemWide__logo" src='{{ eduItem.logo }}' alt="School Logo">
     </div>
-    <div class="eduItem__text-box">
-        <p class="eduItem__text--school">{{ eduItem.school }}</p>
-        <p class="eduItem__text--faculty">{{ eduItem.faculty }} - {{ eduItem.specialization}}</p>
-        <p class="eduItem__text--class">{{ eduItem.type }} {{ eduItem.startDate | date }} -- {{ eduItem.endDate | date}}</p>
+    <div class="itemWide__text-box">
+        <p class="itemWide__text--main">{{ eduItem.school }}</p>
+        <p class="itemWide__text--sub">{{ eduItem.faculty }}</p>
+        <p class="itemWide__text--sub">Specialization: {{ eduItem.specialization}}</p>
     </div>
+    <i class="fa fa-plus-circle itemWide__details-btn" aria-hidden="true"></i>
+    <!-- <img class="eduItem__details-btn img-fluid" src='../../../assets/logos/plus_sign.svg' alt="Click for details"> -->
 </div>
 
 
+<!-- <div class="eduItem__details">
+        <p class="eduItem__text--class">Type: {{ eduItem.type }}</p>
+        <p class="eduItem__text--class">Class: {{ eduItem.startDate | date }} - {{ eduItem.endDate | date}}</p>
+    </div> -->
