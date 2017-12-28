@@ -25,10 +25,7 @@
         }
         &--flex {
             min-height: 45vh;
-            // display: grid;
-            // grid-template-columns: repeat(4, 15vw);
-            // justify-content: center;
-            // grid-gap: 1rem;
+            padding: 1rem 0 5rem 0;
             margin-bottom: 5rem;
             display: flex;
             flex-wrap: wrap;

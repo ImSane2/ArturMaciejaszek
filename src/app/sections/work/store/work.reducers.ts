@@ -8,7 +8,7 @@ const initialState = {
     work: [
         new Work(
             'World Trade Center Poznań',
-            '../../../assets/logos/wtc_poznan.png',
+            './assets/logos/wtc_poznan.png',
             new Date(2012, 2),
             new Date(2017, 5),
             'promoter/host',
@@ -18,7 +18,7 @@ const initialState = {
         ),
         new Work(
             'UTE Group',
-            '../../../assets/logos/ute2.png',
+            './assets/logos/ute2.png',
             new Date(2016, 3),
             new Date(2016, 8),
             'junior account manager',
@@ -28,7 +28,7 @@ const initialState = {
         ),
         new Work(
             'Poznań International Fair',
-            '../../../assets/logos/mtp2.svg',
+            './assets/logos/mtp2.svg',
             new Date(2012, 9),
             new Date(2013, 12),
             'technical staff',
@@ -36,7 +36,7 @@ const initialState = {
         ),
         new Work(
             'Poznań University of Economics',
-            '../../../assets/logos/uep-green.svg',
+            './assets/logos/uep-green.svg',
             new Date(2011, 11),
             new Date(2012, 2),
             'trainee',

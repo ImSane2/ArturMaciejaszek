@@ -21,7 +21,7 @@
         height: 80%;
         align-self: center;
         justify-self: center;
-        display: grid;   
+        display: inline-flex;   
     }
     &__logo, &__details-btn {
         max-height: 100%;
@@ -30,7 +30,6 @@
     }
     &__logo {
         align-self: center;
-        justify-self: center;
     }
     &__details-btn {
         width: 50%;

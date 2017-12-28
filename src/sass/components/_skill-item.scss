@@ -1,46 +1,96 @@
 .skill-item {
-    height: 5vh;
-    width: 20vw;
-    background-color: $color-bg;
-    border: 1px solid black;
-    border-radius: 3px;
-    filter: $shadow;
-    text-align: center;
-    margin-bottom: 1rem;
-    margin-right: 1rem;
+    perspective: 1200px;
+    box-sizing: border-box;
+    height: 40vh;
+    width: 15vw;
+    margin: .5rem;
+    z-index: 1;
     position: relative;
 
     &__logo {
-        position: absolute;
-        left: 15%;
-        height: 3vh;
-    }
-    &__name {
-        display: block;
+        height: 50%;
+        width: 80%;
+        margin: auto;
+        filter: $shadow;
+        display: grid;
     }
     &__proficiency {
+        margin-bottom: 2rem;
+        & > span {
+            font-size: 3rem;
+        }
+    }
+    &__name, &__details {
+        text-align: center;
+        padding: 1rem;
+    }
+    &__name {
+        font-weight: bold;
+        height: 20%;
+    }
+    &__details {
+        height: 80%;
+    }
+
+    &--front, &--back {
+        height: 100%;
+        width: 100%;
+        background-color: rgba($color-bg, .7);
+        border: 1px solid $color-dark;
+        border-radius: 3px;
+        // filter: $shadow;
+        box-shadow: 1.5rem 1.5rem 4rem rgba($color-dark, .5);
+        display: flex;
+        flex-direction: column;
+        backface-visibility: hidden;
+        transition: all .8s ease;
+        transform-style: preserve-3d;
         position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        right: 5%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+    }
+    &--front {
+        
+    }
+    &--back {
+        transform: rotateY(180deg);
+        display: block;
+    }
+
+    &:hover &--front {
+        transform: rotateY(-180deg);
+    }
+
+    &:hover &--back {
+        transform: rotateY(0);
     }
 }
 
 .skill-logo {
-    height: 100%;
-    margin: 1vh auto;;
-    @include absCenter;
+    max-width:80%;
+    max-height:80%;
+    align-self: center;
+    justify-self: center;
 }
 
-.circle-yellow {
-    background-image: radial-gradient(lightyellow, orange);
-    -webkit-background-clip: text;
-    color: transparent;
+.star{
+    &--half{
+        filter: $shadow;
+        transform: scale(1.2);
+        color: gold;
+    }
+    &--full{
+        position: relative;
+    }
+    &--full:before {
+        transform: scale(1.3);
+        content: "\2605";
+        color: gold;
+        filter: $shadow;
+        position: absolute;
+    }
 }
 
-.circle-green {
-    background-image: radial-gradient(lightgreen, darkgreen);
-    -webkit-background-clip: text;
-    color: transparent;
-}
+
 
