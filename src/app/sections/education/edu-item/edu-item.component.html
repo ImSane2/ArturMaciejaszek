@@ -8,11 +8,9 @@
         <p class="itemWide__text--sub">Specialization: {{ eduItem.specialization}}</p>
     </div>
     <i class="fa fa-plus-circle itemWide__details-btn" aria-hidden="true"></i>
-    <!-- <img class="eduItem__details-btn img-fluid" src='../../../assets/logos/plus_sign.svg' alt="Click for details"> -->
 </div>
-
-
-<!-- <div class="eduItem__details">
-        <p class="eduItem__text--class">Type: {{ eduItem.type }}</p>
-        <p class="eduItem__text--class">Class: {{ eduItem.startDate | date }} - {{ eduItem.endDate | date}}</p>
-    </div> -->
+<div class="expandable-item">
+    <app-edu-item-course
+    *ngFor="let course of eduItem.courses"
+    [courseItem]="course"></app-edu-item-course>
+</div>

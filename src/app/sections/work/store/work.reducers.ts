@@ -40,7 +40,7 @@ const initialState = {
             new Date(2011, 11),
             new Date(2012, 2),
             'trainee',
-            ['writing scientific description regarding mechanisms that motivate users for a long-term use of web aplications']
+            ['writing scientific report regarding mechanisms that motivate users for a long-term use of web applications']
         )
     ]
 };

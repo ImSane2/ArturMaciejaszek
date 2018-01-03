@@ -3,11 +3,19 @@
         <img class="itemWide__logo" src='{{ workItem.cLogo }}' alt="Company Logo">
     </div>
     <div class="itemWide__text-box">
-        <p class="itemWide__text--main">{{ workItem.company }}</p>
-        <p class="itemWide__text--sub">{{ workItem.position }}</p>
-        <p class="itemWide__text--sub">{{ workItem.startDate | date }} - {{ workItem.endDate | date}}</p>
+        <p [ngClass]="{'itemWide__text--main': true, 'expanded': itemToggle}">{{ workItem.company }}</p>
+        <p [ngClass]="{'itemWide__text--sub': true, 'expanded': itemToggle}">{{ workItem.position }}</p>
+        <p [ngClass]="{'itemWide__text--sub': true, 'expanded': itemToggle}">{{ workItem.startDate | date }} - {{ workItem.endDate | date}}</p>
     </div>
-    <i class="fa fa-plus-circle itemWide__details-btn" aria-hidden="true"></i>
+    <i [ngClass]="{'fa': true, 'fa-plus-circle': true, 'itemWide__details-btn': true, 'expanded': itemToggle}" 
+    aria-hidden="true" 
+    (click)="itemToggle = !itemToggle"></i>
+    <div [ngClass]="{'itemWide__list-box': true, 'expanded': itemToggle}">
+        <ul>
+            <li *ngFor="let resp of workItem.responsibilities; let i = index"> 
+                {{ workItem.responsibilities[i] }}</li>
+        </ul>
+    </div>
 </div>
 
 

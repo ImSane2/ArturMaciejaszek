@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class WorkItemComponent implements OnInit {
   @Input() workItem: Work;
+  itemToggle = false;
 
   constructor() { }
 
