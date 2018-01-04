@@ -3,14 +3,18 @@
         <img class="itemWide__logo" src='{{ eduItem.logo }}' alt="School Logo">
     </div>
     <div class="itemWide__text-box">
-        <p class="itemWide__text--main">{{ eduItem.school }}</p>
-        <p class="itemWide__text--sub">{{ eduItem.faculty }}</p>
-        <p class="itemWide__text--sub">Specialization: {{ eduItem.specialization}}</p>
+        <p [ngClass]="{'itemWide__text--main': true, 'expandedHide': itemToggle}">{{ eduItem.school }}</p>
+        <p [ngClass]="{'itemWide__text--sub': true, 'expanded': itemToggle}">{{ eduItem.faculty }}</p>
+        <p [ngClass]="{'itemWide__text--sub': true, 'expanded': itemToggle}">Specialization: {{ eduItem.specialization}}</p>
     </div>
-    <i class="fa fa-plus-circle itemWide__details-btn" aria-hidden="true"></i>
-</div>
-<div class="expandable-item">
-    <app-edu-item-course
-    *ngFor="let course of eduItem.courses"
-    [courseItem]="course"></app-edu-item-course>
+    <i [ngClass]="{'fa': true, 'fa-plus-circle': true, 'itemWide__details-btn': true, 'expanded': itemToggle}"  
+    aria-hidden="true"
+    (click)="itemToggle = !itemToggle"></i>
+    <div class="expandable-item" 
+        *ngIf="itemToggle"
+        [@listIn]="eduItem.courses.length">
+            <app-edu-item-course
+            *ngFor="let course of eduItem.courses"
+            [courseItem]="course"></app-edu-item-course>
+    </div>
 </div>

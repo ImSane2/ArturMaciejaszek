@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/header/header.component';
@@ -49,6 +50,7 @@ import { EduItemCourseComponent } from './sections/education/edu-item/edu-item-c
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     StoreModule.forRoot(reducers),
     NgsRevealModule.forRoot(),

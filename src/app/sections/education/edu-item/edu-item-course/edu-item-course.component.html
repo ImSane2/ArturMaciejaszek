@@ -1,2 +1,7 @@
-{{courseItem.courseName}} | {{courseItem.mark}}
-{{courseItem.description}}
+<details class="details">
+    <summary class="details__summary">{{courseItem.courseName}}</summary>
+    <div class="details__text-box">
+        <p class="details__text details__text--left">{{courseItem.description}}</p>
+        <p class="details__text details__text--right">Mark: {{courseItem.mark}}</p>
+    </div>
+</details>
