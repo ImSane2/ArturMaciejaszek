@@ -1,17 +1,26 @@
 .social {
     font-size: 2rem;
-    min-width: 4rem;
-    min-height: 4rem;
+    width: 4rem;
+    height: 4rem;
     border-radius: 100px;
     background-color: $color-bg;
     color: $color-dark;
     filter: $shadow;
-    text-align: center;
-    margin-bottom: .5rem;
+    margin-bottom: 1rem;
     transition: all .5s;
     cursor: pointer;
 
     &:hover {
         transform: scale(1.2);
     }
+    &:active {
+        filter: none;
+        color: $color-p-1;
+        transform: scale(1);
+    }
+
+    & > i.fa {
+        transform: translateX(-3px);
+    }
 }
+

@@ -10,9 +10,9 @@
     <i [ngClass]="{'fa': true, 'fa-plus-circle': true, 'itemWide__details-btn': true, 'expanded': itemToggle}"  
     aria-hidden="true"
     (click)="itemToggle = !itemToggle"></i>
-    <div class="expandable-item" 
+    <div [ngClass]="{'expandable-item': true, 'expanded': itemToggle}" 
         *ngIf="itemToggle"
-        [@listIn]="eduItem.courses.length">
+        [@listIn]>
             <app-edu-item-course
             *ngFor="let course of eduItem.courses"
             [courseItem]="course"></app-edu-item-course>

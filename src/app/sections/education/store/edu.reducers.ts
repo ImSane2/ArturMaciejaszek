@@ -49,6 +49,166 @@ const initialState = {
                         'i do not fuckin remember what it was all about'
                     ]
                 ),
+                new Course(
+                    'Economic Doctrines',
+                    4,
+                    'Some description',
+                    [
+                        'i do not fuckin remember what it was all about'
+                    ]
+                ),
+                new Course(
+                    'Managerial Economics',
+                    4,
+                    'Some description',
+                    [
+                        'i do not fuckin remember what it was all about'
+                    ]
+                ),
+                new Course(
+                    'Management Concepts',
+                    5,
+                    'Some description',
+                    [
+                        'i do not fuckin remember what it was all about'
+                    ]
+                ),
+                new Course(
+                    'Civil and Commercial Law',
+                    4,
+                    'Some description',
+                    [
+                        'i do not fuckin remember what it was all about'
+                    ]
+                ),
+                new Course(
+                    'Economic Doctrines',
+                    4,
+                    'Some description',
+                    [
+                        'i do not fuckin remember what it was all about'
+                    ]
+                ),
+                new Course(
+                    'Managerial Economics',
+                    4,
+                    'Some description',
+                    [
+                        'i do not fuckin remember what it was all about'
+                    ]
+                ),
+                new Course(
+                    'Management Concepts',
+                    5,
+                    'Some description',
+                    [
+                        'i do not fuckin remember what it was all about'
+                    ]
+                ),
+                new Course(
+                    'Civil and Commercial Law',
+                    4,
+                    'Some description',
+                    [
+                        'i do not fuckin remember what it was all about'
+                    ]
+                ),
+                new Course(
+                    'Economic Doctrines',
+                    4,
+                    'Some description',
+                    [
+                        'i do not fuckin remember what it was all about'
+                    ]
+                ),
+                new Course(
+                    'Managerial Economics',
+                    4,
+                    'Some description',
+                    [
+                        'i do not fuckin remember what it was all about'
+                    ]
+                ),
+                new Course(
+                    'Management Concepts',
+                    5,
+                    'Some description',
+                    [
+                        'i do not fuckin remember what it was all about'
+                    ]
+                ),
+                new Course(
+                    'Civil and Commercial Law',
+                    4,
+                    'Some description',
+                    [
+                        'i do not fuckin remember what it was all about'
+                    ]
+                ),
+                new Course(
+                    'Economic Doctrines',
+                    4,
+                    'Some description',
+                    [
+                        'i do not fuckin remember what it was all about'
+                    ]
+                ),
+                new Course(
+                    'Managerial Economics',
+                    4,
+                    'Some description',
+                    [
+                        'i do not fuckin remember what it was all about'
+                    ]
+                ),
+                new Course(
+                    'Management Concepts',
+                    5,
+                    'Some description',
+                    [
+                        'i do not fuckin remember what it was all about'
+                    ]
+                ),
+                new Course(
+                    'Civil and Commercial Law',
+                    4,
+                    'Some description',
+                    [
+                        'i do not fuckin remember what it was all about'
+                    ]
+                ),
+                new Course(
+                    'Economic Doctrines',
+                    4,
+                    'Some description',
+                    [
+                        'i do not fuckin remember what it was all about'
+                    ]
+                ),
+                new Course(
+                    'Managerial Economics',
+                    4,
+                    'Some description',
+                    [
+                        'i do not fuckin remember what it was all about'
+                    ]
+                ),
+                new Course(
+                    'Management Concepts',
+                    5,
+                    'Some description',
+                    [
+                        'i do not fuckin remember what it was all about'
+                    ]
+                ),
+                new Course(
+                    'Civil and Commercial Law',
+                    4,
+                    'Some description',
+                    [
+                        'i do not fuckin remember what it was all about'
+                    ]
+                ),
 
             ]
         ),

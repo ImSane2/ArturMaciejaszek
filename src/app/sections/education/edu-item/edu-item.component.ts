@@ -19,7 +19,7 @@ import { trigger, transition, query, stagger, animate, style, keyframes } from '
         transition(
         ':leave', [
           style({transform: 'scale(1)', 'opacity': 1}),
-          animate('300ms', style({transform: 'scale(0)', 'opacity': 0}))
+          animate('800ms', style({transform: 'scale(0)', 'opacity': 0}))
         ]
       )]
     )

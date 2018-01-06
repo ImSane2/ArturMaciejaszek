@@ -1,15 +1,3 @@
-.input {
-    background-color: $color-bg;
-    border-radius: 3px;
-    box-sizing: border-box;
-
-    &:focus {
-    outline: none;
-    border: 2px solid $color-p-2;
-    }
-}
-    
-
 .filter {
     position: absolute;
     top: 16vh;
@@ -24,6 +12,10 @@
         &:hover {
             transform: scale(1.4);
         }
+        &:active {
+            transform: scale(1.2);
+            filter: none;
+        }
     }
 
     &--label {}
@@ -31,7 +23,7 @@
         background-color: $color-bg;
         border-radius: 50px;
         text-align: center;
-        animation: expandToLeft 5s; // FIX IT 
+        animation: expandToLeft 1.5s ease-out forwards;
         backface-visibility: hidden;
         
         &:focus {
@@ -41,4 +33,16 @@
         }
     }
    
+}
+
+.input {
+    background-color: $color-bg;
+    border-radius: 3px;
+}
+
+.label {
+    margin-top: .7rem;
+    display: block;
+    transition: all .3s;
+    text-align: left;
 }

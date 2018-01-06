@@ -1,12 +1,14 @@
 .itemWide {
     display: inline-grid;
     min-height: 20vh;
+    max-height: 40vh;
     width: 60vw;
     margin-bottom: 3rem;
     border: 1px solid $color-dark;
     border-radius: 3px;
     filter: $shadow;
     grid-template-columns: 2fr 6fr 1fr;
+    overflow: hidden;
 
     &--light {
         background-color: rgba($color-bg, .7);
@@ -23,7 +25,7 @@
         align-self: center;
         justify-self: center;
         display: inline-flex;
-        grid-row: 1 / 3;     
+        grid-row: 1 / span 2;     
     }
     &__logo, &__details-btn {
         max-height: 100%;
@@ -142,12 +144,6 @@
         transform: scale(1.2);
         transition: all .6s;
         filter: $shadow;
-
-        // &:hover {
-        //     color: black;
-        //     transform: scale(1);
-        //     transition: all .3s;
-        // }
     }
     &__text-box {
         display: flex;
@@ -166,5 +162,16 @@
 }
 
 .expandable-item {
+    visibility: hidden;
     margin-bottom: 1.6rem;
+    margin-right: .3rem;
+    overflow-x: hidden;
+    grid-column: 2 / span 2;
+
+
+    &.expanded {
+        visibility: visible;
+        transition: all 1.5s;
+        max-height: 20vh;
+    }
 }

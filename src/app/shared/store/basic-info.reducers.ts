@@ -1,4 +1,4 @@
-import { Social } from '../../sections/contact/social-item/social.model';
+import { Social } from '../../sections/contact/social.model';
 
 
 export interface State {

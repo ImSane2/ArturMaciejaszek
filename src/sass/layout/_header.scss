@@ -1,8 +1,8 @@
 .header {
     height: 25vh;
     background-image: $gradient-primary,
-        url(~assets/img/sky.jpg);
-    background-position: top;
+        url(./assets/img/sky.jpg);
+    background-position: center;
     overflow: hidden;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 70%, 0% 100%);
     clip-path: polygon(0 0, 100% 0, 100% 70%, 0% 100%);

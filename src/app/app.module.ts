@@ -23,7 +23,6 @@ import { FilterPipe } from './shared/filter.pipe';
 import {NgsRevealModule} from 'ng-scrollreveal';
 import { MainComponent } from './main/main.component';
 import { SortbyPipe } from './shared/sortby.pipe';
-import { SocialItemComponent } from './sections/contact/social-item/social-item.component';
 import { EduItemCourseComponent } from './sections/education/edu-item/edu-item-course/edu-item-course.component';
 
 @NgModule({
@@ -45,7 +44,6 @@ import { EduItemCourseComponent } from './sections/education/edu-item/edu-item-c
     NavigationComponent,
     MainComponent,
     SortbyPipe,
-    SocialItemComponent,
     EduItemCourseComponent
   ],
   imports: [

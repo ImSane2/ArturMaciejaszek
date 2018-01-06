@@ -22,8 +22,4 @@ export class SkillsComponent implements OnInit {
     this.skillState = this.store.select('skills');
   }
 
-  filterToggle() {
-    this.filterVisible = !this.filterVisible;
-  }
-
 }
