@@ -5,7 +5,7 @@
             <h2 class="heading_secondary heading_secondary--white">Skills</h2>
         </div>
         <div class="filter">
-            <input *ngIf="filterVisible"
+            <input
                 class="filter--input" 
                 type="text" 
                 id="skillFilter" 
@@ -15,7 +15,7 @@
                 <i 
                 class="fa fa-search filter__icon" 
                 aria-hidden="true"
-                (click)="filterVisible = !filterVisible"></i>
+                ></i>
             </label>
         </div>
         <div class="boxDisplay__content-box--flex">

@@ -12,15 +12,15 @@
         color: $color-light;
         filter: $shadow;
         cursor: pointer;
-        transition: all 0.5s;
+        // transition: all 0.5s;
 
-        &:hover {
-            transform: scale(1.4);
-        }
-        &:active {
-            transform: scale(1.2);
-            filter: none;
-        }
+        // &:hover {
+        //     transform: scale(1.4);
+        // }
+        // &:active {
+        //     transform: scale(1.2);
+        //     filter: none;
+        // }
     }
 
     &--label {}
@@ -35,9 +35,9 @@
             outline: none;
             border-radius: 50px;
             border: 2px solid $color-p-2;
+            filter: $shadow;
         }
     }
-   
 }
 
 .input {
@@ -50,4 +50,124 @@
     display: block;
     transition: all .3s;
     text-align: left;
+}
+
+.form {
+    &-group {
+        display: grid;
+        justify-content: center;
+        &--name {
+            grid-column: 1 / span 1;
+            grid-row: 1 / span 1;
+
+            @include respond(-580) {
+                grid-column: 1 / span 2;
+                grid-row: 1 / span 1;
+            }
+            
+        }
+        &--email {
+            grid-column: 1 / span 1;
+            grid-row: 2 / span 1;
+
+            @include respond(-704) {
+                grid-column: 2 / span 1;
+                grid-row: 1 / span 1;
+            }
+
+            @include respond(-580) {
+                grid-column: 1 / span 2;
+                grid-row: 2 / span 1;
+            }
+
+        }
+        &--query {
+            grid-column: 2 / span 1;
+            grid-row: 1 / span 2;
+
+            @include respond(-704) {
+                grid-column: 1 / span 2;
+                grid-row: 2 / span 2;
+            }
+
+            @include respond(-580) {
+                grid-column: 1 / span 2;
+                grid-row: 3 / span 2;
+            }
+        }
+    }
+
+    &__name, &__email, &__query {
+
+        &.ng-touched.ng-valid {
+            border-bottom: 3px solid yellowgreen;
+        }
+        &.ng-touched.ng-invalid {
+            border-bottom: 3px solid orangered;
+        }
+
+
+        &:focus {
+            outline: none;
+            border-radius: 3px;
+            filter: $shadow;
+            transform: translateY(-3px);
+            transition: all .3s;
+        }
+    }
+    &__name, &__email {
+        width: 20vw;
+
+        @include respond(-580) {
+            width: 45vw;
+        }
+
+        &.input:placeholder-shown + .label {
+            text-align: left;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-4rem);
+        }
+    }
+    &__query {
+        resize: none;
+        height: 30vh;
+        width: 30vw;
+        max-width: 410px;
+        padding: .5rem;
+        box-sizing: border-box;
+
+        @include respond(-704) {
+            align-self: stretch;
+            width: 52vw;
+        }
+    }
+    &__submit {
+        text-transform: uppercase;
+        letter-spacing: .2rem;
+        outline: none;
+        font-weight: bold;
+        width: 30%;
+        height: 5vh;
+        margin: auto;
+        border-radius: 10px;
+        background-color: $color-bg;
+        color: $color-p-1;
+        grid-column: 1 / span 2;
+        filter: $shadow;
+        transform: scale(1.2);
+        transition: all .3s;
+
+        &:disabled {
+            letter-spacing: 0;
+            color: grey;
+            filter: none;
+            transform: scale(1);
+        }
+
+        &:active {
+            transform: scale(1.1);
+            filter: none;
+        }
+    }
 }

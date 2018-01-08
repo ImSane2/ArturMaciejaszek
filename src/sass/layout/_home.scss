@@ -47,11 +47,15 @@
             width: 20%;
         }
 
+        // @include respond(-462) {
+        //     position: relative;
+        //     float: none;
+        //     display: inline-block;
+        //     margin: auto;
+        // }
+
         @include respond(-462) {
-            position: relative;
-            float: none;
-            display: inline-block;
-            margin: auto;
+            display: none;
         }
     }
 
