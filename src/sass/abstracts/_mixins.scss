@@ -12,3 +12,27 @@
         clear: both;
     }
 }
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == -462 {
+        @media only screen and (max-width: 28.875em) { @content };  
+    }
+    @if $breakpoint == -580 {
+        @media only screen and (max-width: 36.25em) { @content };  
+    }
+    @if $breakpoint == -650 {
+        @media only screen and (max-width: 40.625em) { @content };  
+    }
+    @if $breakpoint == -704 {
+        @media only screen and (max-width: 44em) { @content };   
+    }
+    @if $breakpoint == -875 {
+        @media only screen and (max-width: 54.68em) { @content };   
+    }
+    @if $breakpoint == -970 {
+        @media only screen and (max-width: 60.625em) { @content };  
+    }
+    @if $breakpoint == +1200 {
+        @media only screen and (min-width: 75em) { @content };  
+    }
+}

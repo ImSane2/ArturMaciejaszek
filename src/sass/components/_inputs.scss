@@ -3,6 +3,11 @@
     top: 16vh;
     right: 5vw;
 
+    @include respond(-704) {
+        display: block;
+        position: initial;
+    }
+
     &__icon {
         color: $color-light;
         filter: $shadow;

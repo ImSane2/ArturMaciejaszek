@@ -1,5 +1,5 @@
 .header {
-    height: 25vh;
+    min-height: 25vh;
     background-image: $gradient-primary,
         url(./assets/img/sky.jpg);
     background-position: center;
@@ -7,6 +7,11 @@
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 70%, 0% 100%);
     clip-path: polygon(0 0, 100% 0, 100% 70%, 0% 100%);
     text-align: center;
+
+    @include respond(-704) {
+        min-height: 25vh;
+        overflow: auto;
+    }
 
     &__name {
         display: inline-block;

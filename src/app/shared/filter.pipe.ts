@@ -9,6 +9,7 @@ export class FilterPipe implements PipeTransform {
     if (value.lenght === '0' || filterString === '' || filterString === undefined) {
       return value;
     }
+    filterString = filterString.toLowerCase();
     const resultArray = [];
     for (const item of value) {
       for (const tag of item[objectProperty]) {

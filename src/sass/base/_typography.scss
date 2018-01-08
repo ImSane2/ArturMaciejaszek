@@ -8,6 +8,15 @@ body {
     font-size: 5rem;
     color: $color-light;
     margin: 2rem;
+
+    @include respond(-704) {
+        font-size: 3rem;
+        margin: 3rem;
+    }
+
+    @include respond(-462) {
+        margin-bottom: 5rem;
+    }
 }
 
 .heading_secondary {

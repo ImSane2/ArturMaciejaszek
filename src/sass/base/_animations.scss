@@ -7,14 +7,8 @@
     100% { opacity: 0; }
 }
 @keyframes expandToLeft{
-    0% {
-        opacity: 0;
-        width: 0;
-    }
-    100% {
-        opacity: 1;
-        width: 15vw;
-    }
+    0% { opacity: 0; width: 0; }
+    100% { opacity: 1; width: 15vw; }
 }
 @keyframes buttonAnimation{
     0% { transform: translate(0, 0) scale(1) rotate(0); }
@@ -22,6 +16,14 @@
 }
 @keyframes buttonAnimationBack{
     0% { transform: translate(4rem, -1.5rem) scale(.5) rotate(135deg); }
+    100% { transform: translate(0, 0) scale(1) rotate(0); }
+}
+@keyframes buttonAnimationLow{
+    0% { transform: translate(0, 0) scale(1) rotate(0); }
+    100% { transform: translate(1.8rem, -1.5rem) scale(.5) rotate(135deg); }
+}
+@keyframes buttonAnimationBackLow{
+    0% { transform: translate(1.8rem, -1.5rem) scale(.5) rotate(135deg); }
     100% { transform: translate(0, 0) scale(1) rotate(0); }
 }
 @keyframes sweepTop {

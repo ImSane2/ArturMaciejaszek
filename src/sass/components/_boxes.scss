@@ -31,6 +31,10 @@
             flex-wrap: wrap;
             justify-content: center;
             overflow: hidden;
+
+            @include respond(-704) {
+                flex-direction: column;
+            }
         }   
     }
     &__contact-box {
@@ -40,17 +44,37 @@
         border: 1px solid $color-dark;
         filter: $shadow;
         margin-bottom: 5rem;
+
+        &--text {
+            @include respond(-650) {
+                padding: 0 1rem;
+            }
+        }
     }
     &__contact-section {
         display: grid;
         grid-template-columns: 9fr 1fr;
         grid-gap: 1rem;
+
+        @include respond(-650) {
+            grid-template-columns: 100%;
+        }
     }
     &__form {
         padding: 2rem;
         display: grid;
         grid-template-columns: 4fr 6fr;
         grid-gap: 3rem;
+
+        @include respond(-704) {
+            grid-template-columns: 1fr 1fr;
+            grid-row-gap: 1rem;
+            padding: .5rem;
+        }
+
+        @include respond(-650) {
+            grid-gap: 1rem;
+        }
     }
     &__side-bar {
         grid-column: 2 / span 1;
@@ -58,6 +82,19 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+
+        @include respond(-704) {
+            padding: 1.5rem;
+        }
+
+        @include respond(-650) {
+            flex-direction: row;
+            grid-column: 1 / span 1;
+            grid-row: 2 / span 1;
+            justify-content: center;
+            padding-bottom: 1rem;
+        }
+
     }
 }
 
@@ -68,14 +105,41 @@
         &--name {
             grid-column: 1 / span 1;
             grid-row: 1 / span 1;
+
+            @include respond(-580) {
+                grid-column: 1 / span 2;
+                grid-row: 1 / span 1;
+            }
+            
         }
         &--email {
             grid-column: 1 / span 1;
             grid-row: 2 / span 1;
+
+            @include respond(-704) {
+                grid-column: 2 / span 1;
+                grid-row: 1 / span 1;
+            }
+
+            @include respond(-580) {
+                grid-column: 1 / span 2;
+                grid-row: 2 / span 1;
+            }
+
         }
         &--query {
             grid-column: 2 / span 1;
             grid-row: 1 / span 2;
+
+            @include respond(-704) {
+                grid-column: 1 / span 2;
+                grid-row: 2 / span 2;
+            }
+
+            @include respond(-580) {
+                grid-column: 1 / span 2;
+                grid-row: 3 / span 2;
+            }
         }
     }
 
@@ -88,6 +152,7 @@
             border-bottom: 3px solid orangered;
         }
 
+
         &:focus {
             outline: none;
             border-radius: 3px;
@@ -98,6 +163,10 @@
     }
     &__name, &__email {
         width: 20vw;
+
+        @include respond(-580) {
+            width: 45vw;
+        }
 
         &.input:placeholder-shown + .label {
             text-align: left;
@@ -110,8 +179,14 @@
         resize: none;
         height: 30vh;
         width: 30vw;
+        max-width: 410px;
         padding: .5rem;
         box-sizing: border-box;
+
+        @include respond(-704) {
+            align-self: stretch;
+            width: 52vw;
+        }
     }
     &__submit {
         text-transform: uppercase;

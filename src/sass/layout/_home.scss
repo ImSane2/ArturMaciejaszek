@@ -1,8 +1,14 @@
 .home {
-    height: 110%;
+    height: 100%;
     width: 80%;
     margin: auto;
     position: relative;
+
+    @include respond(-462) {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 
     &__header-box {
         display: inline-block;
@@ -11,6 +17,11 @@
         position: sticky;
         left: 50%;
         transform: translateX(-50%);
+
+        @include respond(-462) {
+            position: relative;
+            margin-bottom: 0;
+        }
     }
 
     &__welcome-text {
@@ -20,10 +31,28 @@
     &__my-photo {
         float: right;
         height: 90%;
+        width: auto;
         -webkit-shape-outside: url(~assets/img/am-smile.png);
         shape-outside: url(~assets/img/am-smile.png);
         -webkit-filter: $shadow;
         filter: $shadow;
+
+        @include respond(-704) {
+            height: auto;
+            width: 20vw;
+        }
+
+        @include respond(-580) {
+            height: auto;
+            width: 20%;
+        }
+
+        @include respond(-462) {
+            position: relative;
+            float: none;
+            display: inline-block;
+            margin: auto;
+        }
     }
 
 }

@@ -3,13 +3,20 @@ html {
 }
 
 body {
-    padding: 3rem;
+    padding: 0;
     box-sizing: border-box;
+
+    @include respond(+1200) {
+        padding: 3rem;
+    }
+
 }
 
 .container {
     padding: 0;
     background-color: $color-bg;
+    max-width: 1200px;
+    margin: auto;
 }
 
 .fa {
