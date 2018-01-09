@@ -5,8 +5,72 @@
         </div>
         <div class="boxDisplay__content-box--light">
             <app-work-item
-            *ngFor="let work of (workState | async).work"
+            *ngFor="let work of (workState|async).work"
             [workItem]="work"></app-work-item>
         </div>
+        <div class="itemWide itemWide--dark addItem addItem__itemWide" *ngIf="editMode|async">
+            <div *ngIf="!editOn">
+                <i class="fa fa-plus-circle addBtn"  
+                aria-hidden="true"
+                (click)="editOn = !editOn"></i>
+            </div>
+            <div *ngIf="editOn">
+                <form class="editOn" (ngSubmit)="onSubmit(f)" #f="ngForm">
+                    <div>
+                        <div class="form-group">
+                            <input type="text" id="company" placeholder="Company name" name="company"
+                            class="input form__name"
+                            required
+                            autocomplete="off"
+                            ngModel>
+                            <label for="company" class="label">Company name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="position" placeholder="Position" name="position"
+                            class="input form__name"
+                            required
+                            autocomplete="off"
+                            ngModel>
+                            <label for="position" class="label">Position</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="cLogo" placeholder="cLogo path" name="cLogo"
+                            class="input form__name"
+                            ngModel>
+                            <label for="cLogo" class="label">Logo path</label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-group">
+                            <input type="date" id="startDate" name="startDate"
+                            requiered
+                            ngModel>
+                            <label for="startDate" class="label">Start Date</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="date" id="endDate" name="endDate"
+                            required
+                            ngModel>
+                            <label for="endDate">End Date</label>
+                        </div>
+                    </div>
+                    <div class="form-group" ngModelGroup="responsibilities">
+                        Responsibilities: 
+                        <button type="button" (click)="addResp()">+Res</button>
+                        <div *ngFor="let res of resps; let i = index">
+                            <input type="text" id="responsibility" placeholder="Responsibility" 
+                            name="{{i}}"
+                            class="input form__name"
+                            ngModel>
+                            <button type="button" (click)="deleteResp(i)">X</button>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit" [disabled]="!f.valid">Save</button>
+                        <button (click)="cancelAddItem()" type="button">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>  
     </div>
 </section>

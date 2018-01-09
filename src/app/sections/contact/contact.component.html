@@ -11,7 +11,7 @@
               <input type="text" id="name" placeholder="Name" name="name"
               class="input form__name"
               required
-              autocomplete="off"
+              autocomplete="name"
               ngModel>
               <label for="name" class="label">Name</label>
           </div>
@@ -19,7 +19,7 @@
               <input type="email" id="email" placeholder="Email address" name="email" 
               class="input form__email" 
               required
-              autocomplete="off"
+              autocomplete="email"
               [pattern]="pat"
               ngModel>
               <label for="email" class="label">Email</label>
@@ -40,6 +40,7 @@
           <div class="social" *ngFor="let social of (socialState | async).socials">
             <i [ngClass]="social.icon" aria-hidden="true"></i>
           </div>
+          <div class="social addItem addItem__social" *ngIf="editMode|async"></div>
         </div>
       </div>
     </div>

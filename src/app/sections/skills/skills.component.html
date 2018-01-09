@@ -9,7 +9,7 @@
                 class="filter--input" 
                 type="text" 
                 id="skillFilter" 
-                placeholder="Filter by: e.g. language" 
+                placeholder="Search for: e.g. language" 
                 [(ngModel)]="skillFilter">
             <label class="filter--label" for="skillFilter">
                 <i 
@@ -19,10 +19,11 @@
             </label>
         </div>
         <div class="boxDisplay__content-box--flex">
-                <app-skill-item
-                *ngFor="let skill of (skillState | async).skills |sortby:'proficiency' | filter:skillFilter:'tags'"
-                [skillItem]="skill"
-                ></app-skill-item>
+            <app-skill-item
+            *ngFor="let skill of (skillState | async).skills |sortby:'proficiency' | filter:skillFilter:'tags'"
+            [skillItem]="skill"
+            ></app-skill-item>
+            <div class="skill-item addItem addItem__skill-item" *ngIf="editMode|async"></div>
         </div>
     </div>
 </section>

@@ -1,31 +1,20 @@
 .section-home {
-    height: 65vh;
+    min-height: 50vh;
     text-align: center;
-
-    @include respond(-704) {
-        min-height: 65vh;
-    }
-    @include respond(-580) {
-        min-height: 80vh;
-    }
 }
 
 .section-edu {
-    min-height: 85vh;
     position: relative;
 }
 
 .section-work {
-    min-height: 100vh;
     text-align: center;
 }
 
 .section-skills {
-    min-height: 95vh;
     position: relative;
 }
 
 .section-contact {
-    min-height: 75vh;
     text-align: center;
 }

@@ -146,7 +146,7 @@ const initialState = {
     ]
 };
 
-export function SkillsReducers(state= initialState, action) {
+export function SkillsReducers(state = initialState, action) {
     return state;
 }
 

@@ -1,4 +1,4 @@
-<div class="itemWide itemWide--dark" [ngsReveal]="{ reset: true}" >
+<div class="itemWide itemWide--dark" [ngsReveal]="{reset: true}" >
     <div class="itemWide__image-box">
         <img class="itemWide__logo" src='{{ workItem.cLogo }}' alt="Company Logo">
     </div>
@@ -15,6 +15,10 @@
             <li *ngFor="let resp of workItem.responsibilities; let i = index"> 
                 {{ workItem.responsibilities[i] }}</li>
         </ul>
+    </div>
+    <div class="editItem" *ngIf="(editMode|async).authenticated">
+            <div class="editItem__edit">Edit</div>
+            <div class="editItem__delete">Delete</div>
     </div>
 </div>
 

@@ -18,10 +18,10 @@
     &__content-box {
         width: 100%;
         &--dark {
-            min-height: 55vh;
+            margin-bottom: 3rem;
         }
         &--light {
-            min-height: 70vh;
+            // min-height: 70vh;
         }
         &--flex {
             min-height: 45vh;

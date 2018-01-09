@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 
 import { Social } from './social.model';
 
+import * as fromApp from '../../store/app.reducers';
 import * as fromBasicInfo from '../../shared/store/basic-info.reducers';
 
 @Component({
@@ -13,13 +14,15 @@ import * as fromBasicInfo from '../../shared/store/basic-info.reducers';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-  socialState: Observable<Social[]>;
+  socialState: Observable<fromBasicInfo.State>;
+  editMode: Observable<boolean>;
   pat: RegExp;
 
-  constructor(private store: Store<fromBasicInfo.State>) { }
+  constructor(private store: Store<fromApp.AppState>) { }
 
   ngOnInit() {
     this.socialState = this.store.select('socials');
+    this.editMode = this.store.select('authenticated').select('authenticated');
     this.pat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   }
 

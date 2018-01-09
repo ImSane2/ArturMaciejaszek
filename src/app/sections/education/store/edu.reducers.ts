@@ -1,6 +1,11 @@
 import { Course } from './../course.model';
 import { Education } from './../edu.model';
 // import * as EduActions from './edu.actions';
+// import * as fromApp from '../../../store/app.reducers';
+
+// export interface FeaturedState extends fromApp.AppState {
+//     education: State;
+// }
 
 export interface State {
     education: Education[];

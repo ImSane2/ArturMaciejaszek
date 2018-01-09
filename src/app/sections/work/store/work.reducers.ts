@@ -1,9 +1,11 @@
 import { Work } from './../work.model';
 
+import * as WorkActions from '../store/work.actions';
+
 export interface State {
     work: Work[];
 }
-
+// FIX DATES THEY ARE WRONG
 const initialState = {
     work: [
         new Work(
@@ -45,6 +47,20 @@ const initialState = {
     ]
 };
 
-export function WorkReducers(state = initialState, action) {
-    return state;
+export function WorkReducers(state = initialState, action: WorkActions.WorkActions) {
+    switch (action.type) {
+        case WorkActions.ADD_ITEM:
+            return {
+                ...state,
+                work: [...state.work, action.payload]
+            };
+        // case WorkActions.UPDATE_ITEM:
+        //     const targetItem = state.work[action.payload.index];
+
+        //     return {};
+        // case WorkActions.DELETE_ITEM:
+        //     return {};
+        default:
+            return state;
+    }
 }

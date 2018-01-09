@@ -1,15 +1,16 @@
 .itemWide {
     display: inline-grid;
-    min-height: 20vh;
+    min-height: 15vh;
     max-height: 40vh;
-    max-width: 825px;
+    max-width: 82.5rem;
     width: 60vw;
     margin-bottom: 3rem;
     border: 1px solid $color-dark;
     border-radius: 3px;
     filter: $shadow;
     grid-template-columns: 2fr 6fr 1fr;
-    overflow: hidden;
+    // overflow: hidden;
+    position: relative;
 
     @include respond(-875) {
         width: 80vw;
@@ -227,6 +228,11 @@
     }
     @include respond(-462) {
         height: 20vh;
+    }
+    
+    @include respond(+1532) {
+        height: 30vh;
+        width: 10vw;
     }
 
     &__logo {

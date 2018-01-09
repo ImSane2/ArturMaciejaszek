@@ -1,9 +1,9 @@
 .filter {
     position: absolute;
-    top: 16vh;
+    top: 10rem;
     right: 5vw;
 
-    @include respond(-704) {
+    @include respond(-875) {
         display: block;
         position: initial;
     }
@@ -12,15 +12,6 @@
         color: $color-light;
         filter: $shadow;
         cursor: pointer;
-        // transition: all 0.5s;
-
-        // &:hover {
-        //     transform: scale(1.4);
-        // }
-        // &:active {
-        //     transform: scale(1.2);
-        //     filter: none;
-        // }
     }
 
     &--label {}
@@ -30,6 +21,10 @@
         text-align: center;
         animation: expandToLeft 1.5s ease-out forwards;
         backface-visibility: hidden;
+
+        @include respond(+1532) {
+            animation: expandToLeftBig 1.5s ease-out forwards;
+        }
         
         &:focus {
             outline: none;
@@ -112,7 +107,7 @@
             border-radius: 3px;
             filter: $shadow;
             transform: translateY(-3px);
-            transition: all .3s;
+            // transition: all .3s;
         }
     }
     &__name, &__email {

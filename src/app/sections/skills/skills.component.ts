@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { Skill } from './skill.model';
 
 import * as fromSkill from './store/skills.reducers';
+import * as fromApp from '../../store/app.reducers';
 
 @Component({
   selector: 'app-skills',
@@ -12,13 +13,15 @@ import * as fromSkill from './store/skills.reducers';
   styleUrls: ['./skills.component.scss']
 })
 export class SkillsComponent implements OnInit {
-  skillState: Observable<Skill[]>;
+  skillState: Observable<fromSkill.State>;
+  editMode: Observable<boolean>;
   skillFilter: string;
 
-  constructor(private store: Store<fromSkill.State>) { }
+  constructor(private store: Store<fromApp.AppState>) { }
 
   ngOnInit() {
     this.skillState = this.store.select('skills');
+    this.editMode = this.store.select('authenticated').select('authenticated');
   }
 
 }

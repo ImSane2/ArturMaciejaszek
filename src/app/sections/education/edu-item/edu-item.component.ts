@@ -1,6 +1,10 @@
+import { Store } from '@ngrx/store';
 import { Education } from './../edu.model';
 import { Component, OnInit, Input } from '@angular/core';
 import { trigger, transition, query, stagger, animate, style, keyframes } from '@angular/animations';
+import { Observable } from 'rxjs/Observable';
+
+import * as fromAuth from '../../../auth/auth.reducers';
 
 @Component({
   selector: 'app-edu-item',
@@ -28,10 +32,12 @@ import { trigger, transition, query, stagger, animate, style, keyframes } from '
 export class EduItemComponent implements OnInit {
   @Input() eduItem: Education;
   itemToggle = false;
+  editMode: Observable<boolean>;
 
-  constructor() { }
+  constructor(private store: Store<fromAuth.State>) { }
 
   ngOnInit() {
+    this.editMode = this.store.select('authenticated');
   }
 
 }
