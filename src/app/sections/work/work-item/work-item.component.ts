@@ -4,6 +4,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import * as fromAuth from '../../../auth/auth.reducers';
+import * as fromApp from '../../../store/app.reducers';
+import * as WorkActions from './../store/work.actions';
 
 @Component({
   selector: 'app-work-item',
@@ -12,13 +14,23 @@ import * as fromAuth from '../../../auth/auth.reducers';
 })
 export class WorkItemComponent implements OnInit {
   @Input() workItem: Work;
+  @Input() index: number;
+  editMode: Observable<fromAuth.State>;
   itemToggle = false;
-  editMode: Observable<boolean>;
+  editOn = false;
 
-  constructor(private store: Store<fromAuth.State>) { }
+  constructor(private store: Store<fromApp.AppState>) { }
 
   ngOnInit() {
     this.editMode = this.store.select('authenticated');
+  }
+
+  setEdit(e) {
+    this.editOn = e;
+  }
+
+  deleteItem() {
+    this.store.select('work').select('work').dispatch(new WorkActions.DeleteItem(this.index));
   }
 
 }

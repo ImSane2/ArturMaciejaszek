@@ -23,6 +23,7 @@ import { NgsRevealModule } from 'ng-scrollreveal';
 import { MainComponent } from './main/main.component';
 import { SortbyPipe } from './shared/sortby.pipe';
 import { EduItemCourseComponent } from './sections/education/edu-item/edu-item-course/edu-item-course.component';
+import { WorkItemEditComponent } from './sections/work/work-item-edit/work-item-edit.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { EduItemCourseComponent } from './sections/education/edu-item/edu-item-c
     FilterPipe,
     MainComponent,
     SortbyPipe,
-    EduItemCourseComponent
+    EduItemCourseComponent,
+    WorkItemEditComponent
   ],
   imports: [
     BrowserModule,

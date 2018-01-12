@@ -11,7 +11,7 @@ const initialState = {
         new Work(
             'World Trade Center Poznań',
             './assets/logos/wtc_poznan.png',
-            new Date(2012, 2),
+            new Date('2012-02-01'),
             new Date(2017, 5),
             'promoter/host',
             ['representing companies on trade fairs',
@@ -54,12 +54,22 @@ export function WorkReducers(state = initialState, action: WorkActions.WorkActio
                 ...state,
                 work: [...state.work, action.payload]
             };
-        // case WorkActions.UPDATE_ITEM:
-        //     const targetItem = state.work[action.payload.index];
-
-        //     return {};
-        // case WorkActions.DELETE_ITEM:
-        //     return {};
+        case WorkActions.UPDATE_ITEM:
+            const targetItem = state.work[action.payload.index];
+            const updatedItem = action.payload.item;
+            const newState = [...state.work];
+            newState[action.payload.index] = updatedItem;
+            return {
+                ...state,
+                work: newState
+            };
+        case WorkActions.DELETE_ITEM:
+            const nState = [...state.work];
+            nState.splice(action.payload, 1);
+            return {
+                ...state,
+                work: nState
+            };
         default:
             return state;
     }
