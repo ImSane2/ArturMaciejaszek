@@ -1,5 +1,5 @@
 import { Social } from '../../sections/contact/social.model';
-
+import * as InfoActions from '../store/basic-info.actions';
 
 export interface State {
     name: string;
@@ -22,6 +22,36 @@ const initialState = {
     ]
 };
 
-export function BasicInfoReducers(state = initialState, action) {
+export function BasicInfoReducers(state = initialState, action: InfoActions.InfoActions) {
+    // switch (action.type) {
+    //     case InfoActions.ADD_SOCIAL:
+    //         return {
+    //             ...state,
+    //             socials: [...state.socials, action.payload]
+    //         };
+    //     case InfoActions.UPDATE_INFO:
+    //     const newName = action.payload.name;
+    //     const newGretting = action.payload.greeting;
+    //     const newSocials = [...state.socials, ...action.payload.socials];
+    //     // CHECK IF IT WORKS LATER
+    //     const newState = {newName, newGretting, newSocials};
+    //         // const targetItem = state.work[action.payload.index];
+    //         // const updatedItem = action.payload.item;
+    //         // const newState = [...state.work];
+    //         // newState[action.payload.index] = updatedItem;
+    //         return {
+    //             ...state,
+    //             newState
+    //         };
+    //     case InfoActions.DELETE_SOCIAL:
+    //         const nState = [...state.socials];
+    //         nState.splice(action.payload, 1);
+    //         return {
+    //             ...state,
+    //             socials: nState
+    //         };
+    //     default:
+    //         return state;
+    // }
     return state;
 }

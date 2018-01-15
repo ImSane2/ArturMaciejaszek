@@ -1,19 +1,20 @@
 <section class="section-contact">
   <div class="boxDisplay">
     <div class="boxDisplay__header-box--onWhite">
-      <h2 class="heading_secondary heading_secondary--primary">Contact</h2>
+      <h2 class="heading_secondary heading_secondary--primary" i18n>Contact</h2>
     </div>
     <div class="boxDisplay__contact-box">
-      <p class="boxDisplay__contact-box--text">If you are interested you can reach me via the form below or social links</p>
+      <p class="boxDisplay__contact-box--text" i18n>If you are interested you can reach me via the form below or social links</p>
       <div class="boxDisplay__contact-section">
-        <form class="boxDisplay__form" (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <p *ngIf="msgSent" i18n>Thanks</p>
+        <form class="boxDisplay__form" (ngSubmit)="onSubmit(f)" #f="ngForm" *ngIf="!msgSent">
           <div class="form-group form-group--name">
               <input type="text" id="name" placeholder="Name" name="name"
               class="input form__name"
               required
               autocomplete="name"
               ngModel>
-              <label for="name" class="label">Name</label>
+              <label for="name" class="label" i18n>Name</label>
           </div>
           <div class="form-group form-group--email">
               <input type="email" id="email" placeholder="Email address" name="email" 
@@ -22,7 +23,7 @@
               autocomplete="email"
               [pattern]="pat"
               ngModel>
-              <label for="email" class="label">Email</label>
+              <label for="email" class="label" i18n>Email</label>
           </div>
           <div class="form-group form-group--query">
               <textarea name="query" id="query" cols="30" rows="10" placeholder="Query" name="query"  
@@ -34,7 +35,7 @@
           </div>
           <button type="submit" 
           class="form__submit"
-          [disabled]="!f.valid">Send</button>
+          [disabled]="!f.valid" i18n>Send</button>
         </form>
         <div class="boxDisplay__side-bar">
           <div class="social" *ngFor="let social of (socialState | async).socials">

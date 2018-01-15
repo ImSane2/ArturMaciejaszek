@@ -5,7 +5,7 @@
     <div class="itemWide__text-box">
         <p [ngClass]="{'itemWide__text--main': true, 'expandedHide': itemToggle}">{{ eduItem.school }}</p>
         <p [ngClass]="{'itemWide__text--sub': true, 'expanded': itemToggle}">{{ eduItem.faculty }}</p>
-        <p [ngClass]="{'itemWide__text--sub': true, 'expanded': itemToggle}">Specialization: {{ eduItem.specialization}}</p>
+        <p [ngClass]="{'itemWide__text--sub': true, 'expanded': itemToggle}" ><span i18n>Specialization: </span>{{ eduItem.specialization}}</p>
     </div>
     <i [ngClass]="{'fa': true, 'fa-plus-circle': true, 'itemWide__details-btn': true, 'expanded': itemToggle}"  
     aria-hidden="true"
@@ -18,8 +18,8 @@
             [courseItem]="course"></app-edu-item-course>
     </div>
     <div class="editItem" *ngIf="(editMode|async).authenticated">
-            <div class="editItem__edit">Edit</div>
-            <div class="editItem__delete">Delete</div>
+            <div class="editItem__edit" i18n>Edit</div>
+            <div class="editItem__delete" i18n>Delete</div>
     </div>
 </div>
 

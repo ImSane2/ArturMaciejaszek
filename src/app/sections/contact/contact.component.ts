@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
-
+import { Http, Headers, HttpModule } from '@angular/http';
 import { Social } from './social.model';
 
 import * as fromApp from '../../store/app.reducers';
@@ -17,8 +17,10 @@ export class ContactComponent implements OnInit {
   socialState: Observable<fromBasicInfo.State>;
   editMode: Observable<boolean>;
   pat: RegExp;
+  msgSent = false;
 
-  constructor(private store: Store<fromApp.AppState>) { }
+  constructor(private store: Store<fromApp.AppState>,
+              private http: Http) {}
 
   ngOnInit() {
     this.socialState = this.store.select('socials');
@@ -27,10 +29,25 @@ export class ContactComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    const name = form.value.name;
-    const email = form.value.email;
-    const query = form.value.query;
-    // SEND IT TO MAIL
+    this.sendMail({
+      name: form.value.name,
+      email: form.value.email,
+      query: form.value.query
+    }).subscribe(
+      res => this.msgSent = true
+      // MAKE THE RESPONSE POP UP OR SMTH
+    );
   }
+
+  sendMail({name: name, email: email, query: query}) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/contact', {
+      name: name,
+      email: email,
+      query: query
+    }, {headers: headers});
+  }
+
 
 }

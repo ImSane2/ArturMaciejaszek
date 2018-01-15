@@ -13,6 +13,3 @@ export class Education {
         public courses: Course[]
     ) {}
 }
-
-
-// Education class for aggregated educative experience with courses included

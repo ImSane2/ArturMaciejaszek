@@ -22,8 +22,8 @@
         <app-work-item-edit (editEmitter)="setEdit($event)" [workItem]="workItem" [index]="index"></app-work-item-edit>
     </div>
     <div class="editItem" *ngIf="(editMode|async).authenticated">
-            <div class="editItem__edit" (click)="editOn = !editON">Edit</div>
-            <div class="editItem__delete" (click)="deleteItem()">Delete</div>
+            <div class="editItem__edit" (click)="editOn = !editON" i18n>Edit</div>
+            <div class="editItem__delete" (click)="deleteItem()" i18n>Delete</div>
     </div>
 </div>
 

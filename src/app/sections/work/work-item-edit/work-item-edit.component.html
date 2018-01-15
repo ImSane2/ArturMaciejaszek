@@ -7,7 +7,7 @@
                 required
                 autocomplete="off"
                 [ngModel]="workItem.company">
-                <label for="company" class="label">Company name</label>
+                <label for="company" class="label" i18n>Company name</label>
             </div>
             <div class="form-group">
                 <input type="text" id="position" placeholder="Position" name="position"
@@ -15,13 +15,13 @@
                 required
                 autocomplete="off"
                 [ngModel]="workItem.position">
-                <label for="position" class="label">Position</label>
+                <label for="position" class="label" i18n>Position</label>
             </div>
             <div class="form-group">
                 <input type="text" id="cLogo" placeholder="cLogo path" name="cLogo"
                 class="input form__name"
                 [ngModel]="workItem.cLogo">
-                <label for="cLogo" class="label">Logo path</label>
+                <label for="cLogo" class="label" i18n>Logo path</label>
             </div>
         </div>
         <div>
@@ -29,18 +29,18 @@
                 <input type="date" id="startDate" name="startDate"
                 required
                 [ngModel]="startDate">
-                <label for="startDate" class="label">Start Date</label>
+                <label for="startDate" class="label" i18n>Start Date</label>
             </div>
             <div class="form-group">
                 <input type="date" id="endDate" name="endDate"
                 required
                 [ngModel]="endDate">
-                <label for="endDate">End Date</label>
+                <label for="endDate" i18n>End Date</label>
             </div>
         </div>
         <div class="form-group" ngModelGroup="responsibilities">
-            Responsibilities: 
-            <button type="button" (click)="addResp()">+Res</button>
+            <span i18n>Responsibilities: </span>
+            <button type="button" (click)="addResp()" i18n>+Res</button>
             <div *ngFor="let res of resps; let i = index">
                 <input type="text" id="res{{i}}" placeholder="Responsibility" 
                 name="res{{i}}"
@@ -51,8 +51,8 @@
             </div>
         </div>
         <div>
-            <button type="submit" [disabled]="!f.valid">Save</button>
-            <button (click)="cancelAddItem()" type="button">Cancel</button>
+            <button type="submit" [disabled]="!f.valid" i18n>Save</button>
+            <button (click)="cancelAddItem()" type="button" i18n>Cancel</button>
         </div>
     </form>
 </div>
