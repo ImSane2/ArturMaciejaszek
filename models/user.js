@@ -13,11 +13,7 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    // l10n: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'L10n'
-    // }
-    l10n: [{ l10n: String, data: StateSchema }]
+    data: StateSchema
 });
 
 const User = module.exports = mongoose.model('User', UserSchema);

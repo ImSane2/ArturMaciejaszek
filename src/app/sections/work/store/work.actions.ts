@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
 import { Work } from '../work.model';
 
-export const GET_ITEMS = 'GET_ITEMS';
+export const SET_WORK = 'SET_WORK';
 export const GET_ITEM = 'GET_ITEM';
 export const UPDATE_ITEM = 'UPDATE_ITEM';
 export const ADD_ITEM = 'ADD_ITEM';
@@ -13,10 +13,10 @@ export class AddItem implements Action {
     constructor(public payload: Work) {}
 }
 
-export class GetItems implements Action {
-    readonly type = GET_ITEMS;
+export class SetWork implements Action {
+    readonly type = SET_WORK;
 
-    constructor() {}
+    constructor(public payload: Work[]) {}
 }
 
 export class GetItem implements Action {
@@ -40,6 +40,6 @@ export class DeleteItem implements Action {
 export type WorkActions =
 AddItem |
 GetItem |
-GetItems |
+SetWork |
 UpdateItem |
 DeleteItem;

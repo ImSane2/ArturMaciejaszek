@@ -10,7 +10,9 @@ router.post('/get', (req, res, next) => {
         if (err) throw err;
         if (user) {
             res.json(user);
-            res.json({success: true, msg:"Data successfully fetched"});
+        }
+        if (!user) {
+            res.json({success: false, msg:"Culd not find the user"});
         }
     })
 });
