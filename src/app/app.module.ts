@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { EffectsModule } from '@ngrx/effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -23,6 +24,7 @@ import { MainComponent } from './main/main.component';
 import { SortbyPipe } from './shared/sortby.pipe';
 import { EduItemCourseComponent } from './sections/education/edu-item/edu-item-course/edu-item-course.component';
 import { WorkItemEditComponent } from './sections/work/work-item-edit/work-item-edit.component';
+import { AuthEffects } from './auth/auth.effects';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,7 @@ import { WorkItemEditComponent } from './sections/work/work-item-edit/work-item-
     FormsModule,
     HttpModule,
     StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([AuthEffects]),
     NgsRevealModule.forRoot(),
   ],
   providers: [],

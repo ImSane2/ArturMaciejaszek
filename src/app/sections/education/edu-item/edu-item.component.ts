@@ -36,8 +36,8 @@ import { NgForm } from '@angular/forms/src/directives/ng_form';
 export class EduItemComponent implements OnInit {
   @Input() eduItem: Education;
   @Input() index: number;
-  coursesArray: Course[];
   editMode: Observable<fromAuth.State>;
+  coursesArray: Course[];
   itemToggle = false;
   editable = false;
 

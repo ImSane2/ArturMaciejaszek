@@ -5,13 +5,13 @@
     </div>
     <div class="footer__right">
         <p>Access</p>
-        <form class="expandable">
-            <label for="login" i18n>Mail</label>
-            <input type="login" name="login" id="login">
-            <label for="pass" i18n>Password</label>
-            <input type="pass" name="pass" id="pass">
-            <button i18n>Register</button>
+        <form class="expandable" (ngSubmit)=onSubmit(f) #f="ngForm">
+            <label for="username" i18n>Username</label>
+            <input type="username"  name="username" id="username" ngModel>
+            <label for="password" i18n>Password</label>
+            <input type="password" name="password" id="password" ngModel>
             <button type="submit" i18n>Login</button>
+            <button type="button" (click)="registerUser(f)" i18n>Register</button>
         </form>
     </div>
 </footer>

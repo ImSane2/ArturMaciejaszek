@@ -15,9 +15,20 @@ router.post('/register', (req, res, next) => {
         if (err) {
             res.json({success: false, msg:'Failed to register user'});
         }else {
-            res.json({success: true, msg:'User registered'});
+            // res.json('JWT' + token);
+            // res.json({success: true, msg:'User registered'});
+            const token = jwt.sign({data: user}, config.secret, {expiresIn: "5h" });
+            res.json({
+                success: true,
+                token: 'JWT ' + token,
+                user: {
+                    id: user._id,
+                    username: user.username,
+                }
+            });
         }
     });
+    
 
 });
 

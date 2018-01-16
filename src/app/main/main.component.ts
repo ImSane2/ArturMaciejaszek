@@ -1,3 +1,4 @@
+import { Logout } from './../auth/auth.actions';
 import { HttpModule, Http, Headers } from '@angular/http';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
@@ -74,6 +75,10 @@ export class MainComponent implements OnInit {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.http.put('http://localhost:3000/manager/save', data, {headers: headers});
+  }
+
+  logout() {
+    this.store.dispatch(new Logout());
   }
 
 }

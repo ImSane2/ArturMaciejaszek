@@ -9,7 +9,7 @@
       *ngFor="let edu of eduState|async; let i = index"
       [eduItem]="edu"
       [index]="i"></app-edu-item>
-      <div class="itemWide itemWide--light addItem__itemWide" *ngIf="editMode">
+      <div class="itemWide itemWide--light addItem__itemWide" *ngIf="editMode|async">
         <div>
           <i class="fa fa-plus-circle addBtn"  
           aria-hidden="true"
