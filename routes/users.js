@@ -11,25 +11,28 @@ router.post('/register', (req, res, next) => {
         password: req.body.password,
     });
 
-    User.addUser(newUser, (err, user) => {
-        if (err) {
-            res.json({success: false, msg:'Failed to register user'});
+    User.getUserByUsername(newUser.username, (err, user) => {
+        if (err) throw err;
+        if (user) {
+            res.json({success: false, msg:'Username already taken'});
         }else {
-            // res.json('JWT' + token);
-            // res.json({success: true, msg:'User registered'});
-            const token = jwt.sign({data: user}, config.secret, {expiresIn: "5h" });
-            res.json({
-                success: true,
-                token: 'JWT ' + token,
-                user: {
-                    id: user._id,
-                    username: user.username,
+            User.addUser(newUser, (err, user) => {
+                if (err) {
+                    res.json({success: false, msg:'Failed to register user'});
+                }else {
+                    const token = jwt.sign({data: user}, config.secret, {expiresIn: "5h" });
+                    res.json({
+                        success: true,
+                        token: 'JWT ' + token,
+                        user: {
+                            id: user._id,
+                            username: user.username,
+                        }
+                    });
                 }
             });
         }
     });
-    
-
 });
 
 router.post('/authenticate', (req, res, next) => {
@@ -62,7 +65,7 @@ router.post('/authenticate', (req, res, next) => {
     });
 });
 
-router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res, next) => {
+router.get('/profile', (req, res, next) => {
     res.json({user: req.user});
 });
 

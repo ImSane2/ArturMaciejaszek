@@ -22,8 +22,6 @@ export class FooterComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    // this.store.dispatch(new TryLogin(form.value));
-    this.store.select('token').subscribe ( res => console.log(res));
+    this.store.dispatch(new TryLogin(form.value));
   }
-
 }

@@ -3,6 +3,8 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const User = require('../models/user');
 const db = require('../config/database');
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
 
 router.post('/get', (req, res, next) => {
     const username = req.body.username;
@@ -17,7 +19,7 @@ router.post('/get', (req, res, next) => {
     })
 });
 
-router.put('/save', (req, res, next) => {
+router.put('/save', passport.authenticate('jwt', {session: false}), (req, res, next) => {
     const data = req.body;
 
     User.saveData(data, (err, user)=> {

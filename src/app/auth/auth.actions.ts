@@ -5,7 +5,7 @@ export const LOGIN = 'LOGIN';
 export const TRY_REGISTER = 'TRY_REGISTER';
 export const TRY_LOGIN = 'TRY_LOGIN';
 export const SET_TOKEN = 'SET_TOKEN';
-export const GET_TOKEN = 'GET_TOKEN';
+export const ERROR = 'ERROR';
 export const LOGOUT = 'LOGOUT';
 
 export class Register implements Action {
@@ -38,10 +38,10 @@ export class SetToken implements Action {
     constructor(public payload: String) {}
 }
 
-export class GetToken implements Action {
-    readonly type = GET_TOKEN;
+export class Error implements Action {
+    readonly type = ERROR;
 
-    constructor() {}
+    constructor(public payload: String) {}
 }
 
 export class Logout implements Action {
@@ -56,5 +56,5 @@ TryRegister |
 TryLogin |
 Login |
 SetToken |
-GetToken |
+Error |
 Logout;

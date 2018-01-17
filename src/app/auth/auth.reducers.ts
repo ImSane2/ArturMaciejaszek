@@ -29,6 +29,8 @@ export function AuthReducers(state = initialState, action: AuthActions.AuthActio
                 ...state,
                 token: action.payload
             };
+        case AuthActions.ERROR:
+            return state;
         default:
             return state;
     }

@@ -1,14 +1,16 @@
-import { Logout } from './../auth/auth.actions';
-import { HttpModule, Http, Headers } from '@angular/http';
-import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
+import { HttpModule, Http, Headers } from '@angular/http';
+import { ActivatedRoute, Params, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
+
 import { Social } from '../sections/contact/social.model';
 
 import { UpdateInfo } from './../shared/store/basic-info.actions';
 import { SetWork } from './../sections/work/store/work.actions';
 import { SetSkills } from './../sections/skills/store/skills.actions';
 import { SetEdu } from '../sections/education/store/edu.actions';
+import { Logout } from './../auth/auth.actions';
 
 import * as fromBasicInfo from '../shared/store/basic-info.reducers';
 import * as fromAuth from '../auth/auth.reducers';
@@ -24,29 +26,36 @@ import * as fromSkills from '../sections/skills/store/skills.reducers';
 })
 export class MainComponent implements OnInit {
   editMode: Observable<fromAuth.State>;
+  authState: fromAuth.State;
   infoState: fromBasicInfo.State;
   eduState: fromEdu.State;
   workState: fromWork.State;
   skillsState: fromSkills.State;
+  currentUser: String;
   data: Object;
 
   constructor( private store: Store<fromApp.AppState>,
-                private http: Http) {}
+                private http: Http,
+                private route: ActivatedRoute) {}
 
   ngOnInit() {
+    this.route.paramMap.subscribe( (params: ParamMap) => {
+      console.log(params.get('id'));
+      this.currentUser = params.get('id') ? params.get('id') : 'Test';
+    });
     this.editMode = this.store.select('authenticated');
-    this.getData().subscribe( (res) => {this.populateData(res); this.data = res.json(); } );
+    this.getData(this.currentUser).subscribe( (res) => {this.populateData(res); this.data = res.json(); } );
+    this.store.select('token').subscribe( (res) => this.authState = res);
     this.store.select('name').subscribe( (res) => this.infoState = res);
     this.store.select('education').subscribe( (res) => this.eduState = res);
     this.store.select('work').subscribe( (res) => this.workState = res);
     this.store.select('skills').subscribe( (res) => this.skillsState = res);
   }
 
-  // NO USERNAME PASSED FOR NOW - 'TEST' HARDCODED
-  getData() {
+  getData(username) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/manager/get', {username: 'Test'}, {headers: headers});
+    return this.http.post('http://localhost:3000/manager/get', {username: username}, {headers: headers});
   }
 
   populateData(data) {
@@ -74,6 +83,7 @@ export class MainComponent implements OnInit {
   saveCall(data) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', this.authState.token);
     return this.http.put('http://localhost:3000/manager/save', data, {headers: headers});
   }
 
