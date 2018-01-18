@@ -4,11 +4,21 @@ const User = require('../models/user');
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const config = require('../config/database');
+const mongoose = require('mongoose');
+const InfoSchema = require('../models/info');
+
+const Info = mongoose.model('Info', InfoSchema);
 
 router.post('/register', (req, res, next) => {
     let newUser = new User({
         username: req.body.username,
         password: req.body.password,
+        data: {
+            info: new Info({
+                name: req.body.username,
+                greeting: 'Hello, feel free to make your own thing :)'
+            })
+        }
     });
 
     User.getUserByUsername(newUser.username, (err, user) => {

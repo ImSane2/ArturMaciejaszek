@@ -3,10 +3,8 @@ import { Action } from '@ngrx/store';
 
 export const ADD_SOCIAL = 'ADD_SOCIAL';
 export const GET_ITEMS = 'GET_ITEMS';
-// export const GET_NAME = 'GET_NAME';
-// export const GET_GREETING = 'GET_GREETING';
-// export const GET_SOCIALS = 'GET_SOCIALS';
 export const UPDATE_INFO = 'UPDATE_INFO';
+export const UPDATE_SOCIALS = 'UPDATE_SOCIALS';
 export const DELETE_SOCIAL = 'DELETE_SOCIAL';
 
 export class AddSocial implements Action {
@@ -24,7 +22,7 @@ export class GetItems implements Action {
 export class UpdateInfo implements Action {
     readonly type = UPDATE_INFO;
 
-    constructor(public payload: {name: string, greeting: string, socials: Social[] }) {}
+    constructor(public payload: {name: string, greeting: string}) {}
 }
 
 export class DeleteSocial implements Action {
@@ -33,8 +31,15 @@ export class DeleteSocial implements Action {
     constructor(public payload: number) {}
 }
 
+export class UpdateSocials implements Action {
+    readonly type = UPDATE_SOCIALS;
+
+    constructor(public payload: Social[]) {}
+}
+
 export type InfoActions =
 AddSocial |
 GetItems |
 UpdateInfo |
-DeleteSocial;
+DeleteSocial |
+UpdateSocials;

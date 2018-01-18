@@ -16,8 +16,8 @@ const InfoSchema = module.exports = mongoose.Schema({
         required: true
     },
     socials: [{
-        type: SocialSchema,
-        required: true
+        type: SocialSchema
     }]
 })
+
 

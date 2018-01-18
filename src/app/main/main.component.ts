@@ -32,7 +32,7 @@ export class MainComponent implements OnInit {
   workState: fromWork.State;
   skillsState: fromSkills.State;
   currentUser: String;
-  data: Object;
+  data: any;
 
   constructor( private store: Store<fromApp.AppState>,
                 private http: Http,
@@ -40,11 +40,14 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe( (params: ParamMap) => {
-      console.log(params.get('id'));
-      this.currentUser = params.get('id') ? params.get('id') : 'Test';
+      this.currentUser = params.get('id') ? params.get('id') : 'arturmaciejaszek';
+      console.log(this.currentUser);
+      this.getData(this.currentUser).subscribe( (res) => {
+        this.data = res.json();
+        this.populateData(res);
+      });
     });
     this.editMode = this.store.select('authenticated');
-    this.getData(this.currentUser).subscribe( (res) => {this.populateData(res); this.data = res.json(); } );
     this.store.select('token').subscribe( (res) => this.authState = res);
     this.store.select('name').subscribe( (res) => this.infoState = res);
     this.store.select('education').subscribe( (res) => this.eduState = res);
@@ -68,7 +71,9 @@ export class MainComponent implements OnInit {
 
   saveData() {
     const newData = {
-      ...this.data,
+      username: this.data.username,
+      password: this.data.password,
+      // ...this.data,
       data: {
         info: this.infoState,
         education: this.eduState.education,
@@ -76,8 +81,9 @@ export class MainComponent implements OnInit {
         skills: this.skillsState.skills
       }
     };
+    console.log(this.currentUser);
     console.log(newData);
-    this.saveCall(newData).subscribe((res) => console.log(res));
+    this.saveCall(newData).subscribe((res) => console.log(res.json()));
   }
 
   saveCall(data) {

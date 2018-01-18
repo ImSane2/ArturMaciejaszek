@@ -37,12 +37,10 @@ export function BasicInfoReducers(state = initialState, action: InfoActions.Info
         case InfoActions.UPDATE_INFO:
             const newName = action.payload.name;
             const newGretting = action.payload.greeting;
-            const newSocials = action.payload.socials;
             return {
                 ...state,
                 name: newName,
-                greeting: newGretting,
-                socials: newSocials
+                greeting: newGretting
             };
         case InfoActions.DELETE_SOCIAL:
             const nState = [...state.socials];
@@ -50,6 +48,12 @@ export function BasicInfoReducers(state = initialState, action: InfoActions.Info
             return {
                 ...state,
                 socials: nState
+            };
+        case InfoActions.UPDATE_SOCIALS:
+            const newSocials = action.payload;
+            return {
+                ...state,
+                socials: newSocials
             };
         default:
             return state;

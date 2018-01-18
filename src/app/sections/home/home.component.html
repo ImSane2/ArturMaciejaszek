@@ -1,9 +1,33 @@
 <section class="section-home">
-    <div class="home">
+    <div class="home" *ngIf="!editOn">
         <div class="home__header-box">
             <h2 class="heading_secondary heading_secondary--primary" i18n>Welcome</h2>
         </div>    
         <img class="home__my-photo" src="./assets/img/am-smile.png" alt="My Photo" >
-        <p class="home__welcome-text"  [ngsReveal]="{reset: true, duration: 2700}">{{ (basicState | async).greeting }}</p>       
+        <p class="home__welcome-text"  [ngsReveal]="{reset: true, duration: 2700}">
+            {{ (basicState | async).greeting }}</p>       
+    </div>
+    <div class="home" *ngIf="editOn">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="form-group form-group--name">
+                <input type="text" id="myname" placeholder="Name" name="myname"
+                class="input form__name"
+                required
+                ngModel>
+                <label for="myname" class="label" i18n>Name</label>
+            </div>
+            <div class="form-group form-group--name">
+                <input type="text" id="greeting" placeholder="Welcome text" name="greeting"
+                class="input form__name"
+                required
+                ngModel>
+                <label for="greeting" class="label" i18n>Welcome text</label>
+            </div>
+            <button type="submit" i18n>Save</button>
+            <button type="button" (click)="onCancel()" i18n>Cancel</button>
+        </form>
+    </div>
+    <div class="editConsole" *ngIf="editMode">
+        <div class="editButton" (click)="editOn = !editOn" i18n>Edit</div>
     </div>
 </section>
