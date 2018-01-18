@@ -1,7 +1,7 @@
 <!-- DIV FOR POSITION -->
 <div class="helperDiv">
 <!-- EDUCATION ITEM -->
-<div class="itemWide itemWide--light" [ngsReveal]="{ reset: true}" *ngIf="!editable">
+<div class="itemWide itemWide--light" [ngsReveal]="{ reset: true}" *ngIf="!editOn">
     <div class="itemWide__image-box">
         <img class="itemWide__logo" src='{{ eduItem.logo }}' alt="School Logo">
     </div>
@@ -25,72 +25,8 @@
     </div>
 </div>
 <!-- FORM FOR EDIT -->
-<div class="itemWide itemWide--light" *ngIf="editable">
-    <form class="editOn" (ngSubmit)="onSubmit(f)" #f="ngForm">
-        <div class="form-group">
-            <input type="text" id="school" placeholder="School name" name="school"
-            class="input form__name"
-            required
-            [ngModel]="eduItem.school">
-            <label for="school" class="label" i18n>School name</label>
-        </div>
-        <div class="form-group">
-            <input type="text" id="faculty" placeholder="Faculty" name="faculty"
-            class="input form__name"
-            required
-            [ngModel]="eduItem.faculty">
-            <label for="faculty" class="label" i18n>Faculty</label>
-        </div>
-        <div class="form-group">
-            <input type="text" id="specialization" placeholder="Specialization" name="specialization"
-            class="input form__name"
-            required
-            [ngModel]="eduItem.specialization">
-            <label for="specialization" class="label" i18n>Specialization</label>
-        </div>
-        <div class="form-group">
-            <input type="text" id="logo" placeholder="logo path" name="logo"
-            class="input form__name"
-            [ngModel]="eduItem.logo">
-            <label for="logo" class="label" i18n>logo path</label>
-        </div>
-        <div class="form-group">
-            <input type="text" id="type" placeholder="type" name="type"
-            class="input form__name"
-            required
-            [ngModel]="eduItem.type">
-            <label for="type" class="label" i18n>type</label>
-        </div>
-        <div class="form-group">
-            <input type="date" id="startDate" placeholder="Start Date" name="startDate"
-            class="input form__name"
-            required
-            [ngModel]="eduItem.startDate">
-            <label for="startDate" class="label" i18n>Start Date</label>
-        </div>
-        <div class="form-group">
-            <input type="date" id="endDate" placeholder="End Date" name="endDate"
-            class="input form__name"
-            required
-            [ngModel]="eduItem.endDate">
-            <label for="endDate" class="label" i18n>End Date</label>
-        </div>
-        <div class="form-group" ngModelGroup="courses">
-            <span i18n>Courses: </span>
-            <button type="button" (click)="addCourseField()" i18n>+Course</button>
-            <div *ngFor="let course of coursesArray; let i = index">
-                <input type="text" id="course{{i}}" placeholder="Course" 
-                name="course{{i}}"
-                class="input form__name"
-                [ngModel]="course.courseName">
-                <button type="button" (click)="deleteCourse(i)">X</button>
-            </div>
-        </div>
-        <div>
-            <button type="submit" [disabled]="!f.valid" i18n>Save</button>
-            <button (click)="cancelAddItem()" type="button" i18n>Cancel</button>
-        </div>        
-    </form>
+<div class="itemWide itemWide--light" *ngIf="editOn">
+    <app-edu-edit [index]="index" (editEmitter)="setEdit($event)"></app-edu-edit>
 </div>
 <!-- CONTROL PANEL -->
 <div class="editItem" *ngIf="(editMode|async).authenticated">

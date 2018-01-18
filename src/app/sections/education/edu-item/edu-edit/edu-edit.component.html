@@ -1,0 +1,66 @@
+<form class="editOn" (ngSubmit)="onSubmit()" [formGroup]="form">
+  <div class="form-group">
+      <input type="text" id="school" placeholder="School name" formControlName="school"
+      class="input form__name"
+      required
+      >
+      <label for="school" class="label" i18n>School name</label>
+  </div>
+  <div class="form-group">
+      <input type="text" id="faculty" placeholder="Faculty" formControlName="faculty"
+      class="input form__name"
+      required
+      >
+      <label for="faculty" class="label" i18n>Faculty</label>
+  </div>
+  <div class="form-group">
+      <input type="text" id="specialization" placeholder="Specialization" formControlName="specialization"
+      class="input form__name"
+      required
+      >
+      <label for="specialization" class="label" i18n>Specialization</label>
+  </div>
+  <div class="form-group">
+      <input type="text" id="logo" placeholder="logo path" formControlName="logo"
+      class="input form__name"
+      >
+      <label for="logo" class="label" i18n>logo path</label>
+  </div>
+  <div class="form-group">
+      <input type="text" id="type" placeholder="type" formControlName="type"
+      class="input form__name"
+      required
+      >
+      <label for="type" class="label" i18n>type</label>
+  </div>
+  <div class="form-group">
+      <input type="date" id="startDate" placeholder="Start Date" formControlName="startDate"
+      class="input form__name"
+      required
+      >
+      <label for="startDate" class="label" i18n>Start Date</label>
+  </div>
+  <div class="form-group">
+      <input type="date" id="endDate" placeholder="End Date" formControlName="endDate"
+      class="input form__name"
+      required
+      >
+      <label for="endDate" class="label" i18n>End Date</label>
+  </div>
+  <div class="form-group" formArrayName="courses">
+      <span i18n>Courses: </span>
+      <button type="button" (click)="addCourseField()" i18n>+Course</button>
+      <div *ngFor="let course of getControls(); let i = index" [formGroupName]="i">
+          <input type="text" id="course{{i}}" placeholder="Course" 
+          formControlName="courseName"
+          class="input form__name">
+          <input type="text" id="description{{i}}" placeholder="Description" formControlName="description">
+          <input type="number" id="mark{{i}}" placeholder="Mark" formControlName="mark">
+          <button type="button" (click)="deleteCourse(i)">X</button>
+      </div>
+  </div>
+  <div>
+      <button type="submit" [disabled]="!form.valid" i18n>Save</button>
+      <button (click)="onCancel()" type="button" i18n>Cancel</button>
+  </div>        
+</form>

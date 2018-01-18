@@ -5,6 +5,8 @@ import { Store } from '@ngrx/store';
 
 import { UpdateInfo } from './../../shared/store/basic-info.actions';
 import * as fromBasicInfo from '../../shared/store/basic-info.reducers';
+import * as fromAuth from '../../auth/auth.reducers';
+import * as fromApp from '../../store/app.reducers';
 
 @Component({
   selector: 'app-home',
@@ -12,14 +14,15 @@ import * as fromBasicInfo from '../../shared/store/basic-info.reducers';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  basicState: Observable<string>;
-  editMode = false;
+  basicState: Observable<fromBasicInfo.State>;
+  editMode: Observable<fromAuth.State>;
   editOn = false;
 
-  constructor(private store: Store<fromBasicInfo.State>) { }
+  constructor(private store: Store<fromApp.AppState>) { }
 
   ngOnInit() {
     this.basicState = this.store.select('greeting');
+    this.editMode = this.store.select('authenticated');
   }
 
   onSubmit(form: NgForm) {

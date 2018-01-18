@@ -143,12 +143,12 @@ const initialState = {
 
 export function EduReducers(state = initialState, action: EduActions.EduActions) {
     switch (action.type) {
-        case EduActions.ADD_ITEM:
+        case EduActions.ADD_EDU:
             return {
                 ...state,
                 education: [...state.education, action.payload]
             };
-        case EduActions.UPDATE_ITEM:
+        case EduActions.UPDATE_EDU:
             const targetItem = state.education[action.payload.index];
             const updatedItem = action.payload.item;
             const newState = [...state.education];
@@ -157,7 +157,7 @@ export function EduReducers(state = initialState, action: EduActions.EduActions)
                 ...state,
                 education: newState
             };
-        case EduActions.DELETE_ITEM:
+        case EduActions.DELETE_EDU:
             const nState = [...state.education];
             nState.splice(action.payload, 1);
             return {

@@ -1,14 +1,13 @@
-import { Course } from './../course.model';
-import { Store } from '@ngrx/store';
-import { Education } from './../edu.model';
 import { Component, OnInit, Input } from '@angular/core';
 import { trigger, transition, query, stagger, animate, style, keyframes } from '@angular/animations';
 import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
+
+import { Education } from './../edu.model';
 
 import * as fromAuth from '../../../auth/auth.reducers';
 import * as fromApp from '../../../store/app.reducers';
-import { DeleteItem } from '../store/edu.actions';
-import { NgForm } from '@angular/forms/src/directives/ng_form';
+import { DeleteEdu } from '../store/edu.actions';
 
 @Component({
   selector: 'app-edu-item',
@@ -37,40 +36,25 @@ export class EduItemComponent implements OnInit {
   @Input() eduItem: Education;
   @Input() index: number;
   editMode: Observable<fromAuth.State>;
-  coursesArray: Course[];
   itemToggle = false;
-  editable = false;
+  editOn = false;
 
   constructor(private store: Store<fromApp.AppState>) { }
 
   ngOnInit() {
     this.editMode = this.store.select('authenticated');
-    this.coursesArray = this.eduItem.courses.slice();
   }
 
   startEdit() {
-    this.editable = !this.editable;
+    this.editOn = !this.editOn;
   }
 
   deleteItem() {
-    this.store.dispatch(new DeleteItem(this.index));
+    this.store.dispatch(new DeleteEdu(this.index));
   }
 
-  cancelAddItem() {
-    this.coursesArray = this.eduItem.courses.slice();
-    this.editable = false;
-  }
-
-  deleteCourse(i: number) {
-    this.coursesArray.splice(i, 1);
-  }
-
-  addCourseField() {
-    this.coursesArray.push(new Course('', null, '', []));
-  }
-
-  onSubmit(form: NgForm) {
-    console.log(form.value);
+  setEdit(e) {
+    this.editOn = e;
   }
 
 }

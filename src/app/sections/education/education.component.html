@@ -10,10 +10,13 @@
       [eduItem]="edu"
       [index]="i"></app-edu-item>
       <div class="itemWide itemWide--light addItem__itemWide" *ngIf="editMode|async">
-        <div>
+        <div *ngIf="!editOn">
           <i class="fa fa-plus-circle addBtn"  
           aria-hidden="true"
-          (click)="editOn = !editOn"></i>
+          (click)="editOn = true"></i>
+        </div>
+        <div *ngIf="editOn">
+            <app-edu-edit (editEmitter)="setEdit($event)"></app-edu-edit>
         </div>
       </div>  
     </div>

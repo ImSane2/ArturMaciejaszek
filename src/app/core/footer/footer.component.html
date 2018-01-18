@@ -9,7 +9,7 @@
             <label for="username" i18n>Username</label>
             <input type="username"  name="username" id="username" ngModel>
             <label for="password" i18n>Password</label>
-            <input type="password" name="password" id="password" ngModel>
+            <input type="password" name="password" id="password" autocomplete="new-password" ngModel>
             <button type="submit" i18n>Login</button>
             <button type="button" (click)="registerUser(f)" i18n>Register</button>
         </form>

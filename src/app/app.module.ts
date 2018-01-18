@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { EffectsModule } from '@ngrx/effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,6 +26,7 @@ import { SortbyPipe } from './shared/sortby.pipe';
 import { EduItemCourseComponent } from './sections/education/edu-item/edu-item-course/edu-item-course.component';
 import { WorkItemEditComponent } from './sections/work/work-item-edit/work-item-edit.component';
 import { AuthEffects } from './auth/auth.effects';
+import { EduEditComponent } from './sections/education/edu-item/edu-edit/edu-edit.component';
 
 @NgModule({
   declarations: [
@@ -44,13 +45,15 @@ import { AuthEffects } from './auth/auth.effects';
     MainComponent,
     SortbyPipe,
     EduItemCourseComponent,
-    WorkItemEditComponent
+    WorkItemEditComponent,
+    EduEditComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([AuthEffects]),

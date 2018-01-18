@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
+
+import { Education } from './edu.model';
+import { Course } from './course.model';
 
 import * as fromApp from '../../store/app.reducers';
-// import * as fromEdu from './store/edu.reducers';
-import { Education } from './edu.model';
 
 @Component({
   selector: 'app-education',
@@ -21,6 +22,10 @@ export class EducationComponent implements OnInit {
   ngOnInit() {
     this.eduState = this.store.select('education').select('education');
     this.editMode = this.store.select('authenticated').select('authenticated');
+  }
+
+  setEdit(e) {
+    this.editOn = e;
   }
 
 }

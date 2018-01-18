@@ -2,13 +2,13 @@ import { Education } from './../edu.model';
 import { Action } from '@ngrx/store';
 
 export const SET_EDU = 'SET_EDU';
-export const GET_ITEM = 'GET_ITEM';
-export const UPDATE_ITEM = 'UPDATE_ITEM';
-export const ADD_ITEM = 'ADD_ITEM';
-export const DELETE_ITEM = 'DELETE_ITEM';
+export const GET_EDU = 'GET_EDU';
+export const UPDATE_EDU = 'UPDATE_EDU';
+export const ADD_EDU = 'ADD_EDU';
+export const DELETE_EDU = 'DELETE_EDU';
 
-export class AddItem implements Action {
-    readonly type = ADD_ITEM;
+export class AddEdu implements Action {
+    readonly type = ADD_EDU;
 
     constructor(public payload: Education) {}
 }
@@ -19,27 +19,27 @@ export class SetEdu implements Action {
     constructor(public payload: Education[]) {}
 }
 
-export class GetItem implements Action {
-    readonly type = GET_ITEM;
+export class GetEdu implements Action {
+    readonly type = GET_EDU;
 
     constructor(public payload: number) {}
 }
 
-export class UpdateItem implements Action {
-    readonly type = UPDATE_ITEM;
+export class UpdateEdu implements Action {
+    readonly type = UPDATE_EDU;
 
     constructor(public payload: {index: number, item: Education}) {}
 }
 
-export class DeleteItem implements Action {
-    readonly type = DELETE_ITEM;
+export class DeleteEdu implements Action {
+    readonly type = DELETE_EDU;
 
     constructor(public payload: number) {}
 }
 
 export type EduActions =
-AddItem |
-GetItem |
+AddEdu |
+GetEdu |
 SetEdu |
-UpdateItem |
-DeleteItem;
+UpdateEdu |
+DeleteEdu;
