@@ -9,6 +9,42 @@ export interface State {
 const initialState = {
     work: []
 };
+
+export function WorkReducers(state = initialState, action: WorkActions.WorkActions) {
+    switch (action.type) {
+        case WorkActions.ADD_WORK:
+            return {
+                ...state,
+                work: [...state.work, action.payload]
+            };
+        case WorkActions.UPDATE_WORK:
+        console.log(action.payload);
+            const targetItem = state.work[action.payload.index];
+            const updatedItem = action.payload.item;
+            const newState = [...state.work];
+            newState[action.payload.index] = updatedItem;
+            return {
+                ...state,
+                work: newState
+            };
+        case WorkActions.DELETE_WORK:
+            const nState = [...state.work];
+            nState.splice(action.payload, 1);
+            return {
+                ...state,
+                work: nState
+            };
+        case WorkActions.SET_WORK:
+            const workState = action.payload;
+            return {
+                ...state,
+                work: workState
+            };
+        default:
+            return state;
+    }
+}
+
 // FIX DATES THEY ARE WRONG
 // const initialState = {
 //     work: [
@@ -50,37 +86,3 @@ const initialState = {
 //         )
 //     ]
 // };
-
-export function WorkReducers(state = initialState, action: WorkActions.WorkActions) {
-    switch (action.type) {
-        case WorkActions.ADD_ITEM:
-            return {
-                ...state,
-                work: [...state.work, action.payload]
-            };
-        case WorkActions.UPDATE_ITEM:
-            const targetItem = state.work[action.payload.index];
-            const updatedItem = action.payload.item;
-            const newState = [...state.work];
-            newState[action.payload.index] = updatedItem;
-            return {
-                ...state,
-                work: newState
-            };
-        case WorkActions.DELETE_ITEM:
-            const nState = [...state.work];
-            nState.splice(action.payload, 1);
-            return {
-                ...state,
-                work: nState
-            };
-        case WorkActions.SET_WORK:
-            const workState = action.payload;
-            return {
-                ...state,
-                work: workState
-            };
-        default:
-            return state;
-    }
-}

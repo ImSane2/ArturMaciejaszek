@@ -1,7 +1,11 @@
+import { DeleteSkill } from './../store/skills.actions';
 import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
 
 import { Skill } from './../skill.model';
 
+import * as fromAuth from '../../../auth/auth.reducers';
 
 @Component({
   selector: 'app-skill-item',
@@ -10,12 +14,28 @@ import { Skill } from './../skill.model';
 })
 export class SkillItemComponent implements OnInit {
   @Input() skillItem: Skill;
+  @Input() index: number;
+  editMode: Observable<boolean>;
+  editOn = false;
   starsArray = [];
 
-  constructor() {}
+  constructor(private store: Store<fromAuth.State>) {}
 
   ngOnInit() {
+    this.editMode = this.store.select('authenticated');
     this.populateStars();
+  }
+
+  startEdit() {
+    this.editOn = !this.editOn;
+  }
+
+  setEdit(e) {
+    this.editOn = e;
+  }
+
+  deleteItem() {
+    this.store.dispatch(new DeleteSkill(this.index));
   }
 
   populateStars() {

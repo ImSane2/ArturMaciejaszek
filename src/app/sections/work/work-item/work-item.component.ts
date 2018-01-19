@@ -1,11 +1,12 @@
-import { Store } from '@ngrx/store';
-import { Work } from './../work.model';
 import { Component, OnInit, Input } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
+
+import { Work } from './../work.model';
 
 import * as fromAuth from '../../../auth/auth.reducers';
 import * as fromApp from '../../../store/app.reducers';
-import * as WorkActions from './../store/work.actions';
+import { DeleteWork } from '../store/work.actions';
 
 @Component({
   selector: 'app-work-item',
@@ -30,7 +31,7 @@ export class WorkItemComponent implements OnInit {
   }
 
   deleteItem() {
-    this.store.select('work').select('work').dispatch(new WorkActions.DeleteItem(this.index));
+    this.store.select('work').select('work').dispatch(new DeleteWork(this.index));
   }
 
 }

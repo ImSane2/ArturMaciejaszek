@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="itemWide itemWide--dark addItem addItem__itemWide" *ngIf="editOn">
-        <app-work-item-edit (editEmitter)="setEdit($event)" [workItem]="workItem" [index]="index"></app-work-item-edit>
+        <app-work-edit (editEmitter)="setEdit($event)" [index]="index"></app-work-edit>
     </div>
     <div class="editItem" *ngIf="(editMode|async).authenticated">
             <div class="editItem__edit" (click)="editOn = !editON" i18n>Edit</div>

@@ -15,7 +15,7 @@
                 aria-hidden="true"
                 (click)="editOn = !editOn"></i>
             </div>
-            <app-work-item-edit *ngIf="editOn" (editEmitter)="setEdit($event)"></app-work-item-edit>   
+            <app-work-edit *ngIf="editOn" (editEmitter)="setEdit($event)"></app-work-edit>   
         </div>  
     </div>
 </section>

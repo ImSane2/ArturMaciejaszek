@@ -20,10 +20,19 @@
         </div>
         <div class="boxDisplay__content-box--flex">
             <app-skill-item
-            *ngFor="let skill of (skillState | async).skills |sortby:'proficiency' | filter:skillFilter:'tags'"
+            *ngFor="let skill of (skillState|async).skills |sortby:'proficiency'|filter:skillFilter:'tags';
+            let i = index"
+            [index]="i"
             [skillItem]="skill"
             ></app-skill-item>
-            <div class="skill-item addItem addItem__skill-item" *ngIf="editMode|async"></div>
+            <div class="skill-item addItem addItem__skill-item" *ngIf="editMode|async">
+                <div *ngIf="!editOn">
+                    <i class="fa fa-plus-circle addBtn"  
+                    aria-hidden="true"
+                    (click)="editOn = true"></i>
+                </div>
+                <app-skill-edit *ngIf="editOn" (editEmitter)="setEdit($event)"></app-skill-edit>
+            </div>
         </div>
     </div>
 </section>

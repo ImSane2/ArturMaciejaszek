@@ -9,7 +9,7 @@
 </div>
 <div class="control" *ngIf="(editMode|async).authenticated">
     <div class="control__btn control__save" (click)="saveData()">S</div>
-    <div class="control__btn control__discard">D</div>
+    <div class="control__btn control__discard" (click)="discard()">D</div>
     <div class="control__btn control__logout" (click)="logout()">L</div>
 </div>
   

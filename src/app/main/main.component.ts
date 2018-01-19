@@ -97,4 +97,8 @@ export class MainComponent implements OnInit {
     this.store.dispatch(new Logout());
   }
 
+  discard() {
+    // TEST BUTTON
+  }
+
 }

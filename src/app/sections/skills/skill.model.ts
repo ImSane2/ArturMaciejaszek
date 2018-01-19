@@ -4,7 +4,6 @@ export class Skill {
         public proficiency: number,
         public details: string,
         public tags: string[],
-        public img?: string,
-        public imgSrc?: string
+        public img?: string
     ) {}
 }

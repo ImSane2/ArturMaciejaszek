@@ -1,5 +1,5 @@
 <div class="skill-item">
-    <div class="skill-item--front">
+    <div class="skill-item--front" *ngIf="!editOn">
         <div class="skill-item__logo">
             <img class="skill-logo" [src]="skillItem.img" [alt]="skillItem.name">
         </div>
@@ -9,11 +9,15 @@
             <i [class]='starsArray[2]'></i>
             <i [class]='starsArray[3]'></i>
             <i [class]='starsArray[4]'></i>
-            <!-- DO IT WITH ICONS FROM FONT AWESOME IF YOU WANT HALF STARTS AS WELL -->
         </div>
     </div>
-    <div class="skill-item--back">
+    <div class="skill-item--back" *ngIf="!editOn">
         <div class="skill-item__name">{{ skillItem.name }} </div>
         <div class="skill-item__details">{{ skillItem.details }} </div>
+    </div>
+    <app-skill-edit *ngIf="editOn" [index]="index" (editEmitter)="setEdit($event)"></app-skill-edit>
+    <div class="editItem" *ngIf="(editMode|async).authenticated">
+        <div class="editItem__edit" (click)="startEdit()" i18n>Edit</div>
+        <div class="editItem__delete" (click)="deleteItem()" i18n>Delete</div>
     </div>
 </div>

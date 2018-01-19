@@ -16,12 +16,17 @@ export class SkillsComponent implements OnInit {
   skillState: Observable<fromSkill.State>;
   editMode: Observable<boolean>;
   skillFilter: string;
+  editOn = false;
 
   constructor(private store: Store<fromApp.AppState>) { }
 
   ngOnInit() {
     this.skillState = this.store.select('skills');
     this.editMode = this.store.select('authenticated').select('authenticated');
+  }
+
+  setEdit(e) {
+    this.editOn = e;
   }
 
 }

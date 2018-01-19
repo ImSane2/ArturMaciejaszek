@@ -1,58 +1,52 @@
 <div>
-    <form class="editOn" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <form class="editOn" (ngSubmit)="onSubmit()" [formGroup]="form">
         <div>
             <div class="form-group">
-                <input type="text" id="company" placeholder="Company name" name="company"
+                <input type="text" id="company" placeholder="Company name" formControlName="company"
                 class="input form__name"
                 required
-                autocomplete="off"
-                [ngModel]="workItem.company">
+                >
                 <label for="company" class="label" i18n>Company name</label>
             </div>
             <div class="form-group">
-                <input type="text" id="position" placeholder="Position" name="position"
+                <input type="text" id="position" placeholder="Position" formControlName="position"
                 class="input form__name"
                 required
-                autocomplete="off"
-                [ngModel]="workItem.position">
+                >
                 <label for="position" class="label" i18n>Position</label>
             </div>
             <div class="form-group">
-                <input type="text" id="cLogo" placeholder="cLogo path" name="cLogo"
+                <input type="text" id="cLogo" placeholder="cLogo path" formControlName="cLogo"
                 class="input form__name"
-                [ngModel]="workItem.cLogo">
+                >
                 <label for="cLogo" class="label" i18n>Logo path</label>
             </div>
         </div>
         <div>
             <div class="form-group">
-                <input type="date" id="startDate" name="startDate"
-                required
-                [ngModel]="startDate">
+                <input type="date" id="startDate" formControlName="startDate"
+                required>
                 <label for="startDate" class="label" i18n>Start Date</label>
             </div>
             <div class="form-group">
-                <input type="date" id="endDate" name="endDate"
-                required
-                [ngModel]="endDate">
+                <input type="date" id="endDate" formControlName="endDate"
+                required>
                 <label for="endDate" i18n>End Date</label>
             </div>
         </div>
-        <div class="form-group" ngModelGroup="responsibilities">
+        <div class="form-group" formArrayName="responsibilities">
             <span i18n>Responsibilities: </span>
             <button type="button" (click)="addResp()" i18n>+Res</button>
-            <div *ngFor="let res of resps; let i = index">
+            <div *ngFor="let res of getControls(); let i = index">
                 <input type="text" id="res{{i}}" placeholder="Responsibility" 
-                name="res{{i}}"
                 class="input form__name"
-                [ngModel]="res"
-                #resp>
+                [formControlName]="i">
                 <button type="button" (click)="deleteResp(i)">X</button>
             </div>
         </div>
         <div>
-            <button type="submit" [disabled]="!f.valid" i18n>Save</button>
-            <button (click)="cancelAddItem()" type="button" i18n>Cancel</button>
+            <button type="submit" [disabled]="!form.valid" i18n>Save</button>
+            <button (click)="onCancel()" type="button" i18n>Cancel</button>
         </div>
     </form>
 </div>

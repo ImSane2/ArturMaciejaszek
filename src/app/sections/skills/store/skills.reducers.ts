@@ -13,10 +13,32 @@ const initialState = {
 export function SkillsReducers(state = initialState, action: SkillsActions.SkillsActions) {
     switch (action.type) {
         case SkillsActions.SET_SKILLS:
-            const skillsState = action.payload;
             return {
                 ...state,
-                skills: skillsState
+                skills: action.payload
+            };
+        case SkillsActions.ADD_SKILL:
+            const newSkillTags = action.payload.tags.toString();
+            const newSkillTagsArray = newSkillTags.split('#');
+            newSkillTagsArray.splice(0, 1);
+            action.payload.tags = newSkillTagsArray;
+            return {
+                ...state,
+                skills: [...state.skills , action.payload]
+            };
+        case SkillsActions.UPDATE_SKILL:
+            const updatedSkill = action.payload.item;
+            const nState = [...state.skills, updatedSkill];
+            return {
+                ...state,
+                skills: nState
+            };
+        case SkillsActions.DELETE_SKILL:
+            const newState = [...state.skills];
+            newState.splice(action.payload, 1);
+            return {
+                ...state,
+                skills: newState
             };
         default:
             return state;

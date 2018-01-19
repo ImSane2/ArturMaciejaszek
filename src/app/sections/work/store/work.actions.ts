@@ -2,13 +2,12 @@ import { Action } from '@ngrx/store';
 import { Work } from '../work.model';
 
 export const SET_WORK = 'SET_WORK';
-export const GET_ITEM = 'GET_ITEM';
-export const UPDATE_ITEM = 'UPDATE_ITEM';
-export const ADD_ITEM = 'ADD_ITEM';
-export const DELETE_ITEM = 'DELETE_ITEM';
+export const UPDATE_WORK = 'UPDATE_WORK';
+export const ADD_WORK = 'ADD_WORK';
+export const DELETE_WORK = 'DELETE_WORK';
 
-export class AddItem implements Action {
-    readonly type = ADD_ITEM;
+export class AddWork implements Action {
+    readonly type = ADD_WORK;
 
     constructor(public payload: Work) {}
 }
@@ -19,27 +18,20 @@ export class SetWork implements Action {
     constructor(public payload: Work[]) {}
 }
 
-export class GetItem implements Action {
-    readonly type = GET_ITEM;
-
-    constructor(public payload: number) {}
-}
-
-export class UpdateItem implements Action {
-    readonly type = UPDATE_ITEM;
+export class UpdateWork implements Action {
+    readonly type = UPDATE_WORK;
 
     constructor(public payload: {index: number, item: Work}) {}
 }
 
-export class DeleteItem implements Action {
-    readonly type = DELETE_ITEM;
+export class DeleteWork implements Action {
+    readonly type = DELETE_WORK;
 
     constructor(public payload: number) {}
 }
 
 export type WorkActions =
-AddItem |
-GetItem |
+AddWork |
 SetWork |
-UpdateItem |
-DeleteItem;
+UpdateWork |
+DeleteWork;

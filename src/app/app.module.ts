@@ -24,9 +24,10 @@ import { NgsRevealModule } from 'ng-scrollreveal';
 import { MainComponent } from './main/main.component';
 import { SortbyPipe } from './shared/sortby.pipe';
 import { EduItemCourseComponent } from './sections/education/edu-item/edu-item-course/edu-item-course.component';
-import { WorkItemEditComponent } from './sections/work/work-item-edit/work-item-edit.component';
+import { WorkEditComponent } from './sections/work/work-edit/work-edit.component';
 import { AuthEffects } from './auth/auth.effects';
 import { EduEditComponent } from './sections/education/edu-item/edu-edit/edu-edit.component';
+import { SkillEditComponent } from './sections/skills/skill-item/skill-edit/skill-edit.component';
 
 @NgModule({
   declarations: [
@@ -45,8 +46,9 @@ import { EduEditComponent } from './sections/education/edu-item/edu-edit/edu-edi
     MainComponent,
     SortbyPipe,
     EduItemCourseComponent,
-    WorkItemEditComponent,
-    EduEditComponent
+    WorkEditComponent,
+    EduEditComponent,
+    SkillEditComponent
   ],
   imports: [
     BrowserModule,

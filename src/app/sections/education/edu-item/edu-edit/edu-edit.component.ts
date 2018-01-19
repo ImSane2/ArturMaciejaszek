@@ -1,12 +1,12 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { NgForm, FormControl, FormArray, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormArray, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
 import { Education } from '../../edu.model';
 
 import * as fromApp from '../../../../store/app.reducers';
-import { AddEdu, DeleteEdu, UpdateEdu } from '../../store/edu.actions';
+import { AddEdu, UpdateEdu } from '../../store/edu.actions';
 
 @Component({
   selector: 'app-edu-edit',
@@ -16,9 +16,7 @@ import { AddEdu, DeleteEdu, UpdateEdu } from '../../store/edu.actions';
 export class EduEditComponent implements OnInit {
   @Input() index: number;
   @Output() editEmitter = new EventEmitter<boolean>();
-  // eduState: Observable<Education>;
   eduItem: Education;
-  editMode: Observable<boolean>;
   form: FormGroup;
 
   constructor(private store: Store<fromApp.AppState>) { }
@@ -27,7 +25,6 @@ export class EduEditComponent implements OnInit {
     this.store.select('education').select('education').subscribe(
       (res: Education[]) => this.eduItem = res[this.index]
     );
-    this.editMode = this.store.select('authenticated').select('authenticated');
     if (this.index > -1) {
       this.setValues();
     }else {
@@ -54,14 +51,13 @@ export class EduEditComponent implements OnInit {
       for (const course of this.eduItem.courses) {
         courses.push(
           new FormGroup({
-            'courseName': new FormControl(course.courseName),
-            'description': new FormControl(course.description),
-            'mark': new FormControl(course.mark)
+            courseName: new FormControl(course.courseName),
+            description: new FormControl(course.description),
+            mark: new FormControl(course.mark)
           })
         );
       }
     }
-
 
     this.form = new FormGroup({
       school: new FormControl(this.eduItem.school, Validators.required),
@@ -76,7 +72,6 @@ export class EduEditComponent implements OnInit {
   }
 
   addCourseField() {
-    const control = new FormControl(null);
     (<FormArray>this.form.get('courses')).push(new FormGroup({
       courseName: new FormControl(null, Validators.required),
       description: new FormControl(null, Validators.required),
@@ -93,8 +88,8 @@ export class EduEditComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.editMode) {
-      this.store.dispatch(new UpdateEdu(this.form.value));
+    if (this.index > -1) {
+      this.store.dispatch(new UpdateEdu({index: this.index, item: this.form.value}));
     }else {
       this.store.dispatch(new AddEdu(this.form.value));
     }
