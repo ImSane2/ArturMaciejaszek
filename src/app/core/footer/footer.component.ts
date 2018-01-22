@@ -18,10 +18,10 @@ export class FooterComponent implements OnInit {
   }
 
   registerUser(form: NgForm) {
-    this.store.dispatch(new TryRegister(form.value));
+    this.store.dispatch(new TryRegister({username: form.value.username.toLowerCase() , password: form.value.password}));
   }
 
   onSubmit(form: NgForm) {
-    this.store.dispatch(new TryLogin(form.value));
+    this.store.dispatch(new TryLogin({username: form.value.username.toLowerCase() , password: form.value.password}));
   }
 }

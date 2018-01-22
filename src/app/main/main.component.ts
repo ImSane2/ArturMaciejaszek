@@ -40,7 +40,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe( (params: ParamMap) => {
-      this.currentUser = params.get('id') ? params.get('id') : 'arturmaciejaszek';
+      this.currentUser = params.get('id') ? params.get('id').toLowerCase() : 'arturmaciejaszek';
       console.log(this.currentUser);
       this.getData(this.currentUser).subscribe( (res) => {
         this.data = res.json();
