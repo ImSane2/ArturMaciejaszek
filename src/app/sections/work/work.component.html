@@ -9,7 +9,7 @@
             [workItem]="work"
             [index]="i"></app-work-item>
         </div>
-        <div class="itemWide itemWide--dark addItem addItem__itemWide" *ngIf="editMode">
+        <div class="itemWide itemWide--dark addItem addItem__itemWide" *ngIf="editMode|async">
             <div *ngIf="!editOn">
                 <i class="fa fa-plus-circle addBtn"  
                 aria-hidden="true"

@@ -46,5 +46,5 @@ module.exports.comparePassword = function(checkedPass, hashed, callback) {
 
 module.exports.saveData = function(data, callback) {
     const query = {username: data.username};
-    User.findOneAndUpdate(data.username, data, callback);
+    User.findOneAndUpdate(query, data , callback);
 }

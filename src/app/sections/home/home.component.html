@@ -13,14 +13,14 @@
                 <input type="text" id="myname" placeholder="Name" name="myname"
                 class="input form__name"
                 required
-                ngModel>
+                [ngModel]="( basicState|async).name">
                 <label for="myname" class="label" i18n>Name</label>
             </div>
             <div class="form-group form-group--name">
                 <input type="text" id="greeting" placeholder="Welcome text" name="greeting"
                 class="input form__name"
                 required
-                ngModel>
+                [ngModel]="( basicState|async).greeting">
                 <label for="greeting" class="label" i18n>Welcome text</label>
             </div>
             <button type="submit" i18n>Save</button>

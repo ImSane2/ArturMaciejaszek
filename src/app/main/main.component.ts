@@ -71,9 +71,7 @@ export class MainComponent implements OnInit {
 
   saveData() {
     const newData = {
-      username: this.data.username,
-      password: this.data.password,
-      // ...this.data,
+      username: this.currentUser,
       data: {
         info: this.infoState,
         education: this.eduState.education,

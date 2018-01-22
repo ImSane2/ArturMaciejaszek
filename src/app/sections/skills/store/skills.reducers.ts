@@ -27,8 +27,13 @@ export function SkillsReducers(state = initialState, action: SkillsActions.Skill
                 skills: [...state.skills , action.payload]
             };
         case SkillsActions.UPDATE_SKILL:
+            const updatedSkillTags = action.payload.item.tags.toString();
+            const updatedSkillTagsArray = updatedSkillTags.split('#');
+            updatedSkillTagsArray.splice(0, 1);
+            action.payload.item.tags = updatedSkillTagsArray;
             const updatedSkill = action.payload.item;
-            const nState = [...state.skills, updatedSkill];
+            const nState = [...state.skills];
+            nState[action.payload.index] = updatedSkill;
             return {
                 ...state,
                 skills: nState
