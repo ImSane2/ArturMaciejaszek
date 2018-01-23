@@ -7,7 +7,7 @@ export interface State {
 
 const initialState = {
     token: null,
-    authenticated: true
+    authenticated: false
 };
 
 export function AuthReducers(state = initialState, action: AuthActions.AuthActions) {

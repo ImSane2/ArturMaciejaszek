@@ -1,19 +1,22 @@
 <footer class="footer">
     <div class="footer__left">
-        <img src="" alt="my photo">
-        <p i18n>Made with my own two hands</p>
+        <img src="" alt="{{ 'footer.alt' | translate }}">
+        <p>{{ 'footer.text' | translate }}</p>
     </div>
     <div class="footer__right">
-        <p>Access</p>
+        <p (click)="test()">Access</p>
         <form class="expandable" (ngSubmit)=onSubmit(f) #f="ngForm">
-            <label for="username" i18n>Username</label>
-            <input type="username"  name="username" id="username" ngModel>
-            <label for="password" i18n>Password</label>
-            <input type="password" name="password" id="password" autocomplete="new-password" ngModel>
-            <button type="submit" i18n>Login</button>
-            <button type="button" (click)="registerUser(f)" i18n>Register</button>
+            <label for="username">{{ 'footer.username' | translate }}</label>
+            <input type="username"  name="username" id="username" required ngModel>
+            <label for="password">{{ 'footer.password' | translate }}</label>
+            <input type="password" name="password" id="password" autocomplete="new-password" required ngModel>
+            <button type="submit" [disabled]="!f.valid">{{ 'footer.login' | translate }}</button>
+            <button type="button" [disabled]="!f.valid" (click)="registerUser(f)">{{ 'footer.reg' | translate }}</button>
         </form>
     </div>
+    <select [(ngModel)]="language" (ngModelChange)="onChange($event)">
+        <option *ngFor="let lang of langs" [ngValue]="lang">{{lang}}</option>
+    </select>
 </footer>
 
 

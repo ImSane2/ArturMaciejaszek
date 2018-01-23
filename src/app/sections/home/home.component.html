@@ -1,33 +1,33 @@
 <section class="section-home">
     <div class="home" *ngIf="!editOn">
         <div class="home__header-box">
-            <h2 class="heading_secondary heading_secondary--primary" i18n>Welcome</h2>
+            <h2 class="heading_secondary heading_secondary--primary">{{ 'home.title' | translate }}</h2>
         </div>    
-        <img class="home__my-photo" src="./assets/img/am-smile.png" alt="My Photo" >
+        <img class="home__my-photo" src="./assets/img/am-smile.png" alt="{{ 'home.alt' | translate }}" >
         <p class="home__welcome-text"  [ngsReveal]="{reset: true, duration: 2700}">
             {{ (basicState | async).greeting }}</p>       
     </div>
     <div class="home" *ngIf="editOn">
         <form (ngSubmit)="onSubmit(f)" #f="ngForm">
             <div class="form-group form-group--name">
-                <input type="text" id="myname" placeholder="Name" name="myname"
+                <input type="text" id="myname" placeholder="{{ 'home.name' | translate }}" name="myname"
                 class="input form__name"
                 required
                 [ngModel]="( basicState|async).name">
-                <label for="myname" class="label" i18n>Name</label>
+                <label for="myname" class="label">{{ 'home.name' | translate }}</label>
             </div>
             <div class="form-group form-group--name">
-                <input type="text" id="greeting" placeholder="Welcome text" name="greeting"
+                <input type="text" id="greeting" placeholder="{{ 'home.greeting' | translate }}" name="greeting"
                 class="input form__name"
                 required
                 [ngModel]="( basicState|async).greeting">
-                <label for="greeting" class="label" i18n>Welcome text</label>
+                <label for="greeting" class="label">{{ 'home.greeting' | translate }}</label>
             </div>
-            <button type="submit" i18n>Save</button>
-            <button type="button" (click)="onCancel()" i18n>Cancel</button>
+            <button type="submit">{{ 'util.save' | translate }}</button>
+            <button type="button" (click)="onCancel()">{{ 'util.cancel' | translate }}</button>
         </form>
     </div>
     <div class="editConsole" *ngIf="(editMode|async).authenticated">
-        <div class="editButton" (click)="editOn = !editOn" i18n>Edit</div>
+        <div class="editButton" (click)="editOn = !editOn">{{ 'util.edit' | translate }}</div>
     </div>
 </section>

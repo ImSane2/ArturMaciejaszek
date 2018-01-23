@@ -1,0 +1,74 @@
+{
+    "home": {
+        "title": "Welcome",
+        "name": "Name",
+        "greeting": "Greeting",
+        "alt": "My photo"
+    },
+    "edu": {
+        "title": "Education",
+        "school": "School Name",
+        "alt": "school logo",
+        "faculty": "Faculty",
+        "spec": "Specialization",
+        "path": "logo path",
+        "type": "Type",
+        "sDate": "Start Date",
+        "eDate": "End Date",
+        "course": "Course Name",
+        "desc": "description",
+        "mark": "mark",
+        "courses": "Courses",
+        "+course": "Add Course"
+    },
+    "work": {
+        "title": "Work experience",
+        "company": "Company Name",
+        "position:": "Position",
+        "path": "logo path",
+        "alt": "company logo",
+        "sDate": "Start Date",
+        "eDate": "End Date",
+        "resps": "Responsibilities",
+        "+resp": "Add Responsibility",
+        "resp": "Responsibility"
+    },
+    "skills": {
+        "title": "Skills",
+        "name": "Skill Name",
+        "path": "image path",
+        "details": "details",
+        "prof": "Proficiency",
+        "tags": "Tags",
+        "filter": "Search for: e.g. language"
+    },
+    "contact": {
+        "main": "If you are interested you can reach me via the form below or social links",
+        "title": "Contact",
+        "name": "Name",
+        "mail": "Email address",
+        "query": "query",
+        "send": "Send",
+        "+social": "Add Social",
+        "site": "Site Name",
+        "class": "Font Awesome Class",
+        "link": "site link",
+        "msgSent": "Thank you"
+    },
+    "footer": {
+        "alt": "my photo",
+        "text": "Made with my own two hands",
+        "access": "Access",
+        "username": "Username",
+        "password": "Password",
+        "login": "Login",
+        "reg": "Register",
+        "logout": "Logout"
+    },
+    "util": {
+        "save": "Save",
+        "cancel": "Cancel",
+        "edit": "Edit",
+        "delete": "Delete"
+    }
+}

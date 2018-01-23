@@ -1,7 +1,7 @@
 <div class="helperDiv">
     <div class="itemWide itemWide--dark" [ngsReveal]="{ reset: true}" *ngIf="!editOn">
         <div class="itemWide__image-box">
-            <img class="itemWide__logo" src='{{ workItem.cLogo }}' alt="Company Logo">
+            <img class="itemWide__logo" src='{{ workItem.cLogo }}' alt="{{ 'work.alt' | translate }}">
         </div>
         <div class="itemWide__text-box">
             <p [ngClass]="{'itemWide__text--main': true, 'expanded': itemToggle}">{{ workItem.company }}</p>
@@ -22,8 +22,8 @@
         <app-work-edit (editEmitter)="setEdit($event)" [index]="index"></app-work-edit>
     </div>
     <div class="editItem" *ngIf="(editMode|async).authenticated">
-            <div class="editItem__edit" (click)="editOn = !editON" i18n>Edit</div>
-            <div class="editItem__delete" (click)="deleteItem()" i18n>Delete</div>
+            <div class="editItem__edit" (click)="editOn = !editON">{{ 'util.edit' | translate }}</div>
+            <div class="editItem__delete" (click)="deleteItem()">{{ 'util.delete' | translate }}</div>
     </div>
 </div>
 

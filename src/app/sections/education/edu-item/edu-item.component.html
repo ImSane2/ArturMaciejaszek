@@ -3,7 +3,7 @@
 <!-- EDUCATION ITEM -->
 <div class="itemWide itemWide--light" [ngsReveal]="{ reset: true}" *ngIf="!editOn">
     <div class="itemWide__image-box">
-        <img class="itemWide__logo" src='{{ eduItem.logo }}' alt="School Logo">
+        <img class="itemWide__logo" src='{{ eduItem.logo }}' alt="{{ 'edu.alt' | translate }}">
     </div>
     <div class="itemWide__text-box">
         <p [ngClass]="{'itemWide__text--main': true, 'expandedHide': itemToggle}">
@@ -11,7 +11,7 @@
         <p [ngClass]="{'itemWide__text--sub': true, 'expanded': itemToggle}">
             {{ eduItem.faculty }}</p>
         <p [ngClass]="{'itemWide__text--sub': true, 'expanded': itemToggle}">
-            <span i18n>Specialization:&nbsp;</span>{{ eduItem.specialization}}</p>
+            <span>{{ 'edu.spec' | translate }}:&nbsp;</span>{{ eduItem.specialization}}</p>
     </div>
     <i [ngClass]="{'fa': true, 'fa-plus-circle': true, 'itemWide__details-btn': true, 'expanded': itemToggle}"  
     aria-hidden="true"
@@ -30,8 +30,8 @@
 </div>
 <!-- CONTROL PANEL -->
 <div class="editItem" *ngIf="(editMode|async).authenticated">
-    <div class="editItem__edit" (click)="startEdit()" i18n>Edit</div>
-    <div class="editItem__delete" (click)="deleteItem()" i18n>Delete</div>
+    <div class="editItem__edit" (click)="startEdit()">{{ 'util.edit' | translate }}</div>
+    <div class="editItem__delete" (click)="deleteItem()">{{ 'util.delete' | translate }}</div>
 </div>
 </div>
 

@@ -1,40 +1,40 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="form">
   <div class="form-group">
-    <input type="text" id="name" placeholder="Skill name" formControlName="name"
+    <input type="text" id="name" placeholder="{{ 'skills.name' | translate }}" formControlName="name"
     class="input form__name"
     required
     >
-    <label for="name" class="label" i18n>Skill name</label>
+    <label for="name" class="label">{{ 'skills.name' | translate }}</label>
   </div>
   <div class="form-group">
-    <input type="text" id="img" placeholder="Image path" formControlName="img"
+    <input type="text" id="img" placeholder="{{ 'skills.path' | translate }}" formControlName="img"
     class="input form__name"
     >
-    <label for="img" class="label" i18n>Image path</label>
+    <label for="img" class="label">{{ 'skills.path' | translate }}</label>
   </div>
   <div class="form-group">
-    <input type="text" id="details" placeholder="Details" formControlName="details"
-    class="input form__name"
-    required
-    >
-    <label for="details" class="label" i18n>Details</label>
-  </div>
-  <div class="form-group">
-    <input type="number" id="proficiency" placeholder="Proficiency" formControlName="proficiency"
+    <input type="text" id="details" placeholder="{{ 'skills.details' | translate }}" formControlName="details"
     class="input form__name"
     required
     >
-    <label for="proficiency" class="label" i18n>Proficiency</label>
+    <label for="details" class="label">{{ 'skills.details' | translate }}</label>
   </div>
   <div class="form-group">
-    <input type="text" id="tags" placeholder="Tags" formControlName="tags"
+    <input type="number" id="proficiency" placeholder="{{ 'skills.prof' | translate }}" formControlName="proficiency"
     class="input form__name"
     required
     >
-    <label for="tags" class="label" i18n>Tags</label>
+    <label for="proficiency" class="label">{{ 'skills.prof' | translate }}</label>
+  </div>
+  <div class="form-group">
+    <input type="text" id="tags" placeholder="{{ 'skills.tags' | translate }}" formControlName="tags"
+    class="input form__name"
+    required
+    >
+    <label for="tags" class="label">{{ 'skills.tags' | translate }}</label>
   </div>
   <div>
-    <button type="submit" [disabled]="!form.valid" i18n>Save</button>
-    <button (click)="onCancel()" type="button" i18n>Cancel</button>
+    <button type="submit" [disabled]="!form.valid">{{ 'util.save' | translate }}</button>
+    <button (click)="onCancel()" type="button">{{ 'util.cancel' | translate }}</button>
   </div>  
 </form>

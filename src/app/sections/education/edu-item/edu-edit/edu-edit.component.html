@@ -1,66 +1,66 @@
 <form class="editOn" (ngSubmit)="onSubmit()" [formGroup]="form">
   <div class="form-group">
-      <input type="text" id="school" placeholder="School name" formControlName="school"
+      <input type="text" id="school" placeholder="{{ 'edu.school' | translate }}" formControlName="school"
       class="input form__name"
       required
       >
-      <label for="school" class="label" i18n>School name</label>
+      <label for="school" class="label">{{ 'edu.school' | translate }}</label>
   </div>
   <div class="form-group">
-      <input type="text" id="faculty" placeholder="Faculty" formControlName="faculty"
+      <input type="text" id="faculty" placeholder="{{ 'edu.faculty' | translate }}" formControlName="faculty"
       class="input form__name"
       required
       >
-      <label for="faculty" class="label" i18n>Faculty</label>
+      <label for="faculty" class="label">{{ 'edu.faculty' | translate }}</label>
   </div>
   <div class="form-group">
-      <input type="text" id="specialization" placeholder="Specialization" formControlName="specialization"
+      <input type="text" id="specialization" placeholder="{{ 'edu.spec' | translate }}" formControlName="specialization"
       class="input form__name"
       required
       >
-      <label for="specialization" class="label" i18n>Specialization</label>
+      <label for="specialization" class="label">{{ 'edu.spec' | translate }}</label>
   </div>
   <div class="form-group">
-      <input type="text" id="logo" placeholder="logo path" formControlName="logo"
+      <input type="text" id="logo" placeholder="{{ 'edu.path' | translate }}" formControlName="logo"
       class="input form__name"
       >
-      <label for="logo" class="label" i18n>logo path</label>
+      <label for="logo" class="label">{{ 'edu.path' | translate }}</label>
   </div>
   <div class="form-group">
-      <input type="text" id="type" placeholder="type" formControlName="type"
-      class="input form__name"
-      required
-      >
-      <label for="type" class="label" i18n>type</label>
-  </div>
-  <div class="form-group">
-      <input type="date" id="startDate" placeholder="Start Date" formControlName="startDate"
+      <input type="text" id="type" placeholder="{{ 'edu.type' | translate }}" formControlName="type"
       class="input form__name"
       required
       >
-      <label for="startDate" class="label" i18n>Start Date</label>
+      <label for="type" class="label">{{ 'edu.type' | translate }}</label>
   </div>
   <div class="form-group">
-      <input type="date" id="endDate" placeholder="End Date" formControlName="endDate"
+      <input type="date" id="startDate" placeholder="{{ 'edu.sDate' | translate }}" formControlName="startDate"
       class="input form__name"
       required
       >
-      <label for="endDate" class="label" i18n>End Date</label>
+      <label for="startDate" class="label">{{ 'edu.sDate' | translate }}</label>
+  </div>
+  <div class="form-group">
+      <input type="date" id="endDate" placeholder="{{ 'edu.eDate' | translate }}" formControlName="endDate"
+      class="input form__name"
+      required
+      >
+      <label for="endDate" class="label">{{ 'edu.eDate' | translate }}</label>
   </div>
   <div class="form-group" formArrayName="courses">
-      <span i18n>Courses: </span>
-      <button type="button" (click)="addCourseField()" i18n>+Course</button>
+      <span>{{ 'edu.courses' | translate }}</span>
+      <button type="button" (click)="addCourseField()">{{ 'edu.+course' | translate }}</button>
       <div *ngFor="let course of getControls(); let i = index" [formGroupName]="i">
-          <input type="text" id="course{{i}}" placeholder="Course" 
+          <input type="text" id="course{{i}}" placeholder="{{ 'edu.course' | translate }}" 
           formControlName="courseName"
           class="input form__name">
-          <input type="text" id="description{{i}}" placeholder="Description" formControlName="description">
-          <input type="number" id="mark{{i}}" placeholder="Mark" formControlName="mark">
+          <input type="text" id="description{{i}}" placeholder="{{ 'edu.desc' | translate }}" formControlName="description">
+          <input type="number" id="mark{{i}}" placeholder="{{ 'edu.mark' | translate }}" formControlName="mark">
           <button type="button" (click)="deleteCourse(i)">X</button>
       </div>
   </div>
   <div>
-      <button type="submit" [disabled]="!form.valid" i18n>Save</button>
-      <button (click)="onCancel()" type="button" i18n>Cancel</button>
+      <button type="submit" [disabled]="!form.valid">{{ 'util.save' | translate }}</button>
+      <button (click)="onCancel()" type="button">{{ 'util.cancel' | translate }}</button>
   </div>        
 </form>

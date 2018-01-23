@@ -2,51 +2,51 @@
     <form class="editOn" (ngSubmit)="onSubmit()" [formGroup]="form">
         <div>
             <div class="form-group">
-                <input type="text" id="company" placeholder="Company name" formControlName="company"
+                <input type="text" id="company" placeholder="{{ 'work.company' | translate }}" formControlName="company"
                 class="input form__name"
                 required
                 >
-                <label for="company" class="label" i18n>Company name</label>
+                <label for="company" class="label">{{ 'work.company' | translate }}</label>
             </div>
             <div class="form-group">
-                <input type="text" id="position" placeholder="Position" formControlName="position"
+                <input type="text" id="position" placeholder="{{ 'work.position' | translate }}" formControlName="position"
                 class="input form__name"
                 required
                 >
-                <label for="position" class="label" i18n>Position</label>
+                <label for="position" class="label">{{ 'work.position' | translate }}</label>
             </div>
             <div class="form-group">
-                <input type="text" id="cLogo" placeholder="cLogo path" formControlName="cLogo"
+                <input type="text" id="cLogo" placeholder="{{ 'work.path' | translate }}" formControlName="cLogo"
                 class="input form__name"
                 >
-                <label for="cLogo" class="label" i18n>Logo path</label>
+                <label for="cLogo" class="label">{{ 'work.path' | translate }}</label>
             </div>
         </div>
         <div>
             <div class="form-group">
                 <input type="date" id="startDate" formControlName="startDate"
                 required>
-                <label for="startDate" class="label" i18n>Start Date</label>
+                <label for="startDate" class="label">{{ 'work.sDate' | translate }}</label>
             </div>
             <div class="form-group">
                 <input type="date" id="endDate" formControlName="endDate"
                 required>
-                <label for="endDate" i18n>End Date</label>
+                <label for="endDate">{{ 'work.eDate' | translate }}</label>
             </div>
         </div>
         <div class="form-group" formArrayName="responsibilities">
-            <span i18n>Responsibilities: </span>
-            <button type="button" (click)="addResp()" i18n>+Res</button>
+            <span>{{ 'work.resps' | translate }}</span>
+            <button type="button" (click)="addResp()">{{ 'work.+resp' | translate }}</button>
             <div *ngFor="let res of getControls(); let i = index">
-                <input type="text" id="res{{i}}" placeholder="Responsibility" 
+                <input type="text" id="res{{i}}" placeholder="{{ 'work.resp' | translate }}" 
                 class="input form__name"
                 [formControlName]="i">
                 <button type="button" (click)="deleteResp(i)">X</button>
             </div>
         </div>
         <div>
-            <button type="submit" [disabled]="!form.valid" i18n>Save</button>
-            <button (click)="onCancel()" type="button" i18n>Cancel</button>
+            <button type="submit" [disabled]="!form.valid">{{ 'util.save' | translate }}</button>
+            <button (click)="onCancel()" type="button">{{ 'util.cancel' | translate }}</button>
         </div>
     </form>
 </div>
