@@ -13,7 +13,10 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    data: StateSchema
+    en: StateSchema,
+    pl: StateSchema,
+    es: StateSchema,
+    fr: StateSchema,
 });
 
 const User = module.exports = mongoose.model('User', UserSchema);

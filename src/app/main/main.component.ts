@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpModule, Http, Headers } from '@angular/http';
 import { ActivatedRoute, Params, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
+import { TranslateService } from '@ngx-translate/core';
 
 import { Social } from '../sections/contact/social.model';
 
@@ -25,6 +26,7 @@ import * as fromSkills from '../sections/skills/store/skills.reducers';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
+  @Input() language: string;
   editMode: Observable<fromAuth.State>;
   authState: fromAuth.State;
   infoState: fromBasicInfo.State;
@@ -36,7 +38,8 @@ export class MainComponent implements OnInit {
 
   constructor( private store: Store<fromApp.AppState>,
                 private http: Http,
-                private route: ActivatedRoute) {}
+                private route: ActivatedRoute,
+                private translate: TranslateService) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe( (params: ParamMap) => {
@@ -44,9 +47,10 @@ export class MainComponent implements OnInit {
       console.log(this.currentUser);
       this.getData(this.currentUser).subscribe( (res) => {
         this.data = res.json();
-        this.populateData(res);
+        this.populateData(this.data);
       });
     });
+    this.language = this.translate.getBrowserLang();
     this.editMode = this.store.select('authenticated');
     this.store.select('token').subscribe( (res) => this.authState = res);
     this.store.select('name').subscribe( (res) => this.infoState = res);
@@ -62,23 +66,22 @@ export class MainComponent implements OnInit {
   }
 
   populateData(data) {
-    const dataParsed = data.json();
-    this.store.dispatch(new UpdateInfo(dataParsed.data.info));
-    this.store.dispatch(new SetWork(dataParsed.data.work));
-    this.store.dispatch(new SetEdu(dataParsed.data.education));
-    this.store.dispatch(new SetSkills(dataParsed.data.skills));
+    this.store.dispatch(new UpdateInfo(data[this.language].info));
+    this.store.dispatch(new SetWork(data[this.language].work));
+    this.store.dispatch(new SetEdu(data[this.language].education));
+    this.store.dispatch(new SetSkills(data[this.language].skills));
   }
 
   saveData() {
     const newData = {
-      username: this.currentUser,
-      data: {
-        info: this.infoState,
-        education: this.eduState.education,
-        work: this.workState.work,
-        skills: this.skillsState.skills
-      }
+      username: this.currentUser
     };
+    newData[this.language] = {
+      info: this.infoState,
+      education: this.eduState.education,
+      work: this.workState.work,
+      skills: this.skillsState.skills
+    } ;
     console.log(this.currentUser);
     console.log(newData);
     this.saveCall(newData).subscribe((res) => console.log(res.json()));
@@ -97,6 +100,11 @@ export class MainComponent implements OnInit {
 
   discard() {
     // TEST BUTTON
+  }
+
+  switchLang(e) {
+    this.language = e;
+    this.populateData(this.data);
   }
 
 }

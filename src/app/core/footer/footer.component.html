@@ -4,7 +4,7 @@
         <p>{{ 'footer.text' | translate }}</p>
     </div>
     <div class="footer__right">
-        <p (click)="test()">Access</p>
+        <p>Access</p>
         <form class="expandable" (ngSubmit)=onSubmit(f) #f="ngForm">
             <label for="username">{{ 'footer.username' | translate }}</label>
             <input type="username"  name="username" id="username" required ngModel>

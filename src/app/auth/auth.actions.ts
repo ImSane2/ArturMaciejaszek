@@ -23,13 +23,13 @@ export class Login implements Action {
 export class TryRegister implements Action {
     readonly type = TRY_REGISTER;
 
-    constructor(public payload: {username: String, password: String}) {}
+    constructor(public payload: {username: String, password: String, l10n: string}) {}
 }
 
 export class TryLogin implements Action {
     readonly type = TRY_LOGIN;
 
-    constructor(public payload: {username: String, password: String}) {}
+    constructor(public payload: {username: String, password: String, l10n: string}) {}
 }
 
 export class SetToken implements Action {

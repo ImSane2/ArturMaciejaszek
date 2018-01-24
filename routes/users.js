@@ -10,16 +10,43 @@ const InfoSchema = require('../models/info');
 const Info = mongoose.model('Info', InfoSchema);
 
 router.post('/register', (req, res, next) => {
+    // let newUser = new User({
+    //     username: req.body.username,
+    //     password: req.body.password,
+    //     data: {
+    //         info: new Info({
+    //             name: req.body.username,
+    //             greeting: 'Hello, feel free to make your own thing :)'
+    //         })
+    //     }
+    // });
+
     let newUser = new User({
         username: req.body.username,
         password: req.body.password,
-        data: {
+        en: {
             info: new Info({
                 name: req.body.username,
                 greeting: 'Hello, feel free to make your own thing :)'
             })
         }
     });
+
+    // ENGLISH IS A FALLBACK LANGUAGE SO I WANT TO HAVE IT ON REG
+
+    if (req.body.l10n !== 'en') {
+        const greetings = {
+            pl: 'Cześć, sprawdź śmiało jak to działa :)',
+            es: 'Hola, inténtalo tú mismo :)',
+            fr: 'Salut, le essaye toi :)'
+        }
+        newUser[req.body.l10n] = {
+            info: new Info({
+                name: req.body.username,
+                greeting: greetings[req.body.l10n]
+            })
+        };
+    }
 
     User.getUserByUsername(newUser.username, (err, user) => {
         if (err) throw err;
