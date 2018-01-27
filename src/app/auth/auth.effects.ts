@@ -8,6 +8,7 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/do';
 
 import * as AuthActions from './auth.actions';
+import { FlashMessagesService } from 'angular2-flash-messages/module/flash-messages.service';
 
 @Injectable()
 export class AuthEffects {
@@ -18,11 +19,17 @@ export class AuthEffects {
         .switchMap( (action: AuthActions.TryRegister) =>
             this.regUser(action.payload)
                 .mergeMap( res => {
-                            console.log(res.json());
-                            this.router.navigate(['profile/' + res.json().user.username]);
-                            return [{type: AuthActions.REGISTER},
-                            {type: AuthActions.SET_TOKEN,
-                            payload: res.json().token}];
+                            // console.log(res.json());
+                            if (res.json().success) {
+                                this.router.navigate(['profile/' + res.json().user.username]);
+                                return [{type: AuthActions.REGISTER},
+                                        {type: AuthActions.SET_TOKEN,
+                                        payload: res.json().token}];
+                            }else {
+                                this.flash.show(res.json().msg);
+                                return [{type: AuthActions.ERROR,
+                                        payload: res.json().msg}];
+                            }
                             }
                         )
                     );
@@ -34,15 +41,17 @@ export class AuthEffects {
             this.logUser(action.payload)
                 .mergeMap( res => {
                     if (res.json().success) {
-                        console.log(res.json());
+                        // console.log(res.json());
+                        // this.flash.show(res.json().msg);
                         this.router.navigate(['profile/' + res.json().user.username]);
                         return [
                             {type: AuthActions.LOGIN},
                             {type: AuthActions.SET_TOKEN,
                             payload: res.json().token}
-                    ];
+                        ];
                     }else {
-                        console.log(res.json());
+                        // console.log(res.json());
+                        this.flash.show(res.json().msg);
                         return [{type: AuthActions.ERROR,
                                 payload: res.json().msg}];
                     }
@@ -54,7 +63,7 @@ export class AuthEffects {
         .ofType(AuthActions.LOGOUT)
         .do( res => console.log('Logged out successfully') );
 
-    constructor(private actions$: Actions, private http: Http, private router: Router) {}
+    constructor(private actions$: Actions, private http: Http, private router: Router, private flash: FlashMessagesService) {}
 
     regUser(credentials) {
         const headers = new Headers();

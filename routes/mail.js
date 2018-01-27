@@ -1,19 +1,20 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const router = express.Router();
+const config = require('../config/credentials');
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'querytransporter@gmail.com',
-      pass: 'transporter123'
+      user: config.transporter,
+      pass: config.password
     }
   });
 
 router.post('/', (req, res, next) => {
     const options = {
         from: '',
-        to: 'a.maciejaszek@gmail.com',
+        to: config.recipient,
         subject: "CV query from: " + req.body.name,
         text: "You\'ve got an email from: " + req.body.name +" at "+ req.body.email + "\n\n" + req.body.query
     }

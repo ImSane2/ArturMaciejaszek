@@ -71,7 +71,9 @@
         "logout": "Logout",
         "lang": "not your language?",
         "regtext": "Don't have an account yet? ",
-        "getback": "Back to login panel"
+        "getback": "Back to login panel",
+        "wrongpass": "Wrong password",
+        "usertaken": "Username already taken"
     },
     "util": {
         "save": "Save",

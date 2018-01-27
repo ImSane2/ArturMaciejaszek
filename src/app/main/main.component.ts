@@ -35,7 +35,6 @@ export class MainComponent implements OnInit {
   skillsState: fromSkills.State;
   currentUser: String;
   data: any;
-  logged: boolean;
 
   constructor( private store: Store<fromApp.AppState>,
                 private http: Http,
@@ -83,7 +82,7 @@ export class MainComponent implements OnInit {
       work: this.workState.work,
       skills: this.skillsState.skills
     } ;
-    this.saveCall(newData).subscribe( res => console.log(res.json()));
+    this.saveCall(newData).take(1).subscribe( res => console.log(res.json()));
   }
 
   saveCall(data) {
@@ -95,7 +94,6 @@ export class MainComponent implements OnInit {
 
   logout() {
     this.store.dispatch(new Logout());
-    this.logged = false;
   }
 
   discard() {

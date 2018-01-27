@@ -13,7 +13,7 @@
 
     &__header-box {
         display: inline-block;
-        width: 20rem;
+        min-width: 20rem;
         position: sticky;
         left: 50%;
         transform: translateX(-50%);

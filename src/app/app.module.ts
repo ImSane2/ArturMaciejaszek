@@ -1,3 +1,4 @@
+import { FlashMessagesService } from 'angular2-flash-messages/module/flash-messages.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
@@ -10,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgsRevealModule } from 'ng-scrollreveal';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 
 import { AppComponent } from './app.component';
@@ -65,6 +67,7 @@ import { SkillEditComponent } from './sections/skills/skill-item/skill-edit/skil
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([AuthEffects]),
     NgsRevealModule.forRoot(),
+    FlashMessagesModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
@@ -73,7 +76,7 @@ import { SkillEditComponent } from './sections/skills/skill-item/skill-edit/skil
       }
   }),
   ],
-  providers: [],
+  providers: [FlashMessagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

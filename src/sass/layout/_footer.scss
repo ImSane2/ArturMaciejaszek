@@ -31,6 +31,12 @@
         padding-right: 3rem;
         text-align: right;
         flex-direction: column;
+
+        &--access {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+        }
     }
 }
 

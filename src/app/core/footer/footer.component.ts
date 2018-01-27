@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
@@ -13,10 +13,10 @@ import * as fromAuth from '../../auth/auth.reducers';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-  @Input() logged = false;
   @Output() langEmitter = new EventEmitter<string>();
   langs: Array<String>;
   language = this.translate.getBrowserLang();
+  logged = false;
   regForm = false;
   accessOn = false;
   user = '';
@@ -25,6 +25,11 @@ export class FooterComponent implements OnInit {
 
   ngOnInit() {
     this.langs = this.translate.getLangs();
+    this.store.select('authenticated').subscribe(
+      (res: any) => { if (!res.authenticated) {
+        this.logged = false;
+      }}
+    );
   }
 
   onChange(e) {
@@ -39,8 +44,7 @@ export class FooterComponent implements OnInit {
       password: form.value.password,
       l10n: this.language
     }));
-    this.user = form.value.username;
-    this.logged = true;
+    this.logMonitor(form.value.username);
   }
 
   onSubmit(form: NgForm) {
@@ -49,8 +53,17 @@ export class FooterComponent implements OnInit {
       password: form.value.password,
       l10n: this.language
     }));
-    this.user = form.value.username;
-    this.logged = true;
+    this.logMonitor(form.value.username);
+  }
+
+  logMonitor(user: string) {
+    const sub = this.store.select('authenticated').subscribe(
+      (res: any) => { if (res.authenticated) {
+        this.logged = true;
+        this.user = user;
+        sub.unsubscribe();
+      }}
+    );
   }
 
   onLogout() {

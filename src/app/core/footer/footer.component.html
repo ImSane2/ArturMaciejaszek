@@ -12,7 +12,10 @@
         </div>
     </div>
     <div class="footer__right">
-        <p>{{ 'footer.access' | translate}}</p>
+        <div class="footer__right--access">
+            <flash-messages></flash-messages>
+            <p>{{ 'footer.access' | translate}}</p>
+        </div>
         <div *ngIf="!logged">
             <form class="expandable" (ngSubmit)=onSubmit(f) #f="ngForm" *ngIf="!regForm">
                 <label for="username">{{ 'footer.username' | translate }}</label>
