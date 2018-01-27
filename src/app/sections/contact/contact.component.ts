@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Http, Headers, HttpModule } from '@angular/http';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
-import { Http, Headers, HttpModule } from '@angular/http';
 import { Social } from './social.model';
 
+import { AddSocial } from './../../shared/store/basic-info.actions';
 import * as fromApp from '../../store/app.reducers';
 import * as fromBasicInfo from '../../shared/store/basic-info.reducers';
 
@@ -18,6 +19,7 @@ export class ContactComponent implements OnInit {
   editMode: Observable<boolean>;
   pat: RegExp;
   msgSent = false;
+  addSocial = false;
 
   constructor(private store: Store<fromApp.AppState>,
               private http: Http) {}
@@ -37,6 +39,15 @@ export class ContactComponent implements OnInit {
       res => this.msgSent = true
       // MAKE THE RESPONSE POP UP OR SMTH
     );
+  }
+
+  socialSubmit(form: NgForm) {
+    this.store.dispatch(new AddSocial(form.value));
+    this.socialCancel();
+  }
+
+  socialCancel() {
+    this.addSocial = false;
   }
 
   sendMail({name: name, email: email, query: query}) {

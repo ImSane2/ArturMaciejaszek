@@ -3,7 +3,7 @@
     width: 80%;
     margin: auto;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 
     @include respond(-462) {
         display: inline-flex;
@@ -14,7 +14,6 @@
     &__header-box {
         display: inline-block;
         width: 20rem;
-        margin-bottom: 4rem;
         position: sticky;
         left: 50%;
         transform: translateX(-50%);
@@ -26,7 +25,21 @@
     }
 
     &__welcome-text {
-        // animation: fadeIn 2.7s ease-in;
+        position: relative;
+        font-family: sans-serif;
+        white-space: pre-wrap;
+        text-align: left;
+        line-height: 2;
+        // font-weight: bold;
+        font-style: italic;
+        font-size: 1.4rem;
+        margin: 0;
+    }
+
+    &__textarea {
+        width: 60vw;
+        height: 40vh;
+        margin: auto;
     }
     
     &__my-photo {
@@ -51,6 +64,15 @@
         @include respond(-462) {
             display: none;
         }
+    }
+
+    &__sig {
+        height: 8rem;
+        width: auto;
+        text-align: left;
+        position: absolute;
+        left: 0;
+        bottom: -7rem;
     }
 
 }

@@ -5,22 +5,25 @@
         </div>    
         <img class="home__my-photo" src="./assets/img/am-smile.png" alt="{{ 'home.alt' | translate }}" >
         <p class="home__welcome-text"  [ngsReveal]="{reset: true, duration: 2700}">
-            {{ (basicState | async).greeting }}</p>       
+            {{ (basicState | async).greeting }}</p>
+        <img class="home__sig" src="./assets/img/sig.png" alt="signature" [ngsReveal]="{reset: true, duration: 2700}">       
     </div>
     <div class="home" *ngIf="editOn">
         <form (ngSubmit)="onSubmit(f)" #f="ngForm">
             <div class="form-group form-group--name">
-                <input type="text" id="myname" placeholder="{{ 'home.name' | translate }}" name="myname"
+                <input type="text" id="myname" placeholder="{{ 'home.name' | translate }}" 
+                name="myname"
                 class="input form__name"
                 required
                 [ngModel]="( basicState|async).name">
                 <label for="myname" class="label">{{ 'home.name' | translate }}</label>
             </div>
             <div class="form-group form-group--name">
-                <input type="text" id="greeting" placeholder="{{ 'home.greeting' | translate }}" name="greeting"
-                class="input form__name"
+                <textarea type="textarea" id="greeting" placeholder="{{ 'home.greeting' | translate }}" 
+                name="greeting"
+                class="input form__name home__textarea"
                 required
-                [ngModel]="( basicState|async).greeting">
+                [ngModel]="( basicState|async).greeting"></textarea>
                 <label for="greeting" class="label">{{ 'home.greeting' | translate }}</label>
             </div>
             <button type="submit">{{ 'util.save' | translate }}</button>

@@ -5,11 +5,15 @@
     <app-work></app-work>
     <app-skills></app-skills>
     <app-contact></app-contact>
-    <app-footer (langEmitter)="switchLang($event)"></app-footer>
+    <app-footer [logged]="logged" (langEmitter)="switchLang($event)"></app-footer>
 </div>
 <div class="control" *ngIf="(editMode|async).authenticated">
     <div class="control__btn control__save" (click)="saveData()">S</div>
     <div class="control__btn control__discard" (click)="discard()">D</div>
+    <div>
+        <input type="text" #p>
+        <div class="control__btn control__copy" (click)="copyFromProfile(p)">C</div>
+    </div>
     <div class="control__btn control__logout" (click)="logout()">L</div>
 </div>
   

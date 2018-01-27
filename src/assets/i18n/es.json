@@ -1,0 +1,76 @@
+{
+    "home": {
+        "title": "Bienvenido",
+        "name": "Nombre",
+        "greeting": "Saludo",
+        "alt": "mi foto"
+    },
+    "edu": {
+        "title": "Educación",
+        "school": "Nombre de la escuela",
+        "alt": "logo de la escuela",
+        "faculty": "La facultad",
+        "spec": "La especialización",
+        "path": "enlace del logo",
+        "type": "tipo",
+        "sDate": "Fecha de inicio",
+        "eDate": "Fecha de finalización",
+        "course": "Nombre del curso",
+        "desc": "descripción",
+        "mark": "la nota",
+        "courses": "los cursos",
+        "+course": "Añadir un curso"
+    },
+    "work": {
+        "title": "Experiencia laboral",
+        "company": "Nombre de la empresa",
+        "position": "El puesto",
+        "path": "enlace del logo",
+        "alt": "El logo de la empresa",
+        "sDate": "Fecha de inicio",
+        "eDate": "Fecha de finalización",
+        "resps": "Los responsabilidades",
+        "+resp": "Añadir responsabilidad",
+        "resp": "Responsabilidad"
+    },
+    "skills": {
+        "title": "Habilidades",
+        "name": "Nombre de la habilidad",
+        "path": "enlace de la habilidad",
+        "details": "detalles",
+        "prof": "Competencia",
+        "tags": "hashtags",
+        "filter": "Busca por ejemplo: idioma"
+    },
+    "contact": {
+        "main": "Si estás interesado, puedes contactarme con formulario abajo o los enlaces sociales",
+        "title": "Contacto",
+        "name": "Nombre",
+        "mail": "Correro electronico",
+        "query": "pregunta",
+        "send": "Enviar",
+        "+social": "Añadir enlace sociale",
+        "msgSent": "Muchos gracias"
+    },
+    "social": {
+        "name": "página social",
+        "icon": "icono social",
+        "link": "enlace de la página"
+    },
+    "footer": {
+        "alt": "mi foto",
+        "text": "Hecho por mí mismo",
+        "access": "Acceso",
+        "username": "Usario",
+        "password": "Contraseña",
+        "login": "Iniciar sesión",
+        "reg": "Registro",
+        "logout": "Cerrar sesión"
+    },
+    "util": {
+        "save": "Guardar",
+        "cancel": "Cancelar",
+        "edit": "Editar",
+        "delete": "Borrar"
+    }
+}

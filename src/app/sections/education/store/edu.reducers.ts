@@ -10,136 +10,7 @@ export interface State {
 const initialState = {
     education: []
 };
-// const initialState = {
-//     education: [
-//         new Education(
-//             'Poznań University of Economics',
-//             './assets/logos/uep-green.svg',
-//             new Date(2013, 9),
-//             new Date(2015, 7),
-//             'master',
-//             'Management',
-//             'Business Communication',
-//             [
-//                 new Course(
-//                     'Economic Doctrines',
-//                     4,
-//                     'Some description',
-//                     [
-//                         'i do not fuckin remember what it was all about'
-//                     ]
-//                 ),
-//                 new Course(
-//                     'Managerial Economics',
-//                     4,
-//                     'Some description',
-//                     [
-//                         'i do not fuckin remember what it was all about'
-//                     ]
-//                 ),
-//                 new Course(
-//                     'Management Concepts',
-//                     5,
-//                     'Some description',
-//                     [
-//                         'i do not fuckin remember what it was all about'
-//                     ]
-//                 ),
-//                 new Course(
-//                     'Civil and Commercial Law',
-//                     4,
-//                     'Some description',
-//                     [
-//                         'i do not fuckin remember what it was all about'
-//                     ]
-//                 ),
-//                 new Course(
-//                     'Economic Doctrines',
-//                     4,
-//                     'Some description',
-//                     [
-//                         'i do not fuckin remember what it was all about'
-//                     ]
-//                 ),
-//                 new Course(
-//                     'Managerial Economics',
-//                     4,
-//                     'Some description',
-//                     [
-//                         'i do not fuckin remember what it was all about'
-//                     ]
-//                 ),
-//                 new Course(
-//                     'Management Concepts',
-//                     5,
-//                     'Some description',
-//                     [
-//                         'i do not fuckin remember what it was all about'
-//                     ]
-//                 ),
-//                 new Course(
-//                     'Civil and Commercial Law',
-//                     4,
-//                     'Some description',
-//                     [
-//                         'i do not fuckin remember what it was all about'
-//                     ]
-//                 ),
-//                 new Course(
-//                     'Economic Doctrines',
-//                     4,
-//                     'Some description',
-//                     [
-//                         'i do not fuckin remember what it was all about'
-//                     ]
-//                 ),
-//                 new Course(
-//                     'Managerial Economics',
-//                     4,
-//                     'Some description',
-//                     [
-//                         'i do not fuckin remember what it was all about'
-//                     ]
-//                 ),
-//                 new Course(
-//                     'Management Concepts',
-//                     5,
-//                     'Some description',
-//                     [
-//                         'i do not fuckin remember what it was all about'
-//                     ]
-//                 ),
-//                 new Course(
-//                     'Civil and Commercial Law',
-//                     4,
-//                     'Some description',
-//                     [
-//                         'i do not fuckin remember what it was all about'
-//                     ]
-//                 ),
-//                 new Course(
-//                     'Economic Doctrines',
-//                     4,
-//                     'Some description',
-//                     [
-//                         'i do not fuckin remember what it was all about'
-//                     ]
-//                 ),
-//
-//             ]
-//         ),
-//         new Education(
-//             'Poznań University of Economics',
-//             './assets/logos/uep-green.svg',
-//             new Date(2009, 9),
-//             new Date(2013, 7),
-//             'bachelor',
-//             'IT and Econometrics',
-//             'IT in Economy and Administration',
-//             []
-//         )
-//     ]
-// };
+
 
 export function EduReducers(state = initialState, action: EduActions.EduActions) {
     switch (action.type) {
@@ -174,3 +45,49 @@ export function EduReducers(state = initialState, action: EduActions.EduActions)
             return state;
     }
 }
+
+// const initialState = {
+//     education: [
+//         new Education(
+//             'Poznań University of Economics',
+//             './assets/logos/uep-green.svg',
+//             new Date(2013, 9),
+//             new Date(2015, 7),
+//             'master',
+//             'Management',
+//             'Business Communication',
+//             [
+//                 new Course(
+//                     'Economic Doctrines',
+//                     4,
+//                     'Some description'
+//                 ),
+//                 new Course(
+//                     'Managerial Economics',
+//                     4,
+//                     'Some description'
+//                 ),
+//                 new Course(
+//                     'Management Concepts',
+//                     5,
+//                     'Some description'
+//                 ),
+//                 new Course(
+//                     'Civil and Commercial Law',
+//                     4,
+//                     'Some description'
+//                 )
+//             ]
+//         ),
+//         new Education(
+//             'Poznań University of Economics',
+//             './assets/logos/uep-green.svg',
+//             new Date(2009, 9),
+//             new Date(2013, 7),
+//             'bachelor',
+//             'IT and Econometrics',
+//             'IT in Economy and Administration',
+//             []
+//         )
+//     ]
+// };

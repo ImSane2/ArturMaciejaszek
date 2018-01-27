@@ -1,9 +1,9 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 
-import { TryRegister, TryLogin } from './../../auth/auth.actions';
+import { TryRegister, TryLogin, Logout } from './../../auth/auth.actions';
 import * as fromAuth from '../../auth/auth.reducers';
 
 
@@ -13,9 +13,13 @@ import * as fromAuth from '../../auth/auth.reducers';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-  langs: Array<String>;
+  @Input() logged = false;
   @Output() langEmitter = new EventEmitter<string>();
+  langs: Array<String>;
   language = this.translate.getBrowserLang();
+  regForm = false;
+  accessOn = false;
+  user = '';
 
   constructor(private store: Store<fromAuth.State>, private translate: TranslateService) {}
 
@@ -35,6 +39,8 @@ export class FooterComponent implements OnInit {
       password: form.value.password,
       l10n: this.language
     }));
+    this.user = form.value.username;
+    this.logged = true;
   }
 
   onSubmit(form: NgForm) {
@@ -43,5 +49,12 @@ export class FooterComponent implements OnInit {
       password: form.value.password,
       l10n: this.language
     }));
+    this.user = form.value.username;
+    this.logged = true;
+  }
+
+  onLogout() {
+    this.store.dispatch(new Logout());
+    this.logged = false;
   }
 }

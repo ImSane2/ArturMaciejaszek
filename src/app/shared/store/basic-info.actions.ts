@@ -4,7 +4,7 @@ import { Action } from '@ngrx/store';
 export const ADD_SOCIAL = 'ADD_SOCIAL';
 export const GET_ITEMS = 'GET_ITEMS';
 export const UPDATE_INFO = 'UPDATE_INFO';
-export const UPDATE_SOCIALS = 'UPDATE_SOCIALS';
+export const SET_SOCIALS = 'SET_SOCIALS';
 export const DELETE_SOCIAL = 'DELETE_SOCIAL';
 
 export class AddSocial implements Action {
@@ -31,8 +31,8 @@ export class DeleteSocial implements Action {
     constructor(public payload: number) {}
 }
 
-export class UpdateSocials implements Action {
-    readonly type = UPDATE_SOCIALS;
+export class SetSocials implements Action {
+    readonly type = SET_SOCIALS;
 
     constructor(public payload: Social[]) {}
 }
@@ -42,4 +42,4 @@ AddSocial |
 GetItems |
 UpdateInfo |
 DeleteSocial |
-UpdateSocials;
+SetSocials;

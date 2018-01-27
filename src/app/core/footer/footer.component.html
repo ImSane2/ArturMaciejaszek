@@ -1,22 +1,46 @@
 <footer class="footer">
     <div class="footer__left">
-        <img src="" alt="{{ 'footer.alt' | translate }}">
-        <p>{{ 'footer.text' | translate }}</p>
+        <div class="footer__left--credit">
+            <img class="footer__img" src="./assets/img/am.png" alt="{{ 'footer.alt' | translate }}">
+            <p>{{ 'footer.text' | translate }}</p>
+        </div>
+        <div class="footer__left--lang">
+        {{ 'footer.lang' | translate}}
+        <select [(ngModel)]="language" (ngModelChange)="onChange($event)">
+            <option *ngFor="let lang of langs" [ngValue]="lang">{{lang}}</option>
+        </select>
+        </div>
     </div>
     <div class="footer__right">
-        <p>Access</p>
-        <form class="expandable" (ngSubmit)=onSubmit(f) #f="ngForm">
-            <label for="username">{{ 'footer.username' | translate }}</label>
-            <input type="username"  name="username" id="username" required ngModel>
-            <label for="password">{{ 'footer.password' | translate }}</label>
-            <input type="password" name="password" id="password" autocomplete="new-password" required ngModel>
-            <button type="submit" [disabled]="!f.valid">{{ 'footer.login' | translate }}</button>
-            <button type="button" [disabled]="!f.valid" (click)="registerUser(f)">{{ 'footer.reg' | translate }}</button>
-        </form>
+        <p>{{ 'footer.access' | translate}}</p>
+        <div *ngIf="!logged">
+            <form class="expandable" (ngSubmit)=onSubmit(f) #f="ngForm" *ngIf="!regForm">
+                <label for="username">{{ 'footer.username' | translate }}</label>
+                <input type="username"  name="username" id="username" required ngModel>
+                <label for="password">{{ 'footer.password' | translate }}</label>
+                <input type="password" name="password" id="password" 
+                    autocomplete="password" required ngModel>
+                <button type="submit" [disabled]="!f.valid">
+                    {{ 'footer.login' | translate }}</button>
+            </form>
+            <span *ngIf="!regForm">{{ 'footer.regtext' | translate}}
+                <span *ngIf="!logged" class="clickable" (click)="regForm = true">
+                    {{ 'footer.reg' | translate }}</span>
+            </span>
+            <form class="expandable" (ngSubmit)=registerUser(f) #f="ngForm" *ngIf="regForm">
+                <label for="username">{{ 'footer.username' | translate }}</label>
+                <input type="username"  name="username" id="username" required ngModel>
+                <label for="new-password">{{ 'footer.password' | translate }}</label>
+                <input type="password" name="password" id="new-password" 
+                    autocomplete="new-password" required ngModel>
+                <button type="submit" [disabled]="!f.valid" (click)="registerUser(f)">
+                    {{ 'footer.reg' | translate }}</button>
+            </form>
+            <span *ngIf="regForm" class="clickable" (click)="regForm = false">
+                    {{ 'footer.getback' | translate}}</span>
+        </div>
+        <div *ngIf="logged">{{ user }}<button type="button" (click)="onLogout()">Logout</button></div>
     </div>
-    <select [(ngModel)]="language" (ngModelChange)="onChange($event)">
-        <option *ngFor="let lang of langs" [ngValue]="lang">{{lang}}</option>
-    </select>
 </footer>
 
 

@@ -7,7 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { Social } from '../sections/contact/social.model';
 
-import { UpdateInfo } from './../shared/store/basic-info.actions';
+import { UpdateInfo, SetSocials } from './../shared/store/basic-info.actions';
 import { SetWork } from './../sections/work/store/work.actions';
 import { SetSkills } from './../sections/skills/store/skills.actions';
 import { SetEdu } from '../sections/education/store/edu.actions';
@@ -35,6 +35,7 @@ export class MainComponent implements OnInit {
   skillsState: fromSkills.State;
   currentUser: String;
   data: any;
+  logged: boolean;
 
   constructor( private store: Store<fromApp.AppState>,
                 private http: Http,
@@ -44,19 +45,18 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe( (params: ParamMap) => {
       this.currentUser = params.get('id') ? params.get('id').toLowerCase() : 'arturmaciejaszek';
-      console.log(this.currentUser);
-      this.getData(this.currentUser).subscribe( (res) => {
+      this.getData(this.currentUser).subscribe( res => {
         this.data = res.json();
         this.populateData(this.data);
       });
     });
     this.language = this.translate.getBrowserLang();
     this.editMode = this.store.select('authenticated');
-    this.store.select('token').subscribe( (res) => this.authState = res);
-    this.store.select('name').subscribe( (res) => this.infoState = res);
-    this.store.select('education').subscribe( (res) => this.eduState = res);
-    this.store.select('work').subscribe( (res) => this.workState = res);
-    this.store.select('skills').subscribe( (res) => this.skillsState = res);
+    this.store.select('token').subscribe( res => this.authState = res);
+    this.store.select('name').subscribe( res => this.infoState = res);
+    this.store.select('education').subscribe( res => this.eduState = res);
+    this.store.select('work').subscribe( res => this.workState = res);
+    this.store.select('skills').subscribe( res => this.skillsState = res);
   }
 
   getData(username) {
@@ -67,6 +67,7 @@ export class MainComponent implements OnInit {
 
   populateData(data) {
     this.store.dispatch(new UpdateInfo(data[this.language].info));
+    this.store.dispatch(new SetSocials(data[this.language].info.socials));
     this.store.dispatch(new SetWork(data[this.language].work));
     this.store.dispatch(new SetEdu(data[this.language].education));
     this.store.dispatch(new SetSkills(data[this.language].skills));
@@ -82,9 +83,7 @@ export class MainComponent implements OnInit {
       work: this.workState.work,
       skills: this.skillsState.skills
     } ;
-    console.log(this.currentUser);
-    console.log(newData);
-    this.saveCall(newData).subscribe((res) => console.log(res.json()));
+    this.saveCall(newData).subscribe( res => console.log(res.json()));
   }
 
   saveCall(data) {
@@ -96,10 +95,17 @@ export class MainComponent implements OnInit {
 
   logout() {
     this.store.dispatch(new Logout());
+    this.logged = false;
   }
 
   discard() {
-    // TEST BUTTON
+    this.populateData(this.data);
+  }
+
+  copyFromProfile(profile) {
+    this.getData(profile.value).take(1).subscribe(
+      res => this.populateData(res.json())
+    );
   }
 
   switchLang(e) {

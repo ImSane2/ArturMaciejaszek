@@ -5,14 +5,21 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SortbyPipe implements PipeTransform {
 
-  transform(value: any, property: string): any {
+  transform(value: any, property: string, modifier?: string): any {
     if (value.length < 1 || property === '' || property === undefined) {
       return value;
     }
-    return value.sort((a, b) => {
-      if (a[property] < b[property]) {
-        return 1;
-      } else { return -1; }
+    if (modifier === 'date') {
+      return value.sort((a, b) => {
+        if (a[property] < b[property]) {
+          return 1;
+        } else { return -1; }
+      });
+    }
+    return value.sort( (a, b) => {
+      return b[property] - a[property];
     });
     }
 }
+
+

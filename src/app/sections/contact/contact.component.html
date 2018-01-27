@@ -38,10 +38,30 @@
           [disabled]="!f.valid">{{ 'contact.send' | translate }}</button>
         </form>
         <div class="boxDisplay__side-bar">
-          <div class="social" *ngFor="let social of (socialState | async).socials">
+          <!-- <div class="social" *ngFor="let social of (socialState | async).socials">
             <i [ngClass]="social.icon" aria-hidden="true"></i>
+          </div> -->
+          <div class="social" *ngFor="let social of (socialState | async).socials">
+            <a [href]="social.link"><img class="social__img" [src]="social.icon" [alt]="social.name"></a>
           </div>
-          <div class="social addItem addItem__social" *ngIf="editMode|async"></div>
+          <div class="social addItem addItem__social" *ngIf="editMode|async">
+            <i class="fa fa-plus-circle"  
+              aria-hidden="true"
+              *ngIf="!addSocial"
+              (click)="addSocial = !addSocial"></i>
+          </div>
+          <div *ngIf="addSocial">
+            <form (ngSubmit)="socialSubmit(f)" #f="ngForm">
+              <input type="text" placeholder="{{ 'social.name' | translate }}" 
+              name="name" required ngModel>
+              <input type="text" placeholder="{{ 'social.icon' | translate }}" 
+              name="icon" required ngModel>
+              <input type="text" placeholder="{{ 'social.link' | translate }}" 
+              name="link" required ngModel>
+              <button type="submit" [disabled]="!f.valid">{{ 'util.save' | translate }}</button>
+              <button type="button" (click)="socialCancel()">{{ 'util.cancel' | translate }}</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>

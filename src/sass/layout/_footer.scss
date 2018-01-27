@@ -4,12 +4,42 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    font-size: 1.2rem;
 
-    &__left {
+    & > * {
         display: flex;
     }
-    &__right {
 
+    &__img {
+        height: 5rem;
+    }
+
+    &__left {
+        flex-direction: column;
+
+        &--credit {
+            display: flex;
+            flex-direction: row;
+        }
+
+        &--lang {
+            padding-left: 2rem;
+            padding-bottom: 1rem;
+        }
+    }
+    &__right {
+        padding-right: 3rem;
+        text-align: right;
+        flex-direction: column;
+    }
+}
+
+.clickable {
+    cursor: pointer;
+
+    &:hover {
+        color: yellowgreen;
+        text-decoration: underline;
     }
 }
 

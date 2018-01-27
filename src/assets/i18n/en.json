@@ -24,7 +24,7 @@
     "work": {
         "title": "Work experience",
         "company": "Company Name",
-        "position:": "Position",
+        "position": "Position",
         "path": "logo path",
         "alt": "company logo",
         "sDate": "Start Date",
@@ -55,6 +55,11 @@
         "link": "site link",
         "msgSent": "Thank you"
     },
+    "social": {
+        "name": "social site",
+        "icon": "social icon",
+        "link": "link to site"
+    },
     "footer": {
         "alt": "my photo",
         "text": "Made with my own two hands",
@@ -63,7 +68,10 @@
         "password": "Password",
         "login": "Login",
         "reg": "Register",
-        "logout": "Logout"
+        "logout": "Logout",
+        "lang": "not your language?",
+        "regtext": "Don't have an account yet? ",
+        "getback": "Back to login panel"
     },
     "util": {
         "save": "Save",

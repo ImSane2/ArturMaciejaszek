@@ -16,8 +16,8 @@
         <div class="skill-item__details">{{ skillItem.details }} </div>
     </div>
     <app-skill-edit *ngIf="editOn" [index]="index" (editEmitter)="setEdit($event)"></app-skill-edit>
-    <div class="editItem" *ngIf="(editMode|async).authenticated">
-        <div class="editItem__edit" (click)="startEdit()">{{ 'util.edit' | translate }}</div>
-        <div class="editItem__delete" (click)="deleteItem()">{{ 'util.delete' | translate }}</div>
-    </div>
+</div>
+<div *ngIf="(editMode|async).authenticated">
+    <div class="editItem__edit" (click)="startEdit()">{{ 'util.edit' | translate }}</div>
+    <div class="editItem__delete" (click)="deleteItem()">{{ 'util.delete' | translate }}</div>
 </div>

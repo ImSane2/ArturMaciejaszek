@@ -6,7 +6,8 @@
         <div class="itemWide__text-box">
             <p [ngClass]="{'itemWide__text--main': true, 'expanded': itemToggle}">{{ workItem.company }}</p>
             <p [ngClass]="{'itemWide__text--sub': true, 'expandedHide': itemToggle}">{{ workItem.position }}</p>
-            <p [ngClass]="{'itemWide__text--sub': true, 'expandedHide': itemToggle}">{{ workItem.startDate | date }} - {{ workItem.endDate | date}}</p>
+            <p [ngClass]="{'itemWide__text--sub': true, 'expandedHide': itemToggle}">
+                {{ workItem.startDate | date:'MM.yyyy' }} - {{ workItem.endDate | date:'MM.yyyy' }}</p>
         </div>
         <i [ngClass]="{'fa': true, 'fa-plus-circle': true, 'itemWide__details-btn': true, 'expanded': itemToggle}" 
         aria-hidden="true" 
