@@ -41,7 +41,14 @@
         "eDate": "End Date",
         "resps": "Responsibilities",
         "+resp": "Add Responsibility",
-        "resp": "Responsibility"
+        "resp": "Responsibility",
+        "place": {
+            "company": "Monster Inc.",
+            "position": "boggeyman",
+            "path": "external or relative",
+            "alt": "company logo",
+            "resp": "hiding under the bed"
+        }
     },
     "skills": {
         "title": "Skills",
@@ -51,7 +58,13 @@
         "prof": "Proficiency",
         "tags": "Tags",
         "filter": "Search for: e.g. language",
-        "notfound": "I am sorry but selected skill is not a part of my expertise :("
+        "place": {
+            "name": "Scrambled Eggs",
+            "path": "external or relative",
+            "details": "probably barely eatable",
+            "prof": "8",
+            "tags": "#scrambled#eggs#breakfast#food"
+        }
     },
     "contact": {
         "main": "If you are interested you can reach me via the form below or social links",

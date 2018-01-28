@@ -17,7 +17,9 @@
         <div class="skill-item__details">{{ skillItem.details }} </div>
     </div>
     <!-- FORM FOR EDIT -->
-    <app-skill-edit *ngIf="editOn" [index]="index" (editEmitter)="setEdit($event)"></app-skill-edit>
+    <div *ngIf="editOn"class="skill-item addItem addItem__skill-item">
+        <app-skill-edit [index]="index" (editEmitter)="setEdit($event)"></app-skill-edit>
+    </div>
 </div>
 <!-- <div *ngIf="(editMode|async).authenticated">
     <div class="editItem__edit" (click)="startEdit()">{{ 'util.edit' | translate }}</div>
@@ -25,6 +27,10 @@
 </div> -->
 <!-- CONTROL PANEL -->
 <div class="editItem--skill" *ngIf="(editMode|async).authenticated">
-    <i class="fa fa-pencil editItem__btn editItem__edit" (click)="startEdit()" aria-hidden="true"></i>
-    <i class="fa fa-trash editItem__btn editItem__delete" (click)="deleteItem()" aria-hidden="true"></i>
+    <i class="fa fa-pencil editItem__btn editItem__edit" 
+    (click)="startEdit()" aria-hidden="true"
+    *ngIf="!editOn"></i>
+    <i class="fa fa-trash editItem__btn editItem__delete" 
+    (click)="deleteItem()" aria-hidden="true"
+    *ngIf="!editOn"></i>
 </div>

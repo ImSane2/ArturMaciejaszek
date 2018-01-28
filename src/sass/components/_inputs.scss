@@ -33,6 +33,17 @@
 .input {
     background-color: $color-bg;
     border-radius: 3px;
+    
+    &--edit, &--long, &--normal {
+        &.ng-touched.ng-valid {
+            border-left: 4px solid yellowgreen;
+    
+        }
+        &.ng-touched.ng-invalid {
+            border-left: 4px solid orangered;
+    
+        }
+    }
 
     &--edit {
         width: 20vw;

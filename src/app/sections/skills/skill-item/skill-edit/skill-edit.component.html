@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="form">
+<!-- <form (ngSubmit)="onSubmit()" [formGroup]="form">
   <div class="form-group">
     <input type="text" id="name" placeholder="{{ 'skills.name' | translate }}" formControlName="name"
     class="input form__name"
@@ -38,4 +38,46 @@
     <button type="submit" [disabled]="!form.valid">{{ 'util.save' | translate }}</button>
     <button (click)="onCancel()" type="button">{{ 'util.cancel' | translate }}</button>
   </div>  
-</form>
+</form> -->
+
+<form class="skillEdit" (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div class="form-group">
+      <label for="name" class="label">{{ 'skills.name' | translate }}</label>
+      <input type="text" id="name" placeholder="{{ 'skills.place.name' | translate }}" formControlName="name"
+      class="input input--normal"
+      required
+      >
+    </div>
+    <div class="form-group">
+      <label for="img" class="label">{{ 'skills.path' | translate }}</label>
+      <input type="text" id="img" placeholder="{{ 'skills.place.path' | translate }}" formControlName="img"
+      class="input input--normal"
+      >
+    </div>
+    <div class="form-group">
+      <label for="details" class="label">{{ 'skills.details' | translate }}</label>
+      <input type="text" id="details" placeholder="{{ 'skills.place.details' | translate }}" formControlName="details"
+      class="input input--normal"
+      required
+      >
+    </div>
+    <div class="form-group">
+      <label for="proficiency" class="label">{{ 'skills.prof' | translate }}</label>
+      <input type="number" id="proficiency" placeholder="{{ 'skills.place.prof' | translate }}" formControlName="proficiency"
+      class="input input--normal"
+      min="0" max="10"
+      required
+      >
+    </div>
+    <div class="form-group">
+      <label for="tags" class="label">{{ 'skills.tags' | translate }}</label>
+      <input type="text" id="tags" placeholder="{{ 'skills.place.tags' | translate }}" formControlName="tags"
+      class="input input--normal"
+      required
+      >
+    </div>
+    <div>
+      <button type="submit" [disabled]="!form.valid">{{ 'util.save' | translate }}</button>
+      <button (click)="onCancel()" type="button">{{ 'util.cancel' | translate }}</button>
+    </div>  
+  </form>

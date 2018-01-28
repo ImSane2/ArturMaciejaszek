@@ -100,10 +100,17 @@ export class MainComponent implements OnInit {
     this.populateData(this.data);
   }
 
-  copyFromProfile(profile) {
-    this.getData(profile.value).take(1).subscribe(
-      res => this.populateData(res.json())
-    );
+  clone(profile) {
+    if (profile.value === '' || profile.value === undefined) {
+      console.log('no profile');
+      this.getData('arturmaciejaszek').take(1).subscribe(
+        res => this.populateData(res.json())
+      );
+    }else {
+      this.getData(profile.value).take(1).subscribe(
+        res => this.populateData(res.json())
+      );
+    }
   }
 
   switchLang(e) {

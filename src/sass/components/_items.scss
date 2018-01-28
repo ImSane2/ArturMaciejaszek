@@ -220,7 +220,8 @@
 .skill-item {
     perspective: 1200px;
     box-sizing: border-box;
-    height: 40vh;
+    //NOTE WHAT YOU HAVE DONE HERE WITH HEIGHT
+    min-height: 40vh;
     width: 15vw;
     margin: .5rem;
     z-index: 1;

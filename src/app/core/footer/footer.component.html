@@ -42,7 +42,7 @@
             <span *ngIf="regForm" class="clickable" (click)="regForm = false">
                     {{ 'footer.getback' | translate}}</span>
         </div>
-        <div *ngIf="logged">{{ user }}<button type="button" (click)="onLogout()">Logout</button></div>
+        <div *ngIf="logged">{{ user }}<button class="margin-left" type="button" (click)="onLogout()">Logout</button></div>
     </div>
 </footer>
 

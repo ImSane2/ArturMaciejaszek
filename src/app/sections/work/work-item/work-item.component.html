@@ -25,7 +25,7 @@
     </div>
 </div>
 <!-- FORM FOR EDIT -->
-<div class="itemWide itemWide--dark addItem addItem__itemWide" *ngIf="editOn">
+<div class="itemWide itemWide--dark addItem addItem__itemWide itemWide--editable" *ngIf="editOn">
     <app-work-edit (editEmitter)="setEdit($event)" [index]="index"></app-work-edit>
 </div>
 

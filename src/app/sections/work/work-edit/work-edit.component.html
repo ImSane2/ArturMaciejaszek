@@ -1,52 +1,52 @@
-<div>
-    <form class="editOn" (ngSubmit)="onSubmit()" [formGroup]="form">
-        <div>
-            <div class="form-group">
-                <input type="text" id="company" placeholder="{{ 'work.company' | translate }}" formControlName="company"
-                class="input form__name"
-                required
-                >
+<form class="eduEdit" (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div>
+        <div class="form-group">
                 <label for="company" class="label">{{ 'work.company' | translate }}</label>
-            </div>
-            <div class="form-group">
-                <input type="text" id="position" placeholder="{{ 'work.position' | translate }}" formControlName="position"
-                class="input form__name"
-                required
-                >
-                <label for="position" class="label">{{ 'work.position' | translate }}</label>
-            </div>
-            <div class="form-group">
-                <input type="text" id="cLogo" placeholder="{{ 'work.path' | translate }}" formControlName="cLogo"
-                class="input form__name"
-                >
-                <label for="cLogo" class="label">{{ 'work.path' | translate }}</label>
-            </div>
+            <input type="text" id="company" placeholder="{{ 'work.place.company' | translate }}" formControlName="company"
+            class="input input--edit"
+            required
+            >
         </div>
-        <div>
+        <div class="form-group">
+            <label for="position" class="label">{{ 'work.position' | translate }}</label>
+            <input type="text" id="position" placeholder="{{ 'work.place.position' | translate }}" formControlName="position"
+            class="input input--edit"
+            required
+            >
+        </div>
+        <div class="form-group">
+            <label for="cLogo" class="label">{{ 'work.path' | translate }}</label>
+            <input type="text" id="cLogo" placeholder="{{ 'work.place.path' | translate }}" formControlName="cLogo"
+            class="input input--edit"
+            >
+        </div>
+    </div>
+    <div>
+        <div class="eduEdit__dates">
             <div class="form-group">
+                <label for="startDate" class="label">{{ 'work.sDate' | translate }}</label>
                 <input type="date" id="startDate" formControlName="startDate"
                 required>
-                <label for="startDate" class="label">{{ 'work.sDate' | translate }}</label>
             </div>
             <div class="form-group">
+                <label for="endDate">{{ 'work.eDate' | translate }}</label>
                 <input type="date" id="endDate" formControlName="endDate"
                 required>
-                <label for="endDate">{{ 'work.eDate' | translate }}</label>
             </div>
         </div>
-        <div class="form-group" formArrayName="responsibilities">
-            <span>{{ 'work.resps' | translate }}</span>
-            <button type="button" (click)="addResp()">{{ 'work.+resp' | translate }}</button>
-            <div *ngFor="let res of getControls(); let i = index">
-                <input type="text" id="res{{i}}" placeholder="{{ 'work.resp' | translate }}" 
-                class="input form__name"
-                [formControlName]="i">
-                <button type="button" (click)="deleteResp(i)">X</button>
-            </div>
+    </div>
+    <div class="form-group" formArrayName="responsibilities">
+        <span>{{ 'work.resps' | translate }}</span>
+        <button type="button" (click)="addResp()">{{ 'work.+resp' | translate }}</button>
+        <div *ngFor="let res of getControls(); let i = index">
+            <input type="text" id="res{{i}}" placeholder="{{ 'work.place.resp' | translate }}" 
+            class="input input--edit input--long"
+            [formControlName]="i">
+            <i class="fa fa-trash editItem__btn--small editItem__delete" (click)="deleteResp(i)" aria-hidden="true"></i>
         </div>
-        <div>
-            <button type="submit" [disabled]="!form.valid">{{ 'util.save' | translate }}</button>
-            <button (click)="onCancel()" type="button">{{ 'util.cancel' | translate }}</button>
-        </div>
-    </form>
-</div>
+    </div>
+    <div>
+        <button type="submit" [disabled]="!form.valid">{{ 'util.save' | translate }}</button>
+        <button (click)="onCancel()" type="button">{{ 'util.cancel' | translate }}</button>
+    </div>
+</form>
