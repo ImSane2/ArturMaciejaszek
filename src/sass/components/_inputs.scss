@@ -1,12 +1,7 @@
 .filter {
-    position: absolute;
-    top: 10rem;
-    right: 5vw;
-
-    @include respond(-875) {
-        display: block;
-        position: initial;
-    }
+    display: block;
+    position: initial;
+    margin-bottom: 2rem;
 
     &__icon {
         color: $color-light;
@@ -30,7 +25,7 @@
             outline: none;
             border-radius: 50px;
             border: 2px solid $color-p-2;
-            filter: $shadow;
+            box-shadow: 1.5rem 1.5rem 4rem rgba($color-dark, .5);
         }
     }
 }
@@ -38,11 +33,24 @@
 .input {
     background-color: $color-bg;
     border-radius: 3px;
+
+    &--edit {
+        width: 20vw;
+        height: 2rem;
+    }
+
+    &--long {
+        width: 30vw;
+    }
+
+    &--normal {
+        height: 2rem;
+    }
 }
 
 .label {
     margin-top: .7rem;
-    display: block;
+    // display: block;
     transition: all .3s;
     text-align: left;
 }
@@ -117,6 +125,16 @@
             width: 45vw;
         }
 
+        &.input::-webkit-input-placeholder {
+            padding-left: 1rem;
+        }
+        &.input::-moz-placeholder {
+            padding-left: 1rem;
+        }
+        &.input:-ms-input-placeholder {
+            padding-left: 1rem;
+        }
+
         &.input:placeholder-shown + .label {
             text-align: left;
             opacity: 0;
@@ -166,3 +184,4 @@
         }
     }
 }
+

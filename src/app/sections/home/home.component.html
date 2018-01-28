@@ -8,29 +8,31 @@
             {{ (basicState | async).greeting }}</p>
         <img class="home__sig" src="./assets/img/sig.png" alt="signature" [ngsReveal]="{reset: true, duration: 2700}">       
     </div>
+    <!-- EDIT FORM -->
     <div class="home" *ngIf="editOn">
         <form (ngSubmit)="onSubmit(f)" #f="ngForm">
             <div class="form-group form-group--name">
+                <label for="myname" class="label">{{ 'home.name' | translate }}</label>
                 <input type="text" id="myname" placeholder="{{ 'home.name' | translate }}" 
                 name="myname"
                 class="input form__name"
                 required
                 [ngModel]="( basicState|async).name">
-                <label for="myname" class="label">{{ 'home.name' | translate }}</label>
             </div>
             <div class="form-group form-group--name">
+                <label for="greeting" class="label">{{ 'home.greeting' | translate }}</label>
                 <textarea type="textarea" id="greeting" placeholder="{{ 'home.greeting' | translate }}" 
                 name="greeting"
                 class="input form__name home__textarea"
                 required
                 [ngModel]="( basicState|async).greeting"></textarea>
-                <label for="greeting" class="label">{{ 'home.greeting' | translate }}</label>
             </div>
             <button type="submit">{{ 'util.save' | translate }}</button>
             <button type="button" (click)="onCancel()">{{ 'util.cancel' | translate }}</button>
         </form>
     </div>
+    <!-- EDIT BUTTON -->
     <div class="editConsole" *ngIf="(editMode|async).authenticated">
-        <div class="editButton" (click)="editOn = !editOn">{{ 'util.edit' | translate }}</div>
+        <i *ngIf="!editOn" class="fa fa-pencil editItem__btn editItem__edit" (click)="editOn = !editOn" aria-hidden="true"></i>
     </div>
 </section>

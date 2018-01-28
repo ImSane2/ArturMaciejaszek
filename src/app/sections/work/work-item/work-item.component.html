@@ -1,32 +1,34 @@
-<div class="helperDiv">
-    <div class="itemWide itemWide--dark" [ngsReveal]="{ reset: true}" *ngIf="!editOn">
-        <div class="itemWide__image-box">
-            <img class="itemWide__logo" src='{{ workItem.cLogo }}' alt="{{ 'work.alt' | translate }}">
-        </div>
-        <div class="itemWide__text-box">
-            <p [ngClass]="{'itemWide__text--main': true, 'expanded': itemToggle}">{{ workItem.company }}</p>
-            <p [ngClass]="{'itemWide__text--sub': true, 'expandedHide': itemToggle}">{{ workItem.position }}</p>
-            <p [ngClass]="{'itemWide__text--sub': true, 'expandedHide': itemToggle}">
-                {{ workItem.startDate | date:'MM.yyyy' }} - {{ workItem.endDate | date:'MM.yyyy' }}</p>
-        </div>
-        <i [ngClass]="{'fa': true, 'fa-plus-circle': true, 'itemWide__details-btn': true, 'expanded': itemToggle}" 
-        aria-hidden="true" 
-        (click)="itemToggle = !itemToggle"></i>
-        <div [ngClass]="{'itemWide__list-box': true, 'expanded': itemToggle}">
-            <ul>
-                <li *ngFor="let resp of workItem.responsibilities; let i = index"> 
-                    {{ workItem.responsibilities[i] }}</li>
-            </ul>
-        </div>
+<!-- WORK ITEM -->
+<div class="itemWide itemWide--dark" [ngsReveal]="{ reset: true}" *ngIf="!editOn">
+    <div class="itemWide__image-box">
+        <img class="itemWide__logo" src='{{ workItem.cLogo }}' alt="{{ 'work.alt' | translate }}">
     </div>
-    <div class="itemWide itemWide--dark addItem addItem__itemWide" *ngIf="editOn">
-        <app-work-edit (editEmitter)="setEdit($event)" [index]="index"></app-work-edit>
+    <div class="itemWide__text-box">
+        <p [ngClass]="{'itemWide__text--main': true, 'expanded': itemToggle}">{{ workItem.company }}</p>
+        <p [ngClass]="{'itemWide__text--sub': true, 'expandedHide': itemToggle}">{{ workItem.position }}</p>
+        <p [ngClass]="{'itemWide__text--sub': true, 'expandedHide': itemToggle}">
+            {{ workItem.startDate | date:'MM.yyyy' }} - {{ workItem.endDate | date:'MM.yyyy' }}</p>
     </div>
-    <div class="editItem" *ngIf="(editMode|async).authenticated">
-            <div class="editItem__edit" (click)="editOn = !editON">{{ 'util.edit' | translate }}</div>
-            <div class="editItem__delete" (click)="deleteItem()">{{ 'util.delete' | translate }}</div>
+    <i [ngClass]="{'fa': true, 'fa-plus-circle': true, 'itemWide__details-btn': true, 'expanded': itemToggle}" 
+    aria-hidden="true" 
+    (click)="itemToggle = !itemToggle"></i>
+    <div [ngClass]="{'itemWide__list-box': true, 'expanded': itemToggle}">
+        <ul>
+            <li *ngFor="let resp of workItem.responsibilities; let i = index"> 
+                {{ workItem.responsibilities[i] }}</li>
+        </ul>
+    </div>
+    <!-- CONTROL PANEL -->
+    <div class="editItem editItem--work" *ngIf="(editMode|async).authenticated">
+        <i class="fa fa-pencil editItem__btn editItem__edit" (click)="editOn = !editOn" aria-hidden="true"></i>
+        <i class="fa fa-trash editItem__btn editItem__delete" (click)="deleteItem()" aria-hidden="true"></i>
     </div>
 </div>
+<!-- FORM FOR EDIT -->
+<div class="itemWide itemWide--dark addItem addItem__itemWide" *ngIf="editOn">
+    <app-work-edit (editEmitter)="setEdit($event)" [index]="index"></app-work-edit>
+</div>
+
 
 
 

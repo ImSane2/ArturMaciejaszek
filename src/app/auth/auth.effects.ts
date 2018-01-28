@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { Router } from '@angular/router';
 
+import { FlashMessagesService } from 'angular2-flash-messages/module/flash-messages.service';
+
 import { Effect, Actions } from '@ngrx/effects';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/do';
 
 import * as AuthActions from './auth.actions';
-import { FlashMessagesService } from 'angular2-flash-messages/module/flash-messages.service';
 
 @Injectable()
 export class AuthEffects {
@@ -26,7 +27,7 @@ export class AuthEffects {
                                         {type: AuthActions.SET_TOKEN,
                                         payload: res.json().token}];
                             }else {
-                                this.flash.show(res.json().msg);
+                                this.flash.show(res.json().msg, {cssClass: 'alert'});
                                 return [{type: AuthActions.ERROR,
                                         payload: res.json().msg}];
                             }
@@ -51,7 +52,7 @@ export class AuthEffects {
                         ];
                     }else {
                         // console.log(res.json());
-                        this.flash.show(res.json().msg);
+                        this.flash.show(res.json().msg, {cssClass: 'alert'});
                         return [{type: AuthActions.ERROR,
                                 payload: res.json().msg}];
                     }

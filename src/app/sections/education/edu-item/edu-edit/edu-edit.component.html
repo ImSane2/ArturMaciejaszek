@@ -1,4 +1,4 @@
-<form class="editOn" (ngSubmit)="onSubmit()" [formGroup]="form">
+<!-- <form class="editOn" (ngSubmit)="onSubmit()" [formGroup]="form">
   <div class="form-group">
       <input type="text" id="school" placeholder="{{ 'edu.school' | translate }}" formControlName="school"
       class="input form__name"
@@ -63,4 +63,87 @@
       <button type="submit" [disabled]="!form.valid">{{ 'util.save' | translate }}</button>
       <button (click)="onCancel()" type="button">{{ 'util.cancel' | translate }}</button>
   </div>        
+</form> -->
+
+<form class="eduEdit" (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div class="eduEdit__name">
+        <label for="school" class="label">{{ 'edu.school' | translate }}</label>
+        <input type="text" id="school" placeholder="{{ 'edu.place.school' | translate }}" formControlName="school"
+        class="input input--edit input--long"
+        required
+        >
+    </div>
+    <div class="eduEdit__details">
+        <div class="form-group">
+            <label for="faculty" class="label">{{ 'edu.faculty' | translate }}</label>
+            <input type="text" id="faculty" placeholder="{{ 'edu.place.faculty' | translate }}" formControlName="faculty"
+            class="input input--edit"
+            required
+            >
+        </div>
+        <div class="form-group">
+            <label for="specialization" class="label">{{ 'edu.spec' | translate }}</label>
+            <input type="text" id="specialization" placeholder="{{ 'edu.place.spec' | translate }}" formControlName="specialization"
+            class="input input--edit"
+            required
+            >
+        </div>
+        <div class="form-group">
+            <label for="logo" class="label">{{ 'edu.path' | translate }}</label>
+            <input type="text" id="logo" placeholder="{{ 'edu.place.path' | translate }}" formControlName="logo"
+            class="input input--edit"
+            >
+        </div>
+        <div class="form-group">
+            <label for="type" class="label">{{ 'edu.type' | translate }}</label>
+            <input type="text" id="type" placeholder="{{ 'edu.place.type' | translate }}" formControlName="type"
+            class="input input--edit"
+            required
+            >
+        </div>
+    </div>
+    <!-- DATES BLOCK -->
+    <!-- <div class="eduEdit__dates">
+        <div class="form-group">
+            <label for="startDate" class="label">{{ 'edu.sDate' | translate }}</label>
+            <input type="date" id="startDate" placeholder="{{ 'edu.sDate' | translate }}" formControlName="startDate"
+            class="input input--edit"
+            required
+            >
+        </div>
+        <div class="form-group">
+            <label for="endDate" class="label">{{ 'edu.eDate' | translate }}</label>
+            <input type="date" id="endDate" placeholder="{{ 'edu.eDate' | translate }}" formControlName="endDate"
+            class="input input--edit"
+            required
+            >
+        </div>
+    </div> -->
+    <div class="eduEdit__courses">
+        <div class="form-group" formArrayName="courses">
+            <span>{{ 'edu.courses' | translate }}</span>
+            <button type="button" (click)="addCourseField()">{{ 'edu.+course' | translate }}</button>
+            <div class="eduEdit__courses__details">
+            <div *ngFor="let course of getControls(); let i = index" [formGroupName]="i">
+                <input type="text" id="course{{i}}" placeholder="{{ 'edu.place.course' | translate }}" 
+                formControlName="courseName"
+                class="input input--normal">
+                <input type="text" id="description{{i}}" placeholder="{{ 'edu.place.desc' | translate }}" 
+                formControlName="description"
+                class="input input--edit">
+                <input type="number" id="mark{{i}}" placeholder="{{ 'edu.mark' | translate }}" 
+                min="2" max="5"
+                class="input input--normal"
+                formControlName="mark">
+                <i class="fa fa-trash editItem__btn--small editItem__delete" (click)="deleteCourse(i)" aria-hidden="true"></i>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="eduEdit_panel">
+        <div>
+            <button type="submit" [disabled]="!form.valid">{{ 'util.save' | translate }}</button>
+            <button (click)="onCancel()" type="button">{{ 'util.cancel' | translate }}</button>
+        </div>
+    </div>        
 </form>

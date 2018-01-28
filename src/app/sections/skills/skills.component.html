@@ -1,7 +1,7 @@
 <section class="section-skills">
     <div class="overlay"></div>
     <div class="boxDisplay">
-        <div class="boxDisplay__header-box">
+        <div class="boxDisplay__header-box--skills">
             <h2 class="heading_secondary heading_secondary--white">{{ 'skills.title' | translate }}</h2>
         </div>
         <div class="filter">
@@ -27,7 +27,7 @@
             ></app-skill-item>
             <div class="skill-item addItem addItem__skill-item" *ngIf="editMode|async">
                 <div *ngIf="!editOn">
-                    <i class="fa fa-plus-circle addBtn"  
+                    <i class="fa fa-plus-circle addBtn--skill"  
                     aria-hidden="true"
                     (click)="editOn = true"></i>
                 </div>

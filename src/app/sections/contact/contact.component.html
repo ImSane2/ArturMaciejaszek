@@ -3,10 +3,12 @@
     <div class="boxDisplay__header-box--onWhite">
       <h2 class="heading_secondary heading_secondary--primary">{{ 'contact.title' | translate }}</h2>
     </div>
+    <!-- CONTACT BOX -->
     <div class="boxDisplay__contact-box">
       <p class="boxDisplay__contact-box--text">{{ 'contact.main' | translate }}</p>
       <div class="boxDisplay__contact-section">
         <p *ngIf="msgSent">{{ 'contact.msgSent' | translate }}</p>
+        <!-- CONTACT FORM -->
         <form class="boxDisplay__form" (ngSubmit)="onSubmit(f)" #f="ngForm" *ngIf="!msgSent">
           <div class="form-group form-group--name">
               <input type="text" id="name" placeholder="{{ 'contact.name' | translate }}" name="name"
@@ -37,19 +39,26 @@
           class="form__submit"
           [disabled]="!f.valid">{{ 'contact.send' | translate }}</button>
         </form>
+        <!-- SIDE BAR -->
         <div class="boxDisplay__side-bar">
-          <!-- <div class="social" *ngFor="let social of (socialState | async).socials">
-            <i [ngClass]="social.icon" aria-hidden="true"></i>
-          </div> -->
-          <div class="social" *ngFor="let social of (socialState | async).socials">
-            <a [href]="social.link"><img class="social__img" [src]="social.icon" [alt]="social.name"></a>
+          <div class="socials" *ngFor="let social of (socialState | async).socials; let i = index">
+            <div class="social">
+              <a [href]="social.link"><img class="social__img" [src]="social.icon" [alt]="social.name"></a>
+            </div>
+            <!-- DELETE BUTTON -->
+            <div class="editItem--social" *ngIf="editMode|async">
+                <i class="fa fa-trash editItem__btn editItem__btn--social editItem__delete" 
+                (click)="deleteItem(i)" aria-hidden="true"></i>
+            </div>
           </div>
+          <!-- ADD SOCIAL ICON -->
           <div class="social addItem addItem__social" *ngIf="editMode|async">
             <i class="fa fa-plus-circle"  
               aria-hidden="true"
               *ngIf="!addSocial"
               (click)="addSocial = !addSocial"></i>
           </div>
+          <!-- ADD SOCIAL FORM -->
           <div *ngIf="addSocial">
             <form (ngSubmit)="socialSubmit(f)" #f="ngForm">
               <input type="text" placeholder="{{ 'social.name' | translate }}" 

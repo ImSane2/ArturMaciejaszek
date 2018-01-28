@@ -8,12 +8,12 @@
     <app-footer (langEmitter)="switchLang($event)"></app-footer>
 </div>
 <div class="control" *ngIf="(editMode|async).authenticated">
-    <div class="control__btn control__save" (click)="saveData()">S</div>
-    <div class="control__btn control__discard" (click)="discard()">D</div>
+    <i class="fa fa-floppy-o control__save control__btn" aria-hidden="true" (click)="saveData()"></i>
+    <i class="fa fa-ban control__discard control__btn" aria-hidden="true" (click)="discard()"></i>
     <div>
-        <input type="text" #p>
-        <div class="control__btn control__copy" (click)="copyFromProfile(p)">C</div>
+        <input class="control__clone-input" type="text" #p>
+        <i class="fa fa-clone control__copy control__btn" aria-hidden="true" (click)="copyFromProfile(p)"></i>
     </div>
-    <div class="control__btn control__logout" (click)="logout()">L</div>
+    <i class="fa fa-sign-out control__logout control__btn" aria-hidden="true" (click)="logout()"></i>
 </div>
   

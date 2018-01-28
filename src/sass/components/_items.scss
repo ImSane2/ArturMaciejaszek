@@ -152,6 +152,11 @@
             transition: all 1.5s;
         }
     }
+
+    &--editable {
+        max-height: none;
+        grid-template-columns: 1fr;
+    }
 }
 
 .details {

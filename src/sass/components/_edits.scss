@@ -1,62 +1,137 @@
 .control {
     position: fixed;
-    right: 0;
+    right: 5rem;
     top: 50%;
     z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    mix-blend-mode: difference;
+    color: white;
+    
+    @include respond(+1200) {
+        mix-blend-mode: normal;
+        color: black;
+    }
 
     &__btn {
-        border-radius: 10rem;
-        margin-right: 2rem;
-        width: 5vw;
-        height: 5vw;
-        text-align: center;
+        font-size: 4rem;
+        transition: all .3s;
+        padding: 1rem;
+        cursor: pointer;
+
         &:not(:last-child) {
             margin-bottom: 1rem;
         }
+
+        &:hover {
+            transform: scale(1.3);
+        }
     }
+
+    &__clone-input {
+        display: none;
+    }
+
     &__save {
-        background-color: green;
+        &:hover {
+            mix-blend-mode: normal;
+            color: green;
+        }
     }
     &__discard {
-        background-color: red;
+        &:hover {
+            color: orangered;
+        }
     }
     &__copy {
-        background-color: blueviolet;
+        &:hover {
+            color: blueviolet;
+        }
     }
     &__logout {
-        background-color: gray;
+        &:hover {
+            color: gray;
+        }
     }
-}
-.helperDiv {
-    position: relative;
 }
 
 .editItem {
     position: absolute;
-    right: -5rem;
+    right: -3.5rem;
     top: 0;
-    &__edit {}
-    &__save {}
-    &__revert {}
-    &__delete {}
+    display: flex;
+    flex-direction: column;
+    color: $color-light;
+
+    &--social {
+    }
+
+    &--edu {
+    }
+
+    &--work {
+        color: $color-p-1;
+    }
+
+    &--skill {
+        flex-direction: row;
+        position: relative;
+        color: $color-light;
+
+        & > i.fa {
+            margin-right: 2rem;
+        }
+    }
+
+    &__btn {
+        font-size: 3rem;
+        transition: all .3s;
+        padding: 1rem;
+        cursor: pointer;
+        filter: $shadow;
+
+        &--small {
+            cursor: pointer;
+        }
+
+        &--social {
+            font-size: 2rem;
+        }
+
+        &:hover {
+            transform: scale(1.3);
+        }
+    }
+
+    &__edit {
+        &:hover {
+            color: green;
+        }
+    }
+
+    &__delete {
+        &:hover {
+            color: orangered;
+        }
+    }
 }
 
 .addItem {
     &__itemWide {
         grid-template-columns: 1fr;
-        & > div {
-            margin: auto;
-            display: flex;
-            & > .addBtn {
-                margin-right: 1rem;
-                font-size: 4rem;
-            }
-        }
+        
     }
     &__skill-item {
+        background-color: rgba($color-bg, .7);
         border: 1px solid $color-dark;
         border-radius: 3px;
         box-shadow: 1.5rem 1.5rem 4rem rgba($color-dark, .5);
+
+        & > div {
+            height: 100%;
+            width: 100%;
+            overflow: visible;
+        }
     }
     &__social {
 
@@ -64,17 +139,74 @@
 }
 
 .addBtn {
-    &:hover {
-        transform: scale(2);
-        transform-origin: 50% 50%;
-        color: $color-s-2;
+    @include absCenter;
+    font-size: 5rem;
+    transition: all .3s;
+    cursor: pointer;
+
+    &--skill {
+        position: absolute;
+        top: 50%;
+        transform: translate(-200%, -50%);
+        font-size: 5rem;
         transition: all .3s;
-        filter: $shadow;
         cursor: pointer;
+
+        &:hover {
+            transform: scale(1.2) translate(-200%, -50%);
+            color: $color-s-2;
+            filter: $shadow;
+        }
+    }
+
+    &:hover {
+        transform: scale(1.2) translate(-50%, -50%);;
+        color: $color-s-2;
+        filter: $shadow;
     }
 }
 
 .editOn {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+.eduEdit {
+    display: grid;
+    text-align: center;
+    grid-row-gap: 1rem;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 1rem;
+    
+    &__name {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+
+        & > .label {
+            margin-right: 1rem;
+        }
+    }
+    &__details {
+        display: grid;
+        grid-template-columns: repeat( auto-fit, minmax(30rem, 1fr) );
+        grid-column-gap: 1rem;
+    }
+    &__dates {
+        display: flex;
+        justify-content: space-around;
+    }
+    &__courses {
+        display: grid;
+
+        &__details {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    &__panel {
+        display: flex;
+        justify-content: space-around;
+    }
 }

@@ -9,7 +9,7 @@
       *ngFor="let edu of eduState|async |sortby:'endDate':'date'; let i = index"
       [eduItem]="edu"
       [index]="i"></app-edu-item>
-      <div class="itemWide itemWide--light addItem__itemWide" *ngIf="editMode|async">
+      <div class="itemWide itemWide--light addItem__itemWide itemWide--editable" *ngIf="editMode|async">
         <div *ngIf="!editOn">
           <i class="fa fa-plus-circle addBtn"  
           aria-hidden="true"

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import { Social } from './social.model';
 
-import { AddSocial } from './../../shared/store/basic-info.actions';
+import { AddSocial, DeleteSocial } from './../../shared/store/basic-info.actions';
 import * as fromApp from '../../store/app.reducers';
 import * as fromBasicInfo from '../../shared/store/basic-info.reducers';
 
@@ -48,6 +48,10 @@ export class ContactComponent implements OnInit {
 
   socialCancel() {
     this.addSocial = false;
+  }
+
+  deleteItem(i: number) {
+    this.store.dispatch(new DeleteSocial(i));
   }
 
   sendMail({name: name, email: email, query: query}) {

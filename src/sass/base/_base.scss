@@ -23,4 +23,11 @@ body {
     display: inline-block;
     width: 1rem;
 }
- 
+
+.alert {
+    background-color: red;
+    color: white;
+    border-radius: .3rem;
+    padding: 0 1rem;
+    margin-right: 5rem;
+}
