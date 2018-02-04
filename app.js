@@ -24,7 +24,8 @@ const users = require('./routes/users');
 const contact = require('./routes/mail');
 const manager = require('./routes/manager');
 
-const port = process.env.PORT || 8080;
+// const port = process.env.PORT || 8080;
+app.set('port', (process.env.PORT || 8080));
 
 app.use(cors());
 
@@ -47,6 +48,8 @@ app.get('/', (req, res) => {
     res.send('Invalid endpoint');
 })
 
-app.listen(port, () => {
-    console.log('Server started on port: ' + port);
-});
+// 
+
+app.listen(app.get('port'), function() {
+    console.log('Node app is running on port', app.get('port'));
+  });
