@@ -28,6 +28,8 @@ export class FooterComponent implements OnInit {
     this.store.select('authenticated').subscribe(
       (res: any) => { if (!res.authenticated) {
         this.logged = false;
+      }else {
+        this.logged = true;
       }}
     );
   }
