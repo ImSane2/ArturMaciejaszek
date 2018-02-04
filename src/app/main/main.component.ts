@@ -61,7 +61,7 @@ export class MainComponent implements OnInit {
   getData(username) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/manager/get', {username: username}, {headers: headers});
+    return this.http.post('manager/get', {username: username}, {headers: headers});
   }
 
   populateData(data) {
@@ -89,7 +89,7 @@ export class MainComponent implements OnInit {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', this.authState.token);
-    return this.http.put('http://localhost:3000/manager/save', data, {headers: headers});
+    return this.http.put('manager/save', data, {headers: headers});
   }
 
   logout() {
