@@ -17,12 +17,13 @@
             <p>{{ 'footer.access' | translate}}</p>
         </div>
         <div *ngIf="!logged">
-            <form class="expandable" (ngSubmit)=onSubmit(f) #f="ngForm" *ngIf="!regForm">
+            <form class="footer__control" (ngSubmit)=onSubmit(f) #f="ngForm" *ngIf="!regForm">
                 <label for="username">{{ 'footer.username' | translate }}</label>
-                <input type="username"  name="username" id="username" required ngModel>
+                <input type="username" class="footer__input"  name="username" id="username" required ngModel>
                 <label for="password">{{ 'footer.password' | translate }}</label>
-                <input type="password" name="password" id="password" 
+                <input type="password" class="footer__input" name="password" id="password" 
                     autocomplete="password" required ngModel>
+                <span></span>
                 <button type="submit" [disabled]="!f.valid">
                     {{ 'footer.login' | translate }}</button>
             </form>
@@ -30,19 +31,20 @@
                 <span *ngIf="!logged" class="clickable" (click)="regForm = true">
                     {{ 'footer.reg' | translate }}</span>
             </span>
-            <form class="expandable" (ngSubmit)=registerUser(f) #f="ngForm" *ngIf="regForm">
+            <form class="footer__control" (ngSubmit)=registerUser(f) #f="ngForm" *ngIf="regForm">
                 <label for="username">{{ 'footer.username' | translate }}</label>
-                <input type="username"  name="username" id="username" required ngModel>
+                <input type="username" class="footer__input"  name="username" id="username" required ngModel>
                 <label for="new-password">{{ 'footer.password' | translate }}</label>
-                <input type="password" name="password" id="new-password" 
+                <input type="password" class="footer__input" name="password" id="new-password" 
                     autocomplete="new-password" required ngModel>
+                <span></span>
                 <button type="submit" [disabled]="!f.valid" (click)="registerUser(f)">
                     {{ 'footer.reg' | translate }}</button>
             </form>
             <span *ngIf="regForm" class="clickable" (click)="regForm = false">
                     {{ 'footer.getback' | translate}}</span>
         </div>
-        <div *ngIf="logged">{{ user }}<button class="margin-left" type="button" (click)="onLogout()">Logout</button></div>
+        <div *ngIf="logged">{{ user }}<button class="margin-left" type="button" (click)="onLogout()">{{ 'footer.logout' | translate}}</button></div>
     </div>
 </footer>
 

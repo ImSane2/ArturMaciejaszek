@@ -17,6 +17,11 @@
     &__left {
         flex-direction: column;
 
+        @include respond(-462) {
+            border-right: 1px solid $color-bg;
+            padding-top: 1rem;
+        }
+
         &--credit {
             display: flex;
             flex-direction: row;
@@ -31,6 +36,10 @@
         padding-right: 3rem;
         text-align: right;
         flex-direction: column;
+
+        @include respond(-462) {
+            padding-right: 1rem;
+        }
 
         &--access {
             display: flex;
