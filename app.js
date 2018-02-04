@@ -11,7 +11,7 @@ mongoose.connect(config.database, {useMongoClient: true});
 mongoose.Promise = global.Promise;
 
 mongoose.connection.on('connected', () => {
-    console.log('Connected to database: ' + config.database);
+    console.log('Successfully connected to database');
 });
 
 mongoose.connection.on('error', (err) => {
