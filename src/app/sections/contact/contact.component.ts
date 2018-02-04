@@ -57,7 +57,7 @@ export class ContactComponent implements OnInit {
   sendMail({name: name, email: email, query: query}) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/contact', {
+    return this.http.post('/contact', {
       name: name,
       email: email,
       query: query
