@@ -38,5 +38,9 @@
 .socials {
     display: flex;
     flex-direction: row;
+
+    @include respond(-580) {
+        flex-direction: column
+    }
 }
 

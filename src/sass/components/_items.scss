@@ -254,9 +254,6 @@
         min-height: 15vh;
         margin: .5rem auto;
     }
-    @include respond(-462) {
-        height: 20vh;
-    }
     
     @include respond(+1532) {
         min-height: 30vh;

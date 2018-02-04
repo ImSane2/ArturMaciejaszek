@@ -53,10 +53,18 @@
     &--edit {
         width: 20vw;
         height: 2rem;
+
+        @include respond(-462) {
+            width: auto;
+        }
     }
 
     &--long {
         width: 30vw;
+
+        @include respond(-462) {
+            width: 50vw;
+        }
     }
 
     &--normal {
