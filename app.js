@@ -24,7 +24,7 @@ const users = require('./routes/users');
 const contact = require('./routes/mail');
 const manager = require('./routes/manager');
 
-const port = 3000;
+const port = process.env.PORT || 8080;
 
 app.use(cors());
 
