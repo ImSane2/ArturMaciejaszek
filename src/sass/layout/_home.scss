@@ -46,9 +46,7 @@
         float: right;
         height: auto;
         width: 20vw;
-        -webkit-shape-outside: url(./assets/img/am-smile.png);
-        shape-outside: url(./assets/img/am-smile.png);
-        -webkit-filter: $shadow;
+        shape-outside: url('assets/img/am-smile.png');
         filter: $shadow;
 
         @include respond(-704) {
