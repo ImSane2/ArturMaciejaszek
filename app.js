@@ -28,7 +28,7 @@ const port = process.env.PORT || 8080;
 
 app.use(cors());
 
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, '/dist')));
 
 app.use(bodyParser.json());
 
@@ -46,6 +46,10 @@ app.use('/manager', manager);
 app.get('/', (req, res) => {
     res.send('Invalid endpoint');
 })
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist/index.html'));
+  });
 
 app.listen(port, () => {
     console.log('Server started on port: ' + port);
