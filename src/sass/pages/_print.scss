@@ -1,9 +1,7 @@
 @media print { 
-    .section-home, .section-contact, .footer {
-        display: none
-    }
 
-    footer {
+    * {
         display: none;
     }
+    
    }
