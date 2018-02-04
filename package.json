@@ -27,7 +27,6 @@
     "@ngrx/store": "^4.1.1",
     "@ngx-translate/core": "^9.1.1",
     "@ngx-translate/http-loader": "^2.0.1",
-    "@ngtools/webpack": "^1.8.0",
     "@types/scrollreveal": "0.0.3",
     "angular-font-awesome": "^3.0.3",
     "angular2-flash-messages": "^2.0.5",
