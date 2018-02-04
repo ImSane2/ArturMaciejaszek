@@ -25,7 +25,6 @@
     "@angular/router": "^5.0.0",
     "@ngrx/effects": "^4.1.1",
     "@ngrx/store": "^4.1.1",
-    "@ngtools/webpack": "^1.9.7",
     "@ngx-translate/core": "^9.1.1",
     "@ngx-translate/http-loader": "^2.0.1",
     "angular-font-awesome": "^3.0.3",
