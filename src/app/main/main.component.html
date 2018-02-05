@@ -5,23 +5,23 @@
     <app-work></app-work>
     <app-skills></app-skills>
     <app-contact></app-contact>
-    <app-footer (langEmitter)="switchLang($event)"></app-footer>
+    <app-footer [user]="currentUser" (langEmitter)="switchLang($event)"></app-footer>
 </div>
 <div class="control" *ngIf="(editMode|async).authenticated">
     <i class="fa fa-floppy-o control__save control__btn" aria-hidden="true" (click)="saveData()">
-        <span class="tooltiptext">Commit</span>
+        <span class="tooltiptext">{{ 'controle.commit' | translate }}</span>
     </i>
     <i class="fa fa-ban control__discard control__btn" aria-hidden="true" (click)="discard()">
-        <span class="tooltiptext">Discard</span>
+        <span class="tooltiptext">{{ 'controle.discard' | translate }}</span>
     </i>
     <div>
         <i class="fa fa-clone control__copy control__btn" aria-hidden="true" (click)="clone(p)">
             <input class="control__clone-input" type="text" #p>
-            <span class="tooltiptext">Clone</span>
+            <span class="tooltiptext">{{ 'controle.clone' | translate }}</span>
         </i>
     </div>
     <i class="fa fa-sign-out control__logout control__btn" aria-hidden="true" (click)="logout()">
-        <span class="tooltiptext">Logout</span>
+        <span class="tooltiptext">{{ 'controle.logout' | translate }}</span>
     </i>
 </div>
   

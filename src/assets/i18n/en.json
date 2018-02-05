@@ -17,7 +17,7 @@
         "eDate": "End Date",
         "course": "Course Name",
         "desc": "description",
-        "mark": "mark",
+        "mark": "mark: ",
         "courses": "Courses",
         "+course": "Add Course",
         "place": {
@@ -44,7 +44,7 @@
         "resp": "Responsibility",
         "place": {
             "company": "Monster Inc.",
-            "position": "boggeyman",
+            "position": "bogeyman",
             "path": "external or relative",
             "alt": "company logo",
             "resp": "hiding under the bed"
@@ -61,7 +61,7 @@
         "place": {
             "name": "Scrambled Eggs",
             "path": "external or relative",
-            "details": "probably barely eatable",
+            "details": "probably edible",
             "prof": "8",
             "tags": "#scrambled#eggs#breakfast#food"
         }
@@ -77,7 +77,7 @@
         "site": "Site Name",
         "class": "Font Awesome Class",
         "link": "site link",
-        "msgSent": "Thank you"
+        "msgSent": "Thank you for your interest. I will reach back to you as soon as I can"
     },
     "social": {
         "name": "social site",
@@ -104,5 +104,11 @@
         "cancel": "Cancel",
         "edit": "Edit",
         "delete": "Delete"
+    },
+    "control": {
+        "commit": "Commit",
+        "discard": "Discard",
+        "clone": "Clone",
+        "logout": "Logout"
     }
 }

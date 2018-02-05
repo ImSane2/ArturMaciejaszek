@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
@@ -14,12 +14,12 @@ import * as fromAuth from '../../auth/auth.reducers';
 })
 export class FooterComponent implements OnInit {
   @Output() langEmitter = new EventEmitter<string>();
+  @Input() user = '';
   langs: Array<String>;
   language = this.translate.getBrowserLang();
   logged = false;
   regForm = false;
   accessOn = false;
-  user = '';
 
   constructor(private store: Store<fromAuth.State>, private translate: TranslateService) {}
 
@@ -55,7 +55,7 @@ export class FooterComponent implements OnInit {
       password: form.value.password,
       l10n: this.language
     }));
-    this.logMonitor(form.value.username);
+    // this.logMonitor(form.value.username);
   }
 
   logMonitor(user: string) {

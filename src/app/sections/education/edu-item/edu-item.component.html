@@ -18,7 +18,7 @@
         *ngIf="itemToggle"
         [@listIn]>
             <app-edu-item-course
-            *ngFor="let course of eduItem.courses"
+            *ngFor="let course of eduItem.courses |sortby:'mark'"
             [courseItem]="course"></app-edu-item-course>
     </div>
     <!-- CONTROL PANEL -->

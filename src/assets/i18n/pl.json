@@ -16,9 +16,19 @@
         "eDate": "Data zakończenia",
         "course": "Nazwa przedmiotu",
         "desc": "opis",
-        "mark": "ocena",
+        "mark": "ocena: ",
         "courses": "Przedmioty",
-        "+course": "Dodaj przedmiot"
+        "+course": "Dodaj przedmiot",
+        "place": {
+            "school": "Hogwart Szkoła Magii",
+            "alt": "logo szkoły",
+            "faculty": "Ravenclaw",
+            "spec": "Ujarzmianie dzikich bestiis",
+            "path": "relatywna lub link zewnętrzny",
+            "type": "magisterskie",
+            "course": "Alchemia",
+            "desc": "warzenie i picie eliksirów"
+        }
     },
     "work": {
         "title": "Doświadczenie zawodowe",
@@ -29,7 +39,14 @@
         "eDate": "Data zakończenia",
         "resps": "Zakres obowiązków",
         "+resp": "Dodaj obowiązek",
-        "resp": "Obowiązek"
+        "resp": "Obowiązek",
+        "place": {
+            "company": "Potwory i spółka",
+            "position": "straszydło",
+            "path": "relatywna lub link zewnętrzny",
+            "alt": "logo firmy",
+            "resp": "chowanie się pod łóżkiem"
+        }
     },
     "skills": {
         "title": "Umiejętności",
@@ -38,7 +55,14 @@
         "details": "opis",
         "prof": "biegłość",
         "tags": "tagi",
-        "filter": "Wyszukaj: np. języki"
+        "filter": "Wyszukaj: np. języki",
+        "place": {
+            "name": "Jajecznica",
+            "path": "relatywna lub link zewnętrzny",
+            "details": "prawdopodobnie jadalna",
+            "prof": "8",
+            "tags": "#jajecznica#jedzenie#śniadanie"
+        }
     },
     "contact": {
         "main": "W przypadku zainteresowania proszę o kontakt poprzez poniższy formularz lub social media",
@@ -50,7 +74,13 @@
         "+social": "Dodaj Link",
         "site": "Nazwa strony",
         "class": "Klasa Font Awesome",
-        "link": "strona - link"
+        "link": "strona - link",
+        "msgSent": "Dziękuję za zainteresowanie. Odezwę się najszybciej jak będę mógł."
+    },
+    "social": {
+        "name": "nazwa serwisu",
+        "icon": "ikona serwisu",
+        "link": "link do strony"
     },
     "footer": {
         "alt": "moje zdjęcie",
@@ -60,12 +90,23 @@
         "password": "Hasło",
         "login": "Zaloguj",
         "reg": "Zarejestruj",
-        "logout": "Wyloguj"
+        "logout": "Wyloguj",
+        "lang": "wolisz inny język?",
+        "regtext": "Nie masz jeszcze konta? ",
+        "getback": "Powrót do loginu",
+        "wrongpass": "Złe hasło",
+        "usertaken": "Nazwa użytkownika już zajęta"
     },
     "util": {
         "save": "Zapisz",
         "cancel": "Anuluj",
         "edit": "Edytuj",
         "delete": "Usuń"
+    },
+    "control": {
+        "commit": "Potwierdź",
+        "discard": "Odrzuć",
+        "clone": "Klonuj",
+        "logout": "Wyjdź"
     }
 }

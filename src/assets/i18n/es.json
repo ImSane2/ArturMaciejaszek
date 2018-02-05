@@ -17,9 +17,19 @@
         "eDate": "Fecha de finalización",
         "course": "Nombre del curso",
         "desc": "descripción",
-        "mark": "la nota",
+        "mark": "la nota: ",
         "courses": "los cursos",
-        "+course": "Añadir un curso"
+        "+course": "Añadir un curso",
+        "place": {
+            "school": "Hogwarts, Colegio de Magia",
+            "alt": "logo de la escuela",
+            "faculty": "Ravenclaw",
+            "spec": "domesticando bestias salvajes",
+            "path": "externo o relativo",
+            "type": "maestría",
+            "course": "Alquimia",
+            "desc": "preparando y bebiendo pociones"
+        }
     },
     "work": {
         "title": "Experiencia laboral",
@@ -31,7 +41,14 @@
         "eDate": "Fecha de finalización",
         "resps": "Los responsabilidades",
         "+resp": "Añadir responsabilidad",
-        "resp": "Responsabilidad"
+        "resp": "Responsabilidad",
+        "place": {
+            "company": "Monstruos, S.A.",
+            "position": "coco",
+            "path": "externo o relativo",
+            "alt": "logo de la empresa",
+            "resp": "ocultarsando debajo la cama"
+        }
     },
     "skills": {
         "title": "Habilidades",
@@ -40,7 +57,14 @@
         "details": "detalles",
         "prof": "Competencia",
         "tags": "hashtags",
-        "filter": "Busca por ejemplo: idioma"
+        "filter": "Busca por ejemplo: idioma",
+        "place": {
+            "name": "Huevos revueltos",
+            "path": "externo o relativo",
+            "details": "probablemente comestible",
+            "prof": "8",
+            "tags": "#huevos#comida#desayuno"
+        }
     },
     "contact": {
         "main": "Si estás interesado, puedes contactarme con formulario abajo o los enlaces sociales",
@@ -50,7 +74,7 @@
         "query": "pregunta",
         "send": "Enviar",
         "+social": "Añadir enlace sociale",
-        "msgSent": "Muchos gracias"
+        "msgSent": "Muchos gracias por su interés. Pondré en contacto tan pronto como puedo."
     },
     "social": {
         "name": "página social",
@@ -65,12 +89,23 @@
         "password": "Contraseña",
         "login": "Iniciar sesión",
         "reg": "Registro",
-        "logout": "Cerrar sesión"
+        "logout": "Cerrar sesión",
+        "lang": "no su idioma?",
+        "regtext": "todavía no tiene una cuenta? ",
+        "getback": "Volver a inicio",
+        "wrongpass": "Contraseña incorrecta",
+        "usertaken": "Nombra ya tomado"
     },
     "util": {
         "save": "Guardar",
         "cancel": "Cancelar",
         "edit": "Editar",
         "delete": "Borrar"
+    },
+    "control": {
+        "commit": "Cometer",
+        "discard": "Descartar",
+        "clone": "Clonar",
+        "logout": "Salir"
     }
 }
