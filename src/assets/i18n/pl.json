@@ -104,7 +104,7 @@
         "delete": "Usuń"
     },
     "control": {
-        "commit": "Potwierdź",
+        "commit": "Wyślij",
         "discard": "Odrzuć",
         "clone": "Klonuj",
         "logout": "Wyjdź"
