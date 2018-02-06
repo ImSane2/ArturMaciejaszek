@@ -38,9 +38,13 @@
         &:not(:last-child) {
             margin-bottom: 1rem;
         }
-
+        
         &:hover {
             transform: scale(1.3);
+        }
+        
+        &:active {
+            transform: scale(1);
         }
 
         & > span.tooltiptext {
