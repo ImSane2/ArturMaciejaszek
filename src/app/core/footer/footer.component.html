@@ -38,7 +38,7 @@
                 <input type="password" class="footer__input" name="password" id="new-password" 
                     autocomplete="new-password" required ngModel>
                 <span></span>
-                <button type="submit" [disabled]="!f.valid" (click)="registerUser(f)">
+                <button type="submit" [disabled]="!f.valid">
                     {{ 'footer.reg' | translate }}</button>
             </form>
             <span *ngIf="regForm" class="clickable" (click)="regForm = false">

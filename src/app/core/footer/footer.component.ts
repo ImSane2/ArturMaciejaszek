@@ -46,7 +46,6 @@ export class FooterComponent implements OnInit {
       password: form.value.password,
       l10n: this.language
     }));
-    // this.logMonitor(form.value.username);
   }
 
   onSubmit(form: NgForm) {
@@ -55,18 +54,7 @@ export class FooterComponent implements OnInit {
       password: form.value.password,
       l10n: this.language
     }));
-    // this.logMonitor(form.value.username);
   }
-
-  // logMonitor(user: string) {
-  //   const sub = this.store.select('authenticated').subscribe(
-  //     (res: any) => { if (res.authenticated) {
-  //       this.logged = true;
-  //       this.user = user;
-  //       sub.unsubscribe();
-  //     }}
-  //   );
-  // }
 
   onLogout() {
     this.store.dispatch(new Logout());

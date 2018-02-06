@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const cors = require('cors');
+// const cors = require('cors');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const config = require('./config/database');
@@ -26,7 +26,7 @@ const manager = require('./routes/manager');
 
 const port = process.env.PORT || 8080;
 
-app.use(cors());
+// app.use(cors());
 
 app.use(express.static(path.join(__dirname, '/dist')));
 
@@ -47,9 +47,9 @@ app.get('/', (req, res) => {
     res.send('Invalid endpoint');
 })
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist/index.html'));
-  });
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'dist/index.html'));
+//   });
 
 app.listen(port, () => {
     console.log('Server started on port: ' + port);

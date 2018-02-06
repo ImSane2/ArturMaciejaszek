@@ -18,8 +18,8 @@ export class AuthEffects {
     authRegister = this.actions$
         .ofType(AuthActions.TRY_REGISTER)
         .switchMap( (action: AuthActions.TryRegister) =>
-            this.regUser(action.payload)
-                .mergeMap( res => {
+            this.regUser(action.payload).take(1)
+                .switchMap( res => {
                             // console.log(res.json());
                             if (res.json().success) {
                                 this.router.navigate(['profile/' + res.json().user.username]);
@@ -39,7 +39,7 @@ export class AuthEffects {
     authLogin = this.actions$
         .ofType(AuthActions.TRY_LOGIN)
         .switchMap( (action: AuthActions.TryLogin) =>
-            this.logUser(action.payload)
+            this.logUser(action.payload).take(1)
                 .mergeMap( res => {
                     if (res.json().success) {
                         // console.log(res.json());
@@ -61,7 +61,7 @@ export class AuthEffects {
 
     @Effect({dispatch: false})
     authLogout = this.actions$
-        .ofType(AuthActions.LOGOUT)
+        .ofType(AuthActions.LOGOUT).take(1)
         .do( res => console.log('Logged out successfully') );
 
     constructor(private actions$: Actions, private http: Http, private router: Router, private flash: FlashMessagesService) {}
