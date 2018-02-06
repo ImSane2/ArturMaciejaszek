@@ -47,7 +47,7 @@ router.post('/register', (req, res, next) => {
                 if (err) {
                     res.json({success: false, msg:'Failed to register user'});
                 }else {
-                    const token = jwt.sign({data: user}, config.secret, {expiresIn: "5h" });
+                    const token = jwt.sign({data: user.username}, config.secret, {expiresIn: "5h" });
                     res.json({
                         success: true,
                         token: 'JWT ' + token,
@@ -74,7 +74,7 @@ router.post('/authenticate', (req, res, next) => {
         User.comparePassword(password, user.password, (err, match) => {
             if (err) throw err;
             if (match) {
-                const token = jwt.sign({data: user}, config.secret, {
+                const token = jwt.sign({data: user.username}, config.secret, {
                     expiresIn: "5h"
                 });
                 res.json({
