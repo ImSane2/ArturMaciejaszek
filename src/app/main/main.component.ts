@@ -81,14 +81,14 @@ export class MainComponent implements OnInit {
       education: this.eduState.education,
       work: this.workState.work,
       skills: this.skillsState.skills
-    } ;
+    };
     this.saveCall(newData).take(1).subscribe( res => console.log(res.json()));
   }
 
   saveCall(data) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', this.authState.token);
+    // headers.append('Authorization', this.authState.token);
     return this.http.put('manager/save', data, {headers: headers});
   }
 
