@@ -1,5 +1,5 @@
 module.exports = {
-    transporter: 'querytransporter@gmail.com',
-    password: 'transporter123',
-    recipient: 'a.maciejaszek@gmail.com'
+    transporter: process.env.transporter,
+    password: process.env.pass,
+    recipient: process.env.recipient
 }
