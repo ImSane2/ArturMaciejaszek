@@ -19,7 +19,7 @@ router.post('/get', (req, res, next) => {
     })
 });
 
-router.put('/save', passport.authenticate('jwt', {session: false}), (req, res, next) => {
+router.post('/save', passport.authenticate('jwt', {session: false}), (req, res, next) => {
     const data = req.body;
 
     User.saveData(data, (err, user)=> {
