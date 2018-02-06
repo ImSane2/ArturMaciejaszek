@@ -69,12 +69,12 @@ export class AuthEffects {
     regUser(credentials) {
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:8080/users/register', credentials, {headers: headers});
+        return this.http.post('users/register', credentials, {headers: headers});
     }
 
     logUser(credentials) {
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:8080/users/authenticate', credentials, {headers: headers});
+        return this.http.post('users/authenticate', credentials, {headers: headers});
     }
 }
