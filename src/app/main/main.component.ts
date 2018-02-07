@@ -35,6 +35,7 @@ export class MainComponent implements OnInit {
   skillsState: fromSkills.State;
   currentUser: String;
   data: any;
+  respRecieved = '';
 
   constructor( private store: Store<fromApp.AppState>,
                 private http: Http,
@@ -83,7 +84,19 @@ export class MainComponent implements OnInit {
       work: this.workState.work,
       skills: this.skillsState.skills
     };
-    this.saveCall(newData).take(1).subscribe( res => console.log(res.json()));
+    this.saveCall(newData).take(1).subscribe( res => {
+      if (res.json().success) {
+        this.respRecieved = 'ok';
+        setTimeout(() => {
+          this.respRecieved = '';
+        }, 500);
+      }else {
+        this.respRecieved = 'error';
+        setTimeout(() => {
+          this.respRecieved = '';
+        }, 500);
+      }
+    });
   }
 
   saveCall(data) {

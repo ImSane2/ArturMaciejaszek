@@ -42,8 +42,6 @@ export class AuthEffects {
             this.logUser(action.payload).take(1)
                 .mergeMap( res => {
                     if (res.json().success) {
-                        // console.log(res.json());
-                        // this.flash.show(res.json().msg);
                         this.router.navigate(['profile/' + res.json().user.username]);
                         return [
                             {type: AuthActions.LOGIN},
@@ -51,7 +49,6 @@ export class AuthEffects {
                             payload: res.json().token}
                         ];
                     }else {
-                        // console.log(res.json());
                         this.flash.show(res.json().msg, {cssClass: 'alert'});
                         return [{type: AuthActions.ERROR,
                                 payload: res.json().msg}];

@@ -18,7 +18,6 @@ export function WorkReducers(state = initialState, action: WorkActions.WorkActio
                 work: [...state.work, action.payload]
             };
         case WorkActions.UPDATE_WORK:
-        console.log(action.payload);
             const targetItem = state.work[action.payload.index];
             const updatedItem = action.payload.item;
             const newState = [...state.work];

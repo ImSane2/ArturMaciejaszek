@@ -55,7 +55,7 @@
         "details": "opis",
         "prof": "biegłość",
         "tags": "tagi",
-        "filter": "Wyszukaj: np. języki",
+        "filter": "Wyszukaj: np. język",
         "place": {
             "name": "Jajecznica",
             "path": "relatywna lub link zewnętrzny",

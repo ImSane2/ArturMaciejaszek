@@ -8,6 +8,10 @@
     <app-footer [user]="currentUser" (langEmitter)="switchLang($event)"></app-footer>
 </div>
 <div class="control" *ngIf="(editMode|async).authenticated">
+    <i class="fa fa-thumbs-o-up green"
+    [ngStyle]="{display: respRecieved === 'ok' ? 'initial' : 'none' }"></i>
+    <i class="fa fa-thumbs-o-down red"
+    [ngStyle]="{display: respRecieved === 'error' ? 'initial' : 'none' }"></i>
     <i class="fa fa-floppy-o control__save control__btn" aria-hidden="true" (click)="saveData()">
         <span class="tooltiptext">{{ 'control.commit' | translate }}</span>
     </i>
