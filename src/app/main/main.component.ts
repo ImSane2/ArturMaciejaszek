@@ -88,7 +88,7 @@ export class MainComponent implements OnInit {
   saveCall(data) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    // headers.append('Authorization', this.authState.token);
+    headers.append('Authorization', this.authState.token);
     return this.http.put('manager/save', data, {headers: headers});
   }
 
