@@ -1,7 +1,48 @@
 @media print { 
-
-    * {
+    .print {
+        display: inline !important;
+        float: none;
+        position: relative;
+    }
+    .container {
         display: none;
     }
+
+    .itemWide.itemWide--dark {
+        max-width: none;
+        width: 80vw;
+        color: black;
+    }
+
+    .skill-item {
+        min-height: 15vh;
+        width: 15vw;
+        border: 1px solid black;
+
+        &__name {
+            padding: 0;
+        }
+    }
     
-   }
+}
+
+.print {
+    text-align: center;
+    display: none;
+
+    &__flex {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    &__work {
+        page-break-before: always;
+        page-break-inside: avoid;
+    }
+    &__skills {
+        page-break-before: always;
+        page-break-inside: avoid;
+    }
+}

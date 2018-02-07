@@ -1,0 +1,65 @@
+<div class="print">
+  <app-header></app-header>
+  <div class="print__edu">
+    <div class="boxDisplay__header-box">
+      <h2 class="heading_secondary heading_secondary--primary">{{ 'edu.title' | translate }}</h2>
+    </div>
+    <div class="boxDisplay">
+      <div class="itemWide itemWide--dark" *ngFor="let eduItem of eduState.education">
+        <div class="itemWide__image-box">
+          <img class="itemWide__logo" src='{{ eduItem.logo }}' alt="{{ 'edu.alt' | translate }}">
+        </div>
+        <div class="itemWide__text-box">
+          <p class="itemWide__text--main">
+              {{ eduItem.school }}</p>
+          <p class="itemWide__text--sub">
+              {{ eduItem.faculty }}</p>
+          <p class="itemWide__text--sub">
+              <span>{{ 'edu.spec' | translate }}:&nbsp;</span>{{ eduItem.specialization}}</p>
+        </div>
+      </div>
+  </div>
+  </div>
+  <div class="print__work">
+    <div class="boxDisplay__header-box">
+      <h2 class="heading_secondary heading_secondary--primary">{{ 'work.title' | translate }}</h2>
+    </div>
+    <div class="boxDisplay">
+      <div class="itemWide itemWide--dark" *ngFor="let workItem of workState.work">
+        <div class="itemWide__image-box">
+          <img class="itemWide__logo" src='{{ workItem.cLogo }}' alt="{{ 'work.alt' | translate }}">
+        </div>
+        <div class="itemWide__text-box">
+            <p class="itemWide__text--main">{{ workItem.company }}</p>
+            <p class="itemWide__text--sub">{{ workItem.position }}</p>
+            <p class="itemWide__text--sub">
+                {{ workItem.startDate | date:'MM.yyyy' }} - {{ workItem.endDate | date:'MM.yyyy' }}</p>
+        </div>
+        <span></span>
+        <div class="itemWide__list-box expanded">
+            <ul>
+                <li *ngFor="let resp of workItem.responsibilities; let i = index"> 
+                    {{ workItem.responsibilities[i] }}</li>
+            </ul>
+        </div>
+    </div>
+  </div>
+  </div>
+  <div class="print__skills">
+    <div class="boxDisplay__header-box">
+      <h2 class="heading_secondary heading_secondary--primary">{{ 'skills.title' | translate }}</h2>
+    </div>
+    <div class="boxDisplay print__flex">
+      <div class="skill-item" *ngFor="let skillItem of skillsState.skills |sortby:'proficiency'">
+        <div class="skill-item__logo">
+            <img class="skill-logo" [src]="skillItem.img" [alt]="skillItem.name">
+        </div>
+        <div class="skill-item__name">{{ skillItem.name }} </div>
+        <div class="skill-item__prof">{{ skillItem.proficiency }} / 10</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

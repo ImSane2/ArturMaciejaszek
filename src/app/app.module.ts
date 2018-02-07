@@ -34,6 +34,7 @@ import { WorkEditComponent } from './sections/work/work-edit/work-edit.component
 import { AuthEffects } from './auth/auth.effects';
 import { EduEditComponent } from './sections/education/edu-item/edu-edit/edu-edit.component';
 import { SkillEditComponent } from './sections/skills/skill-item/skill-edit/skill-edit.component';
+import { PrintComponent } from './print/print.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { SkillEditComponent } from './sections/skills/skill-item/skill-edit/skil
     EduItemCourseComponent,
     WorkEditComponent,
     EduEditComponent,
-    SkillEditComponent
+    SkillEditComponent,
+    PrintComponent
   ],
   imports: [
     BrowserModule,

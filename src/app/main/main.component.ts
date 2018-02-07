@@ -60,7 +60,6 @@ export class MainComponent implements OnInit {
   }
 
   getData(username) {
-    console.log(username);
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.http.post('manager/get', {username: username}, {headers: headers});
